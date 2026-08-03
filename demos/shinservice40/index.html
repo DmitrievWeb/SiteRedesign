@@ -40,7 +40,8 @@ header{position:sticky;top:0;z-index:50;background:var(--asphalt);border-bottom:
 
 /* ── hero: асфальт + разметка ── */
 .hero{background:var(--asphalt);color:#fff;position:relative;overflow:hidden;
-  padding:64px 0 150px}
+  padding:64px 0 330px}
+@media (min-width:1040px){.hero{padding-bottom:150px}}
 .hero::after{ /* дорожное полотно с разметкой внизу hero */
   content:"";position:absolute;left:0;right:0;bottom:0;height:96px;
   background:
@@ -49,16 +50,19 @@ header{position:sticky;top:0;z-index:50;background:var(--asphalt);border-bottom:
   background-repeat:repeat-x;
 }
 .hero .wrap{position:relative;z-index:2}
-.hero-grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:center}
-.wheel{justify-self:center;margin-top:6px}
-.wheel svg{width:min(230px,58vw);height:auto;filter:drop-shadow(0 18px 40px rgba(0,0,0,.45))}
-.tread{animation:spin 50s linear infinite;transform-origin:center}
+/* колесо стоит на дороге (hero::after) и медленно катится */
+.wheel{position:absolute;z-index:2;bottom:36px;left:50%;transform:translateX(-50%);line-height:0}
+.wheel svg{width:min(210px,54vw);height:auto}
+.wheel::after{ /* тень в точке контакта с асфальтом */
+  content:"";position:absolute;left:50%;bottom:-7px;transform:translateX(-50%);
+  width:78%;height:20px;border-radius:50%;
+  background:radial-gradient(ellipse at center, rgba(0,0,0,.6), transparent 68%)}
+.roll{transform-box:fill-box;transform-origin:center;animation:spin 14s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion: reduce){.tread{animation:none}}
-@media (min-width:900px){
-  .hero-grid{grid-template-columns:1.15fr .85fr}
-  .wheel{margin-top:0}
-  .wheel svg{width:min(380px,34vw)}
+@media (prefers-reduced-motion: reduce){.roll{animation:none}}
+@media (min-width:1040px){
+  .wheel{left:auto;right:6%;transform:none}
+  .wheel svg{width:min(330px,28vw)}
 }
 .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--line);font-weight:700;font-size:13px;
   letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
@@ -154,7 +158,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
 a:focus-visible,.btn:focus-visible{outline:3px solid var(--line);outline-offset:2px}
 
 @media (max-width:640px){
-  .hero{padding:44px 0 130px}
+  .hero{padding:44px 0 310px}
   .contact .card{grid-template-columns:1fr}
   .fab{display:flex}
   .hphone .txt{display:none}
@@ -173,8 +177,6 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--line);outline-offset:
 
 <section class="hero">
   <div class="wrap">
-   <div class="hero-grid">
-    <div>
     <div class="eyebrow">Калуга · Карла Либкнехта, 29</div>
     <h1>Шиномонтаж, который хвалят в отзывах</h1>
     <p class="sub">Переобувка, балансировка, ремонт боковых порезов и правка дисков.
@@ -191,21 +193,17 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--line);outline-offset:
       <a class="btn btn-ghost" href="#price">Цены</a>
     </div>
     <p class="hours-hero">Сегодня работаем: <b>пн–пт 9:00–21:00</b> · <b>сб–вс 10:00–20:00</b></p>
-    </div>
+  </div>
 
-    <div class="wheel" aria-hidden="true">
-      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-        <!-- протектор -->
-        <g class="tread">
-          <circle cx="200" cy="200" r="176" fill="none" stroke="#2E3238" stroke-width="34"
-                  stroke-dasharray="20 12"/>
-        </g>
-        <!-- боковина шины -->
+  <div class="wheel" aria-hidden="true">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <!-- вращающаяся часть: шина, диск, спицы, болты -->
+      <g class="roll">
+        <circle cx="200" cy="200" r="176" fill="none" stroke="#2E3238" stroke-width="34"
+                stroke-dasharray="20 12"/>
         <circle cx="200" cy="200" r="158" fill="#101215"/>
         <circle cx="200" cy="200" r="158" fill="none" stroke="#22252A" stroke-width="6"/>
-        <!-- диск -->
         <circle cx="200" cy="200" r="106" fill="#22252A" stroke="#3A3E45" stroke-width="4"/>
-        <!-- спицы -->
         <g fill="#2E3238" stroke="#454A52" stroke-width="2">
           <g transform="rotate(0 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
           <g transform="rotate(72 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
@@ -213,22 +211,19 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--line);outline-offset:
           <g transform="rotate(216 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
           <g transform="rotate(288 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
         </g>
-        <!-- жёлтый суппорт -->
-        <path d="M 200 200 m 0 -128 a 128 128 0 0 1 88 34" fill="none"
-              stroke="#FFC400" stroke-width="26" stroke-linecap="round"/>
-        <!-- болты -->
         <g fill="#5A6270">
           <circle cx="200" cy="156" r="7"/><circle cx="242" cy="187" r="7"/>
           <circle cx="226" cy="236" r="7"/><circle cx="174" cy="236" r="7"/>
           <circle cx="158" cy="187" r="7"/>
         </g>
-        <!-- центральный колпак -->
-        <circle cx="200" cy="200" r="34" fill="#FFC400"/>
-        <text x="200" y="212" text-anchor="middle" font-family="'Russo One',sans-serif"
-              font-size="30" fill="#17191C">40</text>
-      </svg>
-    </div>
-   </div>
+      </g>
+      <!-- неподвижное: жёлтый суппорт и колпак 40 -->
+      <path d="M 200 200 m 0 -128 a 128 128 0 0 1 88 34" fill="none"
+            stroke="#FFC400" stroke-width="26" stroke-linecap="round"/>
+      <circle cx="200" cy="200" r="34" fill="#FFC400"/>
+      <text x="200" y="212" text-anchor="middle" font-family="'Russo One',sans-serif"
+            font-size="30" fill="#17191C">40</text>
+    </svg>
   </div>
 </section>
 
