@@ -88,6 +88,13 @@ h2{font-size:clamp(24px,3.4vw,34px);font-weight:600;margin-bottom:28px}
 .gal figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(14,32,30,.85));
   color:#fff;font-size:13px;font-weight:500;padding:26px 16px 12px}
 
+/* 3D зуб */
+.tooth3d{background:linear-gradient(135deg,#0E5A55,#083B37);border-radius:20px;padding:38px;
+  display:grid;grid-template-columns:1fr;gap:20px;align-items:center;color:#B7D3D1;overflow:hidden}
+@media(min-width:820px){.tooth3d{grid-template-columns:1.1fr .9fr}}
+.tooth3d p{font-size:15px;max-width:44ch}
+#toothCanvas{width:min(380px,80vw);height:min(380px,80vw);justify-self:center;cursor:grab;touch-action:none}
+
 /* чем помогаю */
 .helps{border-top:1px solid var(--hair)}
 .help{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(--hair)}
@@ -199,6 +206,20 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:
 
 <section style="padding-top:0">
   <div class="wrap">
+    <div class="tooth3d reveal" id="tooth3d-box">
+      <div class="t3d-txt">
+        <div class="k2" style="color:var(--gold)">Интерактив</div>
+        <h2 class="serif" style="color:#fff;margin-bottom:12px">Здоровый зуб — цель каждого приёма</h2>
+        <p>Покрутите модель: коронка, шейка, корни. На приёме так же наглядно покажу,
+        что происходит с вашим зубом и что мы будем делать.</p>
+      </div>
+      <canvas id="toothCanvas" width="420" height="420" aria-label="3D-модель зуба"></canvas>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
     <div class="k2 reveal">Чем помогаю</div>
     <h2 class="reveal">Приём и лечение</h2>
     <div class="helps reveal">
@@ -250,7 +271,69 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:
 
 <a class="fab" href="#contact" aria-label="Записаться">📞</a>
 
+<script src="https://unpkg.com/three@0.147.0/build/three.min.js"></script>
 <script>
+(function initTooth(){
+  const canvas = document.getElementById('toothCanvas');
+  if (!canvas || typeof THREE === 'undefined') { if (canvas) canvas.outerHTML = '<div style="font-size:120px;text-align:center">🦷</div>'; return; }
+  try {
+    const renderer = new THREE.WebGLRenderer({canvas, alpha: true, antialias: true});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+    const scene = new THREE.Scene();
+    const cam = new THREE.PerspectiveCamera(38, 1, .1, 100);
+    cam.position.set(0, .25, 6.2);
+
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x0E5A55, 1.1));
+    const key = new THREE.DirectionalLight(0xffffff, .9); key.position.set(3, 5, 4); scene.add(key);
+    const rim = new THREE.PointLight(0x7FE0D4, .8, 20); rim.position.set(-4, -2, 3); scene.add(rim);
+
+    const mat = new THREE.MeshPhysicalMaterial({color: 0xF7F4EC, roughness: .28, clearcoat: .8, clearcoatRoughness: .25});
+    const tooth = new THREE.Group();
+
+    // коронка: lathe по профилю
+    const prof = [];
+    const pts = [[0,1.75],[ .55,1.72],[ .95,1.5],[1.08,1.1],[1.02,.6],[ .85,.15],[ .72,-.2]];
+    pts.forEach(p => prof.push(new THREE.Vector2(p[0], p[1])));
+    const crown = new THREE.Mesh(new THREE.LatheGeometry(prof, 48), mat);
+    tooth.add(crown);
+    // жевательная поверхность: приплюснутая сфера с «фиссурой»
+    const top = new THREE.Mesh(new THREE.SphereGeometry(.56, 32, 24), mat);
+    top.scale.set(1.28, .42, 1.28); top.position.y = 1.6; tooth.add(top);
+    // два корня: изогнутые конусы
+    function root(x, tilt){
+      const r = new THREE.Mesh(new THREE.ConeGeometry(.42, 1.9, 24), mat);
+      r.position.set(x, -1.05, 0); r.rotation.z = Math.PI + tilt; return r;
+    }
+    tooth.add(root(-.45, -.16)); tooth.add(root(.45, .16));
+    tooth.position.y = -0.1;
+    scene.add(tooth);
+
+    // блёстки
+    const pg = new THREE.BufferGeometry(); const pp = [];
+    for (let i = 0; i < 60; i++) pp.push((Math.random()-.5)*8, (Math.random()-.5)*6, (Math.random()-.5)*4);
+    pg.setAttribute('position', new THREE.Float32BufferAttribute(pp, 3));
+    const stars = new THREE.Points(pg, new THREE.PointsMaterial({color: 0xBFE8E2, size: .05, transparent: true, opacity: .7}));
+    scene.add(stars);
+
+    let tx = 0, ty = 0, dragging = false, px = 0;
+    const onMove = (x, y, r) => { tx = ((x - r.left)/r.width - .5); ty = ((y - r.top)/r.height - .5); };
+    canvas.addEventListener('pointermove', e => onMove(e.clientX, e.clientY, canvas.getBoundingClientRect()));
+    canvas.addEventListener('pointerdown', e => { dragging = true; px = e.clientX; });
+    addEventListener('pointerup', () => dragging = false);
+    canvas.addEventListener('pointermove', e => { if (dragging) { tooth.rotation.y += (e.clientX - px) * .01; px = e.clientX; } });
+
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    (function loop(){
+      requestAnimationFrame(loop);
+      if (!dragging && !reduced) tooth.rotation.y += .006;
+      tooth.rotation.x += ((ty * .5) - tooth.rotation.x) * .05;
+      stars.rotation.y += .0008;
+      renderer.render(scene, cam);
+    })();
+  } catch(e) { canvas.outerHTML = '<div style="font-size:120px;text-align:center">🦷</div>'; }
+})();
+
 const els = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver(es => es.forEach(e => {
