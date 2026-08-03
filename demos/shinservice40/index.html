@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Шинсервис40 — шиномонтаж и автосервис в Калуге | Карла Либкнехта, 29</title>
+<meta name="description" content="Шиномонтаж, балансировка, ремонт боковых порезов и правка дисков в Калуге. Рейтинг 5,0 на Яндекс.Картах. Работаем без выходных.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --asphalt:#17191C;
+  --asphalt2:#22252A;
+  --line:#FFC400;
+  --line-dark:#E5AF00;
+  --bg:#F2F3F5;
+  --card:#FFFFFF;
+  --steel:#5A6270;
+  --ink:#1B1D21;
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+img{max-width:100%}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+h1,h2,.display{font-family:'Russo One',sans-serif;font-weight:400;line-height:1.15}
+.num{font-family:'JetBrains Mono',monospace}
+
+/* ── шапка ── */
+header{position:sticky;top:0;z-index:50;background:var(--asphalt);border-bottom:3px solid var(--line)}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+.logo{color:#fff;font-family:'Russo One',sans-serif;font-size:20px;letter-spacing:.5px;text-decoration:none}
+.logo span{color:var(--line)}
+.hphone{display:inline-flex;align-items:center;gap:8px;background:var(--line);color:var(--asphalt);text-decoration:none;
+  font-weight:800;padding:10px 16px;border-radius:10px;font-size:15px;white-space:nowrap;transition:transform .15s}
+.hphone:hover{transform:translateY(-1px);background:var(--line-dark)}
+
+/* ── hero: асфальт + разметка ── */
+.hero{background:var(--asphalt);color:#fff;position:relative;overflow:hidden;
+  padding:64px 0 150px}
+.hero::after{ /* дорожное полотно с разметкой внизу hero */
+  content:"";position:absolute;left:0;right:0;bottom:0;height:96px;
+  background:
+    repeating-linear-gradient(90deg, var(--line) 0 64px, transparent 64px 128px) center 46px/128px 10px no-repeat border-box,
+    linear-gradient(180deg,#101215,#0B0C0E);
+  background-repeat:repeat-x;
+}
+.hero .wrap{position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--line);font-weight:700;font-size:13px;
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.eyebrow::before{content:"";width:34px;height:4px;background:var(--line)}
+.hero h1{font-size:clamp(30px,5.4vw,54px);max-width:16ch}
+.hero p.sub{margin:18px 0 28px;font-size:clamp(16px,2.2vw,19px);color:#C6CBD4;max-width:52ch}
+.ratebox{display:inline-flex;align-items:center;gap:14px;background:var(--asphalt2);border:1px solid #33373E;
+  border-radius:var(--radius);padding:14px 18px;margin-bottom:30px}
+.ratebox .score{font-family:'Russo One',sans-serif;font-size:34px;color:var(--line)}
+.stars{color:var(--line);letter-spacing:2px;font-size:15px}
+.ratebox small{display:block;color:#9AA1AC;font-size:13px;margin-top:2px}
+.ratebox a{color:#C6CBD4}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:17px;
+  padding:16px 28px;border-radius:12px;transition:transform .15s}
+.btn:active{transform:scale(.98)}
+.btn-main{background:var(--line);color:var(--asphalt)}
+.btn-main:hover{background:var(--line-dark)}
+.btn-ghost{border:2px solid #3A3E45;color:#fff}
+.btn-ghost:hover{border-color:var(--line);color:var(--line)}
+.hours-hero{margin-top:26px;color:#9AA1AC;font-size:14px}
+.hours-hero b{color:#fff}
+
+/* ── секции ── */
+section{padding:64px 0}
+.sec-head{margin-bottom:34px}
+.sec-head h2{font-size:clamp(24px,3.4vw,34px)}
+.sec-head .eyebrow{color:var(--steel)}
+.sec-head .eyebrow::before{background:var(--line)}
+
+/* услуги */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.svc{background:var(--card);border-radius:var(--radius);padding:24px;border-top:4px solid var(--line);
+  box-shadow:0 1px 3px rgba(23,25,28,.07)}
+.svc h3{font-size:17px;margin-bottom:8px}
+.svc p{color:var(--steel);font-size:14.5px;margin-bottom:14px}
+.svc .price{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:16px}
+.svc .price small{color:var(--steel);font-weight:500;font-family:'Manrope',sans-serif}
+
+/* прайс */
+.pricetab{background:var(--asphalt);color:#fff;border-radius:var(--radius);overflow:hidden}
+.pricetab table{width:100%;border-collapse:collapse;font-size:15.5px}
+.pricetab th{font-family:'Russo One',sans-serif;font-weight:400;text-align:left;padding:16px 22px;
+  background:var(--asphalt2);color:var(--line);font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+.pricetab td{padding:13px 22px;border-top:1px solid #2A2E34}
+.pricetab td:last-child{font-family:'JetBrains Mono',monospace;font-weight:700;text-align:right;white-space:nowrap}
+.pricenote{color:var(--steel);font-size:13.5px;margin-top:14px;max-width:70ch}
+
+/* почему мы */
+.why .grid{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.why-item{padding:22px;background:var(--card);border-radius:var(--radius);box-shadow:0 1px 3px rgba(23,25,28,.07)}
+.why-item .display{font-size:26px;color:var(--asphalt);margin-bottom:6px}
+.why-item .display em{font-style:normal;color:var(--line-dark)}
+.why-item p{color:var(--steel);font-size:14.5px}
+
+/* отзывы */
+.reviews{background:var(--asphalt);color:#fff}
+.reviews .sec-head h2{color:#fff}
+.reviews .eyebrow{color:#9AA1AC}
+.rev{background:var(--asphalt2);border:1px solid #33373E;border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:12px}
+.rev p{color:#D7DBE1;font-size:14.5px;flex:1}
+.rev .who{display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:14px}
+.rev .who .stars{font-size:13px}
+.rev-src{margin-top:22px;font-size:14px;color:#9AA1AC}
+.rev-src a{color:var(--line)}
+
+/* контакты */
+.contact .card{background:var(--card);border-radius:var(--radius);padding:30px;box-shadow:0 1px 3px rgba(23,25,28,.07);
+  display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.contact dt{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);margin-bottom:5px}
+.contact dd{font-size:17px;font-weight:600;margin-bottom:20px}
+.contact dd a{color:var(--ink);text-decoration:none}
+.contact dd a:hover{color:var(--line-dark)}
+.contact .btn-main{margin-top:4px}
+
+/* футер */
+footer{background:var(--asphalt);color:#9AA1AC;padding:26px 0;font-size:13px;border-top:3px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
+.demo-badge{border:1px dashed #4A4F57;border-radius:8px;padding:6px 12px}
+
+/* плавающая кнопка звонка на мобиле */
+.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--line);color:var(--asphalt);
+  border-radius:50%;width:60px;height:60px;align-items:center;justify-content:center;font-size:26px;text-decoration:none;
+  box-shadow:0 6px 20px rgba(0,0,0,.3)}
+
+/* появление при прокрутке */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--line);outline-offset:2px}
+
+@media (max-width:640px){
+  .hero{padding:44px 0 130px}
+  .contact .card{grid-template-columns:1fr}
+  .fab{display:flex}
+  .hphone .txt{display:none}
+  .hphone{padding:10px 12px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hrow">
+    <a class="logo" href="#">ШИНСЕРВИС<span>40</span></a>
+    <a class="hphone" href="tel:+79038139799">📞 <span class="txt">+7 903 813-97-99</span></a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Калуга · Карла Либкнехта, 29</div>
+    <h1>Шиномонтаж, который хвалят в отзывах</h1>
+    <p class="sub">Переобувка, балансировка, ремонт боковых порезов и правка дисков.
+    Работаем по записи и в живой очереди — две машины одновременно, без долгого ожидания.</p>
+    <div class="ratebox">
+      <div class="score">5,0</div>
+      <div>
+        <div class="stars">★★★★★</div>
+        <small>194 оценки · <a href="https://yandex.ru/maps/org/shinservis40/1814888795/" target="_blank" rel="noopener">103 отзыва на Яндекс.Картах</a></small>
+      </div>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-main" href="tel:+79038139799">Позвонить и записаться</a>
+      <a class="btn btn-ghost" href="#price">Цены</a>
+    </div>
+    <p class="hours-hero">Сегодня работаем: <b>пн–пт 9:00–21:00</b> · <b>сб–вс 10:00–20:00</b></p>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Что делаем</div>
+      <h2>Услуги и цены</h2>
+    </div>
+    <div class="grid">
+      <div class="svc reveal">
+        <h3>Сезонная переобувка</h3>
+        <p>Комплекс: шиномонтаж, балансировка, мойка колёс, снятие и установка.</p>
+        <div class="price">от 1 200 ₽ <small>/ комплект R13–R14</small></div>
+      </div>
+      <div class="svc reveal">
+        <h3>Ремонт боковых порезов</h3>
+        <p>Горячая вулканизация. Порезы и грыжи, которые не берут в других сервисах.</p>
+        <div class="price">от 800 ₽</div>
+      </div>
+      <div class="svc reveal">
+        <h3>Правка дисков</h3>
+        <p>Штампованные и литые диски любой сложности, устранение восьмёрок.</p>
+        <div class="price">от 150 ₽</div>
+      </div>
+      <div class="svc reveal">
+        <h3>Ремонт проколов</h3>
+        <p>Камерные и бескамерные шины, жгут или заплатка — по ситуации.</p>
+        <div class="price">от 30 ₽</div>
+      </div>
+      <div class="svc reveal">
+        <h3>Балансировка и подкачка</h3>
+        <p>Профилактика износа: балансировка после установки новой резины.</p>
+        <div class="price">от 90 ₽ <small>/ колесо</small></div>
+      </div>
+      <div class="svc reveal">
+        <h3>Автосервис</h3>
+        <p>Замена масла и колодок, диагностика и ремонт подвески, тормоза, подшипники, стойки.</p>
+        <div class="price">цена по звонку</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="price" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Прозрачный прайс</div>
+      <h2>Переобувка под ключ</h2>
+    </div>
+    <div class="pricetab reveal">
+      <table>
+        <tr><th>Размер колёс</th><th style="text-align:right">Комплект из 4 колёс</th></tr>
+        <tr><td>R12 – R14</td><td>1 200 ₽</td></tr>
+        <tr><td>R15</td><td>1 300 ₽</td></tr>
+        <tr><td>R16</td><td>1 400 ₽</td></tr>
+        <tr><td>R17 – R19 (легковые и паркетники)</td><td>от 1 500 ₽</td></tr>
+        <tr><td>Джип</td><td>от 1 800 ₽</td></tr>
+        <tr><td>Микроавтобус, Газель</td><td>от 1 800 ₽</td></tr>
+      </table>
+    </div>
+    <p class="pricenote reveal">В комплекс входят шиномонтаж, балансировка, мойка колёс, снятие и установка.
+    Расходные материалы оплачиваются отдельно. Для низкопрофильных шин действует коэффициент 1,5.
+    Гарантия на услуги шиномонтажа — 3 дня.</p>
+  </div>
+</section>
+
+<section class="why" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Почему к нам едут</div>
+      <h2>Быстро и без сюрпризов</h2>
+    </div>
+    <div class="grid">
+      <div class="why-item reveal">
+        <div class="display num">~20 <em>мин</em></div>
+        <p>Средняя переобувка комплекта — работаем на двух постах одновременно.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="display">Запись <em>и</em> очередь</div>
+        <p>Приезжайте по записи — займёмся сразу. Или вставайте в живую очередь.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="display num">7 <em>дней</em> в неделю</div>
+        <p>Открыты до 21:00 в будни — успеете после работы. Выходные тоже работаем.</p>
+      </div>
+      <div class="why-item reveal">
+        <div class="display">Честная диагностика</div>
+        <p>Нашли проблему — сразу показываем и советуем, как лучше поступить.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Слово клиентам</div>
+      <h2>Отзывы с Яндекс.Карт</h2>
+    </div>
+    <div class="grid">
+      <div class="rev reveal">
+        <p>«Приехала после окончания рабочего дня, и мне не отказали: полностью переобули машину,
+        помыли колёса, перебортировали, отбалансировали за 20 минут. Рекорд! Теперь ваш постоянный клиент».</p>
+        <div class="who"><span>Виктория Л.</span><span class="stars">★★★★★</span></div>
+      </div>
+      <div class="rev reveal">
+        <p>«Всё отлично: есть балансировка, мойка колёс и правка дисков — всё под ключ.
+        Поток идёт хороший, мастер работает быстро».</p>
+        <div class="who"><span>Дмитрий</span><span class="stars">★★★★★</span></div>
+      </div>
+      <div class="rev reveal">
+        <p>«Ребята настоящие профессионалы: работают чётко, колёса меняют быстро, но качественно.
+        Уже много лет переобуваемся в Шинсервис40».</p>
+        <div class="who"><span>Евгения</span><span class="stars">★★★★★</span></div>
+      </div>
+    </div>
+    <p class="rev-src reveal">Рейтинг 5,0 — 194 оценки.
+      <a href="https://yandex.ru/maps/org/shinservis40/1814888795/reviews/" target="_blank" rel="noopener">Читать все 103 отзыва →</a></p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Как нас найти</div>
+      <h2>Контакты</h2>
+    </div>
+    <div class="card reveal">
+      <dl>
+        <dt>Адрес</dt>
+        <dd>Калуга, ул. Карла Либкнехта, 29, стр. 6</dd>
+        <dt>Режим работы</dt>
+        <dd>Пн–пт 9:00–21:00<br>Сб–вс 10:00–20:00</dd>
+      </dl>
+      <dl>
+        <dt>Телефоны</dt>
+        <dd>
+          <a href="tel:+79038139799">+7 903 813-97-99</a> — Сергей<br>
+          <a href="tel:+79005715909">+7 900 571-59-09</a>
+        </dd>
+        <a class="btn btn-main" href="https://yandex.ru/maps/org/shinservis40/1814888795/" target="_blank" rel="noopener">Маршрут в Яндекс.Картах</a>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Шинсервис40 · Калуга</span>
+    <span class="demo-badge">Демонстрационный макет нового сайта</span>
+  </div>
+</footer>
+
+<a class="fab" href="tel:+79038139799" aria-label="Позвонить">📞</a>
+
+<script>
+const els = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+  }), {threshold: .12});
+  els.forEach(el => io.observe(el));
+} else {
+  els.forEach(el => el.classList.add('on'));
+}
+</script>
+</body>
+</html>
