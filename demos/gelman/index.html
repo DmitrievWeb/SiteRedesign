@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Эдуард Гельман — стоматолог, стоматолог-хирург · Калуга</title>
-<meta name="description" content="Эдуард Витальевич Гельман — стоматолог, стоматолог-хирург в Калуге. Приём в МСЧ №2 и клинике «Медицинский Консилиум». Запись по телефону.">
+<meta name="description" content="Эдуард Витальевич Гельман — стоматолог, стоматолог-хирург в Калуге. Частный приём, честные цены, работа с тревожными пациентами.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -18,22 +18,21 @@
 html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--paperw);color:var(--ink);line-height:1.7}
 h1,h2,h3,.serif{font-family:'Spectral',Georgia,serif;line-height:1.25}
-.wrap{max-width:920px;margin:0 auto;padding:0 24px}
+.wrap{max-width:940px;margin:0 auto;padding:0 24px}
 
-header{border-bottom:1px solid var(--hair)}
-.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0}
-.mono{width:46px;height:46px;border-radius:50%;background:var(--teald);color:#fff;display:flex;align-items:center;
-  justify-content:center;font-family:'Spectral',serif;font-weight:600;font-size:18px;letter-spacing:.04em}
+header{border-bottom:1px solid var(--hair);position:sticky;top:0;background:rgba(251,250,247,.94);backdrop-filter:blur(8px);z-index:50}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
+.hleft{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.hava{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--teal-l)}
 .hname{font-weight:600;font-size:15px}
 .hname small{display:block;color:var(--muted);font-weight:400;font-size:12.5px}
-.hleft{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
 .htel{color:var(--teald);text-decoration:none;font-weight:600;font-size:14.5px}
 .htel:hover{text-decoration:underline}
 
-/* hero: визитка */
-.hero{padding:64px 0 56px}
-.hero .grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
-@media(min-width:880px){.hero .grid{grid-template-columns:1.1fr .9fr}}
+/* hero с настоящим портретом */
+.hero{padding:60px 0 56px}
+.hero .grid{display:grid;grid-template-columns:1fr;gap:44px;align-items:center}
+@media(min-width:860px){.hero .grid{grid-template-columns:1.15fr .85fr}}
 .hero .k{color:var(--gold);font-size:12.5px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;margin-bottom:16px}
 .hero h1{font-size:clamp(30px,4.6vw,48px);font-weight:600}
 .hero .spec{margin:10px 0 22px;font-size:17px;color:var(--teald);font-weight:500}
@@ -46,50 +45,65 @@ header{border-bottom:1px solid var(--hair)}
 .creds div{border-left:3px solid var(--gold);padding-left:12px}
 .creds b{font-size:16px;display:block}
 .creds span{color:var(--muted);font-size:13px}
-.hero .ph{position:relative}
-.hero .ph img{width:100%;height:auto;display:block;border-radius:14px}
-.hero .ph .tag{position:absolute;left:18px;bottom:18px;background:rgba(255,255,255,.92);border-radius:10px;
-  padding:12px 18px;font-size:13px;font-weight:500;box-shadow:0 10px 30px rgba(32,48,46,.2)}
+.portrait{justify-self:center;position:relative}
+.portrait img{width:min(340px,80vw);height:auto;max-height:480px;object-fit:cover;object-position:top;
+  border-radius:18px;display:block;border:8px solid #fff;box-shadow:0 24px 60px rgba(32,48,46,.22)}
+.portrait::after{content:"";position:absolute;inset:-14px;border:1px solid var(--gold);border-radius:24px;opacity:.5}
+.portrait .pd{position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);background:var(--card);
+  border:1px solid var(--hair);border-radius:999px;padding:9px 18px;font-size:12.5px;font-weight:600;white-space:nowrap;
+  box-shadow:0 8px 22px rgba(32,48,46,.12)}
+.portrait .pd b{color:var(--teald)}
 
-section{padding:64px 0}
+section{padding:60px 0}
 .k2{color:var(--gold);font-size:12.5px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;margin-bottom:12px}
-h2{font-size:clamp(24px,3.4vw,34px);font-weight:600;margin-bottom:30px}
+h2{font-size:clamp(24px,3.4vw,34px);font-weight:600;margin-bottom:28px}
 
-/* два места приёма */
-.places{display:grid;grid-template-columns:1fr;gap:16px}
-@media(min-width:760px){.places{grid-template-columns:1fr 1fr}}
-.place{background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:28px}
-.place .pn{font-family:'Spectral',serif;font-size:20px;font-weight:600;margin-bottom:6px}
-.place .addr{color:var(--muted);font-size:14px;margin-bottom:14px}
-.place .price{display:inline-block;background:var(--teal-l);color:var(--teald);font-weight:600;font-size:14px;
-  border-radius:8px;padding:7px 14px;margin-bottom:16px}
-.place a.pt{display:block;color:var(--teald);text-decoration:none;font-weight:600;font-size:16px}
-.place a.pt:hover{text-decoration:underline}
+/* частный приём */
+.private{background:var(--teald);color:#fff;border-radius:18px;padding:38px;display:grid;
+  grid-template-columns:1fr;gap:24px;align-items:center}
+@media(min-width:820px){.private{grid-template-columns:1.2fr .8fr}}
+.private h2{color:#fff;margin-bottom:10px}
+.private p{color:#B7D3D1;font-size:15px;max-width:52ch}
+.private .right{text-align:center}
+.private .tel{font-family:'Spectral',serif;font-size:clamp(24px,3.8vw,32px);color:#fff;text-decoration:none;font-weight:600}
+.private .tel:hover{text-decoration:underline}
+.private small{display:block;margin-top:10px;color:#8FB5B2;font-size:12.5px}
+
+/* прайс-лист */
+.price-tbl{background:var(--card);border:1px solid var(--hair);border-radius:14px;overflow:hidden}
+.price-tbl table{width:100%;border-collapse:collapse;font-size:15px}
+.price-tbl th{font-family:'Spectral',serif;font-weight:600;text-align:left;padding:16px 24px;background:var(--teal-l);
+  color:var(--teald);font-size:14.5px}
+.price-tbl td{padding:14px 24px;border-top:1px solid var(--hair);vertical-align:top}
+.price-tbl td small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.price-tbl td.pr{font-weight:600;white-space:nowrap;text-align:right;color:var(--teald)}
+.price-note{font-size:13px;color:var(--muted);margin-top:14px;max-width:66ch}
+
+/* фото-ряд: кабинет, инструменты, результат */
+.gal{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:760px){.gal{grid-template-columns:1fr 1fr 1fr}}
+.gal figure{position:relative;border-radius:14px;overflow:hidden}
+.gal img{width:100%;height:230px;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+.gal figure:hover img{transform:scale(1.04)}
+.gal figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(14,32,30,.85));
+  color:#fff;font-size:13px;font-weight:500;padding:26px 16px 12px}
 
 /* чем помогаю */
-.helps{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--hair)}
+.helps{border-top:1px solid var(--hair)}
 .help{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(--hair)}
 .help .ico{width:38px;height:38px;border-radius:10px;background:var(--teal-l);color:var(--teald);display:flex;
   align-items:center;justify-content:center;font-size:18px}
 .help b{font-size:16px;display:block}
 .help p{color:var(--muted);font-size:14px}
 
-/* отзывы с ПроДокторов */
-.pd{background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:30px;margin-bottom:14px}
-.pd p{font-family:'Spectral',serif;font-size:16.5px;font-style:italic}
-.pd cite{display:block;margin-top:12px;font-style:normal;color:var(--muted);font-size:13px}
+/* отзывы */
+.pd-rev{background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:28px;margin-bottom:14px}
+.pd-rev p{font-family:'Spectral',serif;font-size:16.5px;font-style:italic}
+.pd-rev cite{display:block;margin-top:12px;font-style:normal;color:var(--muted);font-size:13px}
 .src{font-size:14px;color:var(--muted);margin-top:16px}
 .src a{color:var(--teald)}
 
-/* финал */
-.final{background:var(--teald);color:#fff;text-align:center;padding:70px 0}
-.final h2{color:#fff}
-.final p{color:#B7D3D1;max-width:48ch;margin:0 auto 26px}
-.final .tel{font-family:'Spectral',serif;font-size:clamp(26px,4.6vw,40px);color:#fff;text-decoration:none;font-weight:600}
-.final .tel:hover{text-decoration:underline}
-.final small{display:block;margin-top:14px;color:#8FB5B2;font-size:13px}
-
-footer{color:var(--muted);padding:26px 0;font-size:12.5px}
+footer{color:var(--muted);padding:26px 0;font-size:12.5px;border-top:1px solid var(--hair)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
 .demo-badge{border:1px dashed var(--hair);border-radius:8px;padding:5px 12px;white-space:nowrap}
 .fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--teald);color:#fff;
@@ -105,51 +119,80 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:
 <body>
 
 <header><div class="wrap hrow">
-  <a class="hleft" href="#"><span class="mono">ЭГ</span>
+  <a class="hleft" href="#"><img class="hava" src="assets/portrait_sq.jpg" alt="Эдуард Гельман">
     <span class="hname">Эдуард Гельман<small>стоматолог · стоматолог-хирург</small></span></a>
-  <a class="htel" href="tel:+74842200529">запись: +7 (4842) 20-05-29</a>
+  <a class="htel" href="#contact">приём по записи</a>
 </div></header>
 
 <section class="hero">
   <div class="wrap grid">
     <div>
-      <div class="k">Личный сайт врача · Калуга</div>
+      <div class="k">Частный приём · Калуга</div>
       <h1>Эдуард Витальевич Гельман</h1>
       <div class="spec">Стоматолог, стоматолог-хирург</div>
-      <p class="sub">Лечу зубы аккуратно и без давления: подробно объясняю, что происходит,
-      и <b>не назначаю лишнего</b>. Отдельно умею работать с теми, кто боится стоматологов —
-      об этом чаще всего пишут в отзывах.</p>
-      <a class="btn" href="tel:+74842200529">Записаться на приём</a>
+      <p class="sub">Принимаю в собственном кабинете: без конвейера клиник, спешки и навязанных услуг.
+      Подробно объясняю, что происходит с зубом, и <b>честно говорю, если лечение не нужно</b>.
+      Отдельно умею работать с теми, кто боится стоматологов.</p>
+      <a class="btn" href="#contact">Записаться на приём</a>
       <div class="creds">
-        <div><b>Стаж 5 лет</b><span>практикую с 2021 года</span></div>
-        <div><b>КГМУ</b><span>Курский государственный медуниверситет</span></div>
+        <div><b>КГМУ, 2021</b><span>диплом «Стоматология»</span></div>
+        <div><b>Ординатура, 2023</b><span>специальность «Стоматология»</span></div>
+        <div><b>Аккредитация</b><span>стоматология общей практики</span></div>
         <div><b>5,0</b><span>оценка в отзывах пациентов</span></div>
       </div>
     </div>
-    <div class="ph reveal on">
-      <img src="assets/hero.jpg" alt="Стоматологические инструменты" width="1536" height="1024">
-      <div class="tag">Приём в двух клиниках Калуги</div>
+    <div class="portrait reveal on">
+      <img src="assets/portrait2.jpg" alt="Эдуард Витальевич Гельман, стоматолог" width="1365" height="2428">
+      <span class="pd">⭐ <b>5,0</b> на ПроДокторов</span>
     </div>
   </div>
 </section>
 
-<section id="places" style="padding-top:0">
+<section style="padding-top:0">
   <div class="wrap">
-    <div class="k2 reveal">Где я принимаю</div>
-    <h2 class="reveal">Две клиники — выбирайте удобную</h2>
-    <div class="places">
-      <div class="place reveal">
-        <div class="pn">МСЧ №2</div>
-        <div class="addr">Калуга, ул. Московская, 249</div>
-        <span class="price">приём 1 800 ₽</span>
-        <a class="pt" href="tel:+74842200529">+7 (4842) 20-05-29</a>
+    <div class="private reveal" id="contact">
+      <div>
+        <h2 class="serif">Личный кабинет — личная ответственность</h2>
+        <p>У частного приёма простое преимущество: вы лечитесь у врача, чьё имя написано на двери.
+        Никто не торопит, план лечения не «спускает администратор», а результат — моя репутация.</p>
       </div>
-      <div class="place reveal">
-        <div class="pn">«Медицинский Консилиум»</div>
-        <div class="addr">Калуга, ул. Фомушина, 8, корп. 1</div>
-        <span class="price">приём 1 000 ₽</span>
-        <a class="pt" href="tel:+74842218122">+7 (4842) 21-81-22</a>
+      <div class="right">
+        <span class="tel">+7 (9__) ___-__-__</span>
+        <small>здесь будет ваш личный номер для записи · адрес кабинета — при записи</small>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="price" style="padding-top:0">
+  <div class="wrap">
+    <div class="k2 reveal">Прайс-лист</div>
+    <h2 class="reveal">Цены на приём и лечение</h2>
+    <div class="price-tbl reveal">
+      <table>
+        <tr><th>Услуга</th><th style="text-align:right">Стоимость</th></tr>
+        <tr><td>Консультация и осмотр<small>план лечения и честный прогноз — с этого начинаем всегда</small></td><td class="pr">500 ₽</td></tr>
+        <tr><td>Лечение кариеса<small>анестезия, пломба, тщательная полировка</small></td><td class="pr">от 3 500 ₽</td></tr>
+        <tr><td>Лечение пульпита<small>каналы под контролем, без боли</small></td><td class="pr">от 6 500 ₽</td></tr>
+        <tr><td>Профессиональная гигиена<small>чистка и полировка, рекомендации по уходу</small></td><td class="pr">от 3 000 ₽</td></tr>
+        <tr><td>Художественная реставрация<small>восстановление формы и цвета зуба</small></td><td class="pr">от 4 500 ₽</td></tr>
+        <tr><td>Удаление зуба<small>бережно, с контролем заживления</small></td><td class="pr">от 2 500 ₽</td></tr>
+        <tr><td>Сложное удаление<small>включая зубы мудрости</small></td><td class="pr">от 5 000 ₽</td></tr>
+      </table>
+    </div>
+    <p class="price-note reveal">Точная стоимость — после осмотра: называю цену до начала лечения, и она не меняется в процессе.
+    Оплата за визит, без скрытых позиций.</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="k2 reveal">Кабинет</div>
+    <h2 class="reveal">Где и как проходит приём</h2>
+    <div class="gal reveal">
+      <figure><img src="assets/cabinet.jpg" alt="Стоматологический кабинет" width="1536" height="1024"><figcaption>Кабинет: современная установка, стерильность</figcaption></figure>
+      <figure><img src="assets/hero.jpg" alt="Стерильные инструменты" width="1536" height="1024"><figcaption>Инструменты: одноразовое и стерильное</figcaption></figure>
+      <figure><img src="assets/smile.jpg" alt="Здоровая улыбка" width="1536" height="1024"><figcaption>Результат: здоровые зубы без страха</figcaption></figure>
     </div>
   </div>
 </section>
@@ -169,14 +212,29 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:
 
 <section style="padding-top:0">
   <div class="wrap">
+    <div class="k2 reveal">Документы</div>
+    <h2 class="reveal">Образование и аккредитация</h2>
+    <div class="price-tbl reveal">
+      <table>
+        <tr><td>Высшее образование<small>ФГБОУ ВО «Курский государственный медицинский университет» Минздрава России</small></td>
+            <td class="pr">диплом 02.07.2021<br><small style="text-align:right">№ 104635/0000074 · «Стоматология»</small></td></tr>
+        <tr><td>Ординатура<small>специальность «Стоматология»</small></td><td class="pr">2023</td></tr>
+        <tr><td>Аккредитация специалиста<small>«Стоматология общей практики»</small></td><td class="pr">23.07.2021</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
     <div class="k2 reveal">Отзывы</div>
     <h2 class="reveal">Что пишут пациенты</h2>
-    <div class="pd reveal">
+    <div class="pd-rev reveal">
       <p>«Высокий профессионализм и доброжелательность, особенно отмечаю умение работать
       с тревожными пациентами (я из таких). Хожу на лечение больше года только к этому врачу».</p>
       <cite>— пациентка, ПроДокторов, апрель 2026</cite>
     </div>
-    <div class="pd reveal">
+    <div class="pd-rev reveal">
       <p>«Пролечено уже более 8 зубов. Настоящий профессионал: скрупулёзно подходит к каждому зубу,
       не навязывает услуг, честно говорит, если лечение не нужно».</p>
       <cite>— пациентка, ПроДокторов, апрель 2026</cite>
@@ -185,21 +243,12 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:
   </div>
 </section>
 
-<section class="final" id="contact" style="padding:70px 0">
-  <div class="wrap">
-    <h2 class="reveal">Приходите — разберёмся с зубами спокойно</h2>
-    <p class="reveal">Позвоните в удобную клинику и скажите, что записываетесь к Гельману Эдуарду Витальевичу.</p>
-    <a class="tel reveal" href="tel:+74842200529">+7 (4842) 20-05-29</a>
-    <small class="reveal">МСЧ №2, Московская 249 · или «Медицинский Консилиум», Фомушина 8к1: +7 (4842) 21-81-22</small>
-  </div>
-</section>
-
 <footer><div class="wrap">
-  <span>© 2026 Гельман Э.В., стоматолог · Калуга. Имеются противопоказания, необходима консультация специалиста.</span>
+  <span>© 2026 Гельман Э.В., стоматолог · Калуга. Имеются противопоказания, необходима консультация специалиста. Цены ориентировочные.</span>
   <span class="demo-badge">Демонстрационный макет</span>
 </div></footer>
 
-<a class="fab" href="tel:+74842200529" aria-label="Позвонить">📞</a>
+<a class="fab" href="#contact" aria-label="Записаться">📞</a>
 
 <script>
 const els = document.querySelectorAll('.reveal');
