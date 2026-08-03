@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Новые кухни — светлые кухни на заказ, Калуга</title>
+<meta name="description" content="Кухни на заказ в Калуге: светлые, функциональные, под ваш размер. Гагарина, 13. Замер бесплатно.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --snow:#FCFCFB; --oak:#D9C7A7; --oak-deep:#B49B6E; --stone:#3D3B36; --soft:#F1EFEA;
+  --ink:#2A2926; --muted:#8A867C; --hair:#E7E4DD; --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--snow);color:var(--ink);line-height:1.7;font-weight:400}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+h1,h2{font-weight:800;letter-spacing:-.03em;line-height:1.05}
+
+header{border-bottom:1px solid var(--hair)}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0}
+.logo{color:var(--ink);text-decoration:none;font-weight:800;font-size:17px;letter-spacing:-.01em}
+.logo::after{content:" — кухни";font-weight:300;color:var(--muted)}
+.htel{color:var(--ink);text-decoration:none;font-weight:600;font-size:14.5px}
+.htel:hover{color:var(--oak-deep)}
+
+/* hero: половина текст, половина фото на всю высоту */
+.hero{display:grid;grid-template-columns:1fr;min-height:88vh}
+@media(min-width:900px){.hero{grid-template-columns:1fr 1fr}}
+.htxt{display:flex;flex-direction:column;justify-content:center;padding:70px 24px}
+@media(min-width:900px){.htxt{padding:70px 60px 70px calc((100vw - 1140px)/2 + 24px)}}
+.htxt .tag{font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--oak-deep);margin-bottom:26px}
+.htxt h1{font-size:clamp(38px,5.4vw,66px);max-width:13ch}
+.htxt .sub{margin:24px 0 38px;font-size:17px;color:var(--muted);max-width:42ch;font-weight:300}
+.htxt .sub b{font-weight:600;color:var(--ink)}
+.cta-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.btn{display:inline-block;background:var(--stone);color:#fff;text-decoration:none;font-weight:600;font-size:15px;
+  padding:17px 36px;border-radius:4px;transition:all .3s var(--ease)}
+.btn:hover{background:#000;transform:translateY(-2px)}
+.wa{color:#1E7A43;font-weight:600;text-decoration:none;font-size:15px;border-bottom:1.5px solid #CBE5D4}
+.wa:hover{border-bottom-color:#1E7A43}
+.himg{position:relative;min-height:320px}
+.himg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.himg .price{position:absolute;left:24px;bottom:24px;background:#fff;padding:16px 22px;font-size:13.5px;
+  box-shadow:0 10px 30px rgba(42,41,38,.15)}
+.himg .price b{display:block;font-size:17px}
+
+section{padding:84px 0}
+.k{font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--oak-deep);margin-bottom:14px}
+h2{font-size:clamp(28px,3.8vw,42px);margin-bottom:38px}
+
+/* три правила больших цифр */
+.rules{display:grid;grid-template-columns:1fr;gap:0;border-top:1px solid var(--hair)}
+.rule{display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--hair)}
+@media(min-width:760px){.rule{grid-template-columns:120px 260px 1fr}}
+.rule .n{font-size:44px;font-weight:800;color:var(--oak)}
+.rule b{font-size:19px;font-weight:600}
+.rule p{color:var(--muted);font-weight:300;max-width:56ch}
+@media(max-width:759px){.rule p{grid-column:2}}
+
+/* серый блок-оффер */
+.offer{background:var(--soft)}
+.offer .wrap{display:grid;grid-template-columns:1fr;gap:36px;align-items:center}
+@media(min-width:900px){.offer .wrap{grid-template-columns:1.1fr .9fr}}
+.offer h2{margin-bottom:16px}
+.offer p{color:var(--muted);font-weight:300;max-width:50ch;margin-bottom:26px}
+.offer ul{list-style:none;margin-bottom:30px}
+.offer li{padding:9px 0 9px 30px;position:relative;font-size:15.5px}
+.offer li::before{content:"—";position:absolute;left:0;color:var(--oak-deep)}
+.offer .telbig{font-size:clamp(24px,3.6vw,34px);font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
+.offer .telbig:hover{color:var(--oak-deep)}
+.offer .note{font-size:13.5px;color:var(--muted);margin-top:10px}
+.offer .note a{color:var(--oak-deep)}
+
+footer{border-top:1px solid var(--hair);color:var(--muted);padding:26px 0;font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+.demo-badge{border:1px dashed var(--hair);padding:5px 12px}
+.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--stone);color:#fff;
+  width:58px;height:58px;align-items:center;justify-content:center;font-size:24px;text-decoration:none;border-radius:50%;
+  box-shadow:0 10px 26px rgba(0,0,0,.3)}
+@media(max-width:640px){.fab{display:flex}.htel{display:none}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--oak-deep);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<header><div class="wrap hrow">
+  <a class="logo" href="#">Новые кухни</a>
+  <a class="htel" href="tel:+79109137874">+7 (910) 913-78-74</a>
+</div></header>
+
+<section class="hero">
+  <div class="htxt">
+    <div class="tag">Калуга · Гагарина, 13</div>
+    <h1>Новая кухня. Просто.</h1>
+    <p class="sub">Без шоурум-наценок и «менеджеров по продажам». Вы говорите с теми,
+    кто <b>сам спроектирует и сам соберёт</b> вашу кухню.</p>
+    <div class="cta-row">
+      <a class="btn" href="tel:+79109137874">Записаться на замер</a>
+      <a class="wa" href="https://wa.me/79109137874" target="_blank" rel="noopener">или напишите в WhatsApp</a>
+    </div>
+  </div>
+  <div class="himg reveal on">
+    <img src="assets/hero.jpg" alt="Светлая кухня на заказ" width="1536" height="1024">
+    <div class="price"><b>Замер и проект — 0 ₽</b>приезжаем в удобный день</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="k reveal">Наши правила</div>
+    <h2 class="reveal">Почему с нами спокойно</h2>
+    <div class="rules">
+      <div class="rule reveal"><span class="n">01</span><b>Цена не меняется</b><p>Смета фиксируется в договоре после замера — «внезапных доплат» на установке не бывает.</p></div>
+      <div class="rule reveal"><span class="n">02</span><b>Сроки в договоре</b><p>Называем реальную дату и держим её. Кухня — не тот проект, где приятно ждать «ещё недельку».</p></div>
+      <div class="rule reveal"><span class="n">03</span><b>Сами производим</b><p>Своя мастерская в Калуге: контролируем качество на каждом этапе, а не перекладываем на фабрику.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="offer" id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="k">Начать легко</div>
+      <h2>Пришлите план кухни — вернём проект</h2>
+      <p>Сфотографируйте помещение или набросок с размерами и отправьте в WhatsApp.
+      Через пару дней у вас будет проект и честная смета.</p>
+      <ul>
+        <li>проект и замер — бесплатно</li>
+        <li>фасады и фурнитура под ваш бюджет</li>
+        <li>установка своей бригадой</li>
+      </ul>
+      <a class="telbig" href="tel:+79109137874">+7 (910) 913-78-74</a>
+      <p class="note">Калуга, ул. Гагарина, 13 ·
+        <a href="https://yandex.ru/maps/org/novyye_kukhni/1500421724/" target="_blank" rel="noopener">отзывы и маршрут на Яндекс.Картах</a></p>
+    </div>
+    <div class="reveal" style="text-align:center;font-size:120px" aria-hidden="true">🍳</div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <span>© 2026 Новые кухни · Калуга</span>
+  <span class="demo-badge">Демонстрационный макет</span>
+</div></footer>
+
+<a class="fab" href="tel:+79109137874" aria-label="Позвонить">📞</a>
+
+<script>
+const els = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+  }), {threshold: .12});
+  els.forEach(el => io.observe(el));
+} else { els.forEach(el => el.classList.add('on')); }
+</script>
+</body>
+</html>

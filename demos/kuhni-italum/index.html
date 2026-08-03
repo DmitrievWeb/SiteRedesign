@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>ITALUM — студия кухонь итальянского стиля, Калуга</title>
+<meta name="description" content="Студия мебели ITALUM: кухни в итальянском стиле на заказ. ТЦ на Гагарина, 1, Калуга.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --graphite:#232224; --graphite2:#2C2B2E; --walnut:#9C6B4A; --walnut-l:#C08F6B; --pearl:#EDE9E3;
+  --txt:#EAE6E0; --muted:#9B958D; --hair:#3B393D; --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Raleway',system-ui,sans-serif;background:var(--graphite);color:var(--txt);line-height:1.7}
+h1,h2,h3{font-family:'Prata',Georgia,serif;font-weight:400;line-height:1.2}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+header{border-bottom:1px solid var(--hair)}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 0}
+.logo{color:var(--txt);text-decoration:none;font-family:'Prata',serif;font-size:22px;letter-spacing:.34em}
+.logo span{color:var(--walnut-l)}
+.htel{color:var(--txt);text-decoration:none;font-weight:500;font-size:14.5px;letter-spacing:.06em}
+.htel:hover{color:var(--walnut-l)}
+
+/* hero: широкое фото + заголовок поверх нижней трети */
+.hero{position:relative}
+.hero img{width:100%;height:min(74vh,640px);object-fit:cover;display:block;opacity:.92}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(0deg, var(--graphite) 4%, transparent 55%)}
+.hero .cap{position:absolute;left:0;right:0;bottom:0}
+.hero .cap .wrap{padding-bottom:44px}
+.hero .over{color:var(--walnut-l);font-size:12px;letter-spacing:.4em;text-transform:uppercase;margin-bottom:16px}
+.hero h1{font-size:clamp(30px,5vw,56px);max-width:20ch}
+.hero h1 em{font-style:italic;color:var(--walnut-l)}
+
+/* подхero строка */
+.sub-line{padding:36px 0 0}
+.sub-line .wrap{display:grid;grid-template-columns:1fr;gap:26px;align-items:center}
+@media(min-width:860px){.sub-line .wrap{grid-template-columns:1fr auto}}
+.sub-line p{color:var(--muted);font-size:16px;max-width:56ch}
+.btn{display:inline-block;background:transparent;border:1px solid var(--walnut-l);color:var(--walnut-l);
+  text-decoration:none;font-weight:600;font-size:13.5px;letter-spacing:.22em;text-transform:uppercase;
+  padding:17px 38px;transition:all .3s var(--ease);white-space:nowrap}
+.btn:hover{background:var(--walnut);border-color:var(--walnut);color:#fff}
+
+section{padding:84px 0}
+.k{color:var(--walnut-l);font-size:12px;letter-spacing:.4em;text-transform:uppercase;margin-bottom:16px}
+h2{font-size:clamp(26px,3.6vw,40px);margin-bottom:40px}
+
+/* коллекции: горизонтальные широкие строки */
+.coll{border-top:1px solid var(--hair)}
+.crow{display:grid;grid-template-columns:1fr;gap:8px;padding:30px 0;border-bottom:1px solid var(--hair);
+  transition:background .3s}
+@media(min-width:760px){.crow{grid-template-columns:220px 1fr auto;gap:30px;align-items:baseline}}
+.crow:hover{background:var(--graphite2)}
+.crow h3{font-size:23px}
+.crow p{color:var(--muted);font-size:14.5px;max-width:60ch}
+.crow .tagm{color:var(--walnut-l);font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap}
+
+/* процесс: тонкая линия с точками горизонтально */
+.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:26px;position:relative}
+.tl{position:relative;padding-top:26px}
+.tl::before{content:"";position:absolute;top:0;left:0;right:-26px;height:1px;background:var(--hair)}
+.tl::after{content:"";position:absolute;top:-4px;left:0;width:9px;height:9px;border-radius:50%;background:var(--walnut-l)}
+.tl b{font-family:'Prata',serif;font-weight:400;font-size:17px;display:block;margin-bottom:8px}
+.tl p{color:var(--muted);font-size:13.5px}
+
+/* жемчужная секция-запись */
+.pearl{background:var(--pearl);color:#2B2621;text-align:center}
+.pearl h2{color:#2B2621}
+.pearl p{color:#7A6F63;max-width:48ch;margin:0 auto 30px}
+.pearl .tel{font-family:'Prata',serif;font-size:clamp(26px,4.6vw,42px);color:#2B2621;text-decoration:none}
+.pearl .tel:hover{color:var(--walnut)}
+.pearl small{display:block;margin-top:16px;color:#8F857A;font-size:13px}
+.pearl small a{color:var(--walnut)}
+
+footer{border-top:1px solid var(--hair);color:var(--muted);padding:26px 0;font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+.demo-badge{border:1px dashed var(--hair);padding:5px 14px;letter-spacing:.1em}
+.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--walnut);color:#fff;
+  width:58px;height:58px;align-items:center;justify-content:center;font-size:24px;text-decoration:none;border-radius:50%;
+  box-shadow:0 10px 26px rgba(0,0,0,.5)}
+@media(max-width:640px){.fab{display:flex}.htel{display:none}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--walnut-l);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<header><div class="wrap hrow">
+  <a class="logo" href="#">ITALUM<span>.</span></a>
+  <a class="htel" href="tel:+79307515050">+7 (930) 751-50-50</a>
+</div></header>
+
+<section class="hero">
+  <img src="assets/hero.jpg" alt="Кухня итальянского стиля ITALUM" width="1536" height="1024">
+  <div class="veil"></div>
+  <div class="cap"><div class="wrap">
+    <div class="over">Студия мебели · Калуга</div>
+    <h1>Итальянский характер — <em>по калужскому адресу</em></h1>
+  </div></div>
+</section>
+<div class="sub-line"><div class="wrap">
+  <p>Кухни с дизайнерскими фасадами, продуманной эргономикой и фурнитурой, которая работает
+  десятилетиями. Студия в ТЦ на Гагарина, 1 — приходите посмотреть образцы вживую.</p>
+  <a class="btn" href="tel:+79307515050">Записаться в студию</a>
+</div></div>
+
+<section>
+  <div class="wrap">
+    <div class="k reveal">Что заказывают</div>
+    <h2 class="reveal">Направления студии</h2>
+    <div class="coll reveal">
+      <div class="crow"><h3>Кухни</h3><p>Прямые, угловые, с островом. Глянец, суперматовые фасады, интегрированные ручки.</p><span class="tagm">под заказ</span></div>
+      <div class="crow"><h3>Гардеробные</h3><p>Системы хранения, которые используют каждый сантиметр.</p><span class="tagm">под заказ</span></div>
+      <div class="crow"><h3>Шкафы и ТВ-зоны</h3><p>Мебель в тон интерьеру — как будто была здесь всегда.</p><span class="tagm">под заказ</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="k reveal">Путь заказа</div>
+    <h2 class="reveal">От эскиза до кухни</h2>
+    <div class="timeline reveal">
+      <div class="tl"><b>Встреча в студии</b><p>Образцы фасадов и фурнитуры — вживую, а не по каталогу.</p></div>
+      <div class="tl"><b>Замер и проект</b><p>Точная геометрия и 3D-визуализация вашей кухни.</p></div>
+      <div class="tl"><b>Производство</b><p>Контроль качества на каждом этапе.</p></div>
+      <div class="tl"><b>Монтаж</b><p>Аккуратная установка и настройка фурнитуры.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pearl" id="contact">
+  <div class="wrap">
+    <div class="k reveal" style="color:var(--walnut)">Студия ждёт</div>
+    <h2 class="reveal">Обсудим вашу кухню за чашкой кофе</h2>
+    <p class="reveal">Приходите в студию в ТЦ на Гагарина, 1 (3 этаж) или начните с звонка —
+    расскажем о материалах и сроках, посчитаем предварительную смету.</p>
+    <a class="tel reveal" href="tel:+79307515050">+7 (930) 751-50-50</a>
+    <small class="reveal">Калуга, ул. Гагарина, 1, этаж 3 ·
+      <a href="https://yandex.ru/maps/org/italum/14758307360/" target="_blank" rel="noopener">40 фото работ на Яндекс.Картах</a></small>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <span>© 2026 Студия мебели ITALUM · Калуга</span>
+  <span class="demo-badge">Демонстрационный макет</span>
+</div></footer>
+
+<a class="fab" href="tel:+79307515050" aria-label="Позвонить">📞</a>
+
+<script>
+const els = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+  }), {threshold: .12});
+  els.forEach(el => io.observe(el));
+} else { els.forEach(el => el.classList.add('on')); }
+</script>
+</body>
+</html>

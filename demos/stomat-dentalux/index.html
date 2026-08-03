@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>ДентаЛюкс — семейная стоматология на Достоевского, Калуга</title>
+<meta name="description" content="Семейная стоматология ДентаЛюкс в Калуге: лечение взрослых и детей. Достоевского, 29. Запись по телефону и WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;1,500&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --linen:#FAF7F4; --lav:#8D7BB8; --lav-deep:#6C5A99; --sage:#A9C0A6; --card:#FFFFFF;
+  --ink:#3B3547; --muted:#847E90; --hair:#E9E3DC; --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',system-ui,sans-serif;background:var(--linen);color:var(--ink);line-height:1.7}
+h1,h2,h3{font-family:'Alegreya',Georgia,serif;line-height:1.25}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+
+header{padding:18px 0;border-bottom:1px solid var(--hair)}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{color:var(--ink);text-decoration:none;font-family:'Alegreya',serif;font-weight:700;font-size:23px}
+.logo span{color:var(--lav)}
+.hbtns{display:flex;gap:10px}
+.hb{text-decoration:none;font-weight:700;font-size:13.5px;padding:10px 18px;border-radius:999px;transition:all .25s var(--ease)}
+.hb-wa{background:#E8F6EC;color:#1E7A43}
+.hb-wa:hover{background:#D8EFDF}
+.hb-tel{background:var(--lav);color:#fff}
+.hb-tel:hover{background:var(--lav-deep)}
+
+/* hero: рамка-паспарту с фото и наложенной карточкой */
+.hero{padding:56px 0 70px}
+.hero .frame{position:relative;border:1px solid var(--hair);background:var(--card);padding:16px;
+  box-shadow:0 20px 50px rgba(59,53,71,.1)}
+.hero .frame img{width:100%;height:min(52vh,460px);object-fit:cover;display:block}
+.hero .float{position:relative;margin:-70px auto 0;max-width:640px;background:var(--card);
+  border:1px solid var(--hair);padding:38px 40px;text-align:center;box-shadow:0 20px 50px rgba(59,53,71,.12)}
+@media(max-width:700px){.hero .float{margin-top:-40px;padding:28px 22px}}
+.hero .over{color:var(--lav);font-size:12.5px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(28px,4.4vw,42px)}
+.hero h1 em{color:var(--lav-deep)}
+.hero p{margin:14px 0 24px;color:var(--muted);font-size:16px}
+.btn{display:inline-block;background:var(--lav);color:#fff;text-decoration:none;font-weight:700;font-size:15.5px;
+  padding:15px 34px;border-radius:999px;transition:all .3s var(--ease)}
+.btn:hover{background:var(--lav-deep);transform:translateY(-2px);box-shadow:0 12px 28px rgba(108,90,153,.3)}
+.hero small{display:block;margin-top:14px;color:var(--muted);font-size:13px}
+
+section{padding:66px 0}
+.k{color:var(--lav-deep);font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase;text-align:center;margin-bottom:10px}
+h2{font-size:clamp(25px,3.4vw,34px);text-align:center;margin-bottom:38px}
+
+/* услуги «для взрослых / для детей» две колонки */
+.duo{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:820px){.duo{grid-template-columns:1fr 1fr}}
+.col{background:var(--card);border:1px solid var(--hair);border-radius:4px;padding:34px}
+.col.kids{background:#F4F8F2;border-color:#DCE8D9}
+.col h3{font-size:22px;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.col ul{list-style:none}
+.col li{padding:11px 0;border-bottom:1px dashed var(--hair);font-size:15px}
+.col li:last-child{border:none}
+.col li span{color:var(--muted);font-size:13.5px;display:block}
+
+/* отзыв-письмо */
+.letter{max-width:640px;margin:0 auto;background:var(--card);border:1px solid var(--hair);padding:40px;
+  font-family:'Alegreya',serif;font-size:17.5px;font-style:italic;position:relative}
+.letter::before{content:"❝";position:absolute;top:10px;left:20px;font-size:56px;color:var(--lav);opacity:.3}
+.letter cite{display:block;margin-top:18px;font-style:normal;font-family:'Nunito Sans',sans-serif;
+  font-size:13.5px;color:var(--muted)}
+.src{text-align:center;margin-top:24px;font-size:14px;color:var(--muted)}
+.src a{color:var(--lav-deep)}
+
+/* контакты мягкие */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:760px;margin:0 auto}
+.cc{background:var(--card);border:1px solid var(--hair);border-radius:4px;padding:26px;text-align:center}
+.cc dt{font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.cc dd{font-size:16.5px;font-weight:700}
+.cc a{color:var(--ink);text-decoration:none}
+.cc a:hover{color:var(--lav-deep)}
+
+footer{border-top:1px solid var(--hair);color:var(--muted);padding:26px 0;font-size:12.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
+.demo-badge{border:1px dashed var(--hair);border-radius:999px;padding:5px 14px;white-space:nowrap}
+.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--lav);color:#fff;
+  width:58px;height:58px;align-items:center;justify-content:center;font-size:24px;text-decoration:none;border-radius:50%;
+  box-shadow:0 10px 26px rgba(108,90,153,.4)}
+@media(max-width:640px){.fab{display:flex}.hbtns{display:none}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--lav);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<header><div class="wrap hrow">
+  <a class="logo" href="#">Дента<span>Люкс</span></a>
+  <div class="hbtns">
+    <a class="hb hb-wa" href="https://wa.me/79066410422" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="hb hb-tel" href="tel:+79066410422">+7 (906) 641-04-22</a>
+  </div>
+</div></header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="frame reveal on"><img src="assets/hero.jpg" alt="Зона ожидания клиники ДентаЛюкс" width="1536" height="1024"></div>
+    <div class="float reveal on">
+      <div class="over">Семейная стоматология · Достоевского, 29</div>
+      <h1>Одна клиника <em>на всю семью</em></h1>
+      <p>Лечим родителей и детей в одном месте: без страха, очередей
+      и поездок через весь город. 38 отзывов на Яндекс.Картах.</p>
+      <a class="btn" href="tel:+79066410422">Записаться на приём</a>
+      <small>можно написать в WhatsApp — ответим в рабочее время</small>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="padding-top:10px">
+  <div class="wrap">
+    <div class="k reveal">Направления</div>
+    <h2 class="reveal">Взрослым и детям</h2>
+    <div class="duo">
+      <div class="col reveal">
+        <h3>🧑 Взрослым</h3>
+        <ul>
+          <li>Лечение кариеса<span>современные материалы, незаметные пломбы</span></li>
+          <li>Профессиональная гигиена<span>чистка и полировка</span></li>
+          <li>Протезирование<span>коронки, реставрации</span></li>
+          <li>Удаление зубов<span>бережно, с контролем заживления</span></li>
+        </ul>
+      </div>
+      <div class="col kids reveal">
+        <h3>🧒 Детям</h3>
+        <ul>
+          <li>Знакомство с врачом<span>первый визит — просто посмотреть и подружиться</span></li>
+          <li>Лечение молочных зубов<span>терпеливо и без слёз</span></li>
+          <li>Профилактика и герметизация<span>чтобы кариес не начался</span></li>
+          <li>Советы родителям<span>как чистить, что перекусывать</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="k reveal">Из отзывов</div>
+    <h2 class="reveal">Пациенты пишут</h2>
+    <div class="letter reveal">
+      Пациенты в отзывах чаще всего отмечают внимательных врачей и спокойную,
+      «нестрашную» атмосферу — то, что особенно важно, когда приводишь ребёнка.
+      <cite>— по отзывам на Яндекс.Картах, 38 отзывов</cite>
+    </div>
+    <p class="src reveal"><a href="https://yandex.ru/maps/org/dentalyuks/1210362086/reviews/" target="_blank" rel="noopener">Читать отзывы на Яндекс.Картах →</a></p>
+  </div>
+</section>
+
+<section style="padding-top:0" id="contact">
+  <div class="wrap">
+    <div class="k reveal">Контакты</div>
+    <h2 class="reveal">Ждём вашу семью</h2>
+    <div class="cgrid">
+      <div class="cc reveal"><dt>Адрес</dt><dd>Калуга, ул. Достоевского, 29</dd></div>
+      <div class="cc reveal"><dt>Телефон / WhatsApp</dt><dd><a href="tel:+79066410422">+7 (906) 641-04-22</a></dd></div>
+      <div class="cc reveal"><dt>Маршрут</dt><dd><a href="https://yandex.ru/maps/org/dentalyuks/1210362086/" target="_blank" rel="noopener">Яндекс.Карты →</a></dd></div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <span>© 2026 Стоматология «ДентаЛюкс» · Калуга. Имеются противопоказания, необходима консультация специалиста.</span>
+  <span class="demo-badge">Демонстрационный макет</span>
+</div></footer>
+
+<a class="fab" href="tel:+79066410422" aria-label="Позвонить">📞</a>
+
+<script>
+const els = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+  }), {threshold: .12});
+  els.forEach(el => io.observe(el));
+} else { els.forEach(el => el.classList.add('on')); }
+</script>
+</body>
+</html>

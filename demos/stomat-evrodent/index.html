@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Евродент — стоматология на Правобережье, Калуга</title>
+<meta name="description" content="Стоматологическая клиника «Евродент»: лечение и профилактика на Генерала Попова, 13. Запись по телефону.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --white:#FFFFFF; --frost:#F1F7F8; --teal:#12A5A5; --teal-deep:#0B7C7C; --coral:#FF7A59;
+  --ink:#173840; --muted:#5F7E85; --hair:#DCE9EB; --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',system-ui,sans-serif;background:var(--frost);color:var(--ink);line-height:1.6}
+h1,h2,h3{font-family:'Montserrat Alternates',sans-serif;line-height:1.2}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+/* верхняя инфолента */
+.topline{background:var(--teal);color:#fff;font-size:13px;padding:8px 0}
+.topline .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+header{background:var(--white);border-bottom:1px solid var(--hair);position:sticky;top:0;z-index:50}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
+.logo{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-family:'Montserrat Alternates',sans-serif;
+  font-weight:700;font-size:19px}
+.logo .plus{width:34px;height:34px;border-radius:10px;background:var(--teal);color:#fff;display:flex;
+  align-items:center;justify-content:center;font-size:19px;font-weight:700}
+.htel{background:var(--coral);color:#fff;text-decoration:none;font-weight:600;padding:11px 20px;border-radius:10px;
+  font-size:14.5px;white-space:nowrap;transition:all .25s var(--ease)}
+.htel:hover{filter:brightness(.94);transform:translateY(-1px)}
+
+/* hero мозаика: текст + фото + 2 плитки */
+.hero{padding:52px 0 64px}
+.mosaic{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:900px){.mosaic{grid-template-columns:1.2fr .8fr;grid-template-rows:auto auto}}
+.cell{border-radius:20px;overflow:hidden}
+.cell-txt{background:var(--white);padding:44px;grid-row:span 2;display:flex;flex-direction:column;justify-content:center}
+.cell-txt .k{color:var(--teal);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+.cell-txt h1{font-size:clamp(28px,4.2vw,44px);font-weight:700;max-width:16ch}
+.cell-txt h1 em{font-style:normal;color:var(--teal)}
+.cell-txt .sub{margin:16px 0 28px;color:var(--muted);font-size:16px;max-width:44ch}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:15.5px;
+  padding:15px 30px;border-radius:12px;transition:all .3s var(--ease);align-self:flex-start}
+.btn-main{background:var(--teal);color:#fff}
+.btn-main:hover{background:var(--teal-deep);transform:translateY(-2px)}
+.cell-img img{width:100%;height:100%;min-height:230px;object-fit:cover;display:block}
+.cell-fact{background:var(--teal);color:#fff;padding:26px;display:flex;flex-direction:column;justify-content:center}
+.cell-fact b{font-family:'Montserrat Alternates',sans-serif;font-size:24px}
+.cell-fact span{color:#C9EFEF;font-size:13.5px;margin-top:4px}
+
+section{padding:64px 0}
+.k2{color:var(--teal-deep);font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px}
+h2{font-size:clamp(24px,3.2vw,34px);font-weight:700;margin-bottom:32px}
+
+/* услуги квадратами */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.tile{background:var(--white);border-radius:18px;padding:24px;border:1px solid var(--hair);
+  transition:all .3s var(--ease)}
+.tile:hover{border-color:var(--teal);box-shadow:0 12px 30px rgba(18,165,165,.12);transform:translateY(-4px)}
+.tile .ic{width:46px;height:46px;border-radius:14px;background:var(--frost);color:var(--teal-deep);display:flex;
+  align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+.tile h3{font-size:16px;margin-bottom:6px}
+.tile p{color:var(--muted);font-size:13.5px}
+
+/* «как проходит приём» шаги в линию */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;counter-reset:st}
+.step{background:var(--white);border-radius:18px;padding:22px;border-top:4px solid var(--teal);counter-increment:st}
+.step::before{content:"0" counter(st);font-family:'Montserrat Alternates',sans-serif;font-weight:700;
+  color:var(--teal);font-size:15px;display:block;margin-bottom:8px}
+.step b{display:block;font-size:15.5px;margin-bottom:6px}
+.step p{color:var(--muted);font-size:13.5px}
+
+/* запись */
+.cta-band{background:linear-gradient(120deg,var(--teal),var(--teal-deep));border-radius:24px;color:#fff;
+  padding:44px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.cta-band h2{color:#fff;margin:0 0 8px}
+.cta-band p{color:#CFF0F0;max-width:44ch}
+.btn-white{background:#fff;color:var(--teal-deep)}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,0,0,.2)}
+.foot-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:40px}
+.foot-info dt{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.foot-info dd{font-size:16.5px;font-weight:500}
+.foot-info a{color:var(--ink);text-decoration:none}
+.foot-info a:hover{color:var(--teal-deep)}
+
+footer{background:var(--white);border-top:1px solid var(--hair);color:var(--muted);padding:24px 0;font-size:12.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
+.demo-badge{border:1px dashed var(--hair);border-radius:10px;padding:5px 12px;white-space:nowrap}
+.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--coral);color:#fff;
+  width:58px;height:58px;align-items:center;justify-content:center;font-size:24px;text-decoration:none;border-radius:50%;
+  box-shadow:0 10px 26px rgba(255,122,89,.45)}
+@media(max-width:640px){.fab{display:flex}.htel{display:none}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<div class="topline"><div class="wrap">
+  <span>Правобережье · ул. Генерала Попова, 13</span>
+  <span>приём по записи</span>
+</div></div>
+<header><div class="wrap hrow">
+  <a class="logo" href="#"><span class="plus">+</span>Евродент</a>
+  <a class="htel" href="tel:+74842762929">+7 (4842) 76-29-29</a>
+</div></header>
+
+<section class="hero">
+  <div class="wrap mosaic">
+    <div class="cell cell-txt reveal on">
+      <div class="k">Стоматология на Правобережье</div>
+      <h1>Своя клиника <em>в своём районе</em></h1>
+      <p class="sub">Лечение, профилактика и протезирование — без поездок в центр.
+      Запишитесь на удобное время, приём без ожидания под дверью.</p>
+      <a class="btn btn-main" href="tel:+74842762929">Записаться</a>
+    </div>
+    <div class="cell cell-img reveal on"><img src="assets/hero.jpg" alt="Кабинет клиники Евродент" width="1536" height="1024"></div>
+    <div class="cell cell-fact reveal on"><b>Генерала Попова, 13</b><span>рядом с домом — удобно всей семьёй</span></div>
+  </div>
+</section>
+
+<section id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="k2 reveal">Направления</div>
+    <h2 class="reveal">Услуги клиники</h2>
+    <div class="tiles">
+      <div class="tile reveal"><div class="ic">🦷</div><h3>Лечение кариеса</h3><p>Современные пломбы, бережная работа.</p></div>
+      <div class="tile reveal"><div class="ic">✨</div><h3>Профгигиена</h3><p>Чистка, полировка, профилактика.</p></div>
+      <div class="tile reveal"><div class="ic">👑</div><h3>Протезирование</h3><p>Коронки и протезы под ваш случай.</p></div>
+      <div class="tile reveal"><div class="ic">🩺</div><h3>Консультация</h3><p>Осмотр, снимки, план и смета.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="k2 reveal">Как проходит приём</div>
+    <h2 class="reveal">Четыре простых шага</h2>
+    <div class="steps">
+      <div class="step reveal"><b>Звонок</b><p>Выбираем удобное время — без листов ожидания.</p></div>
+      <div class="step reveal"><b>Осмотр</b><p>Врач смотрит, объясняет, отвечает на вопросы.</p></div>
+      <div class="step reveal"><b>План и цена</b><p>Смета до лечения — решение всегда за вами.</p></div>
+      <div class="step reveal"><b>Лечение</b><p>Спокойно, без боли и спешки.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0" id="contact">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <div><h2>Запись на этой неделе</h2>
+      <p>Позвоните — администратор подберёт время, удобное вам, а не расписанию.</p></div>
+      <a class="btn btn-white" href="tel:+74842762929">+7 (4842) 76-29-29</a>
+    </div>
+    <div class="foot-info reveal">
+      <dl><dt>Адрес</dt><dd>Калуга, ул. Генерала Попова, 13</dd></dl>
+      <dl><dt>Отзывы</dt><dd><a href="https://yandex.ru/maps/org/yevrodent/114914428464/" target="_blank" rel="noopener">12 отзывов на Яндекс.Картах</a></dd></dl>
+      <dl><dt>Маршрут</dt><dd><a href="https://yandex.ru/maps/org/yevrodent/114914428464/" target="_blank" rel="noopener">Открыть карту →</a></dd></dl>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <span>© 2026 Стоматология «Евродент» · Калуга. Имеются противопоказания, необходима консультация специалиста.</span>
+  <span class="demo-badge">Демонстрационный макет</span>
+</div></footer>
+
+<a class="fab" href="tel:+74842762929" aria-label="Позвонить">📞</a>
+
+<script>
+const els = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+  }), {threshold: .12});
+  els.forEach(el => io.observe(el));
+} else { els.forEach(el => el.classList.add('on')); }
+</script>
+</body>
+</html>
