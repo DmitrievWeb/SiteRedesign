@@ -8,209 +8,171 @@
 <meta name="description" content="Химчистка салона, керамомойка, твёрдый воск, мойка днища. Зона ожидания с чаем и кальяном. Зерновая, 22.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--asphalt:#17191C;--asphalt2:#22252A;--line:#9B6CFF;--line-dark:#7E4FE6;
---bg:#F2F3F5;--card:#FFFFFF;--steel:#5A6270;--ink:#1B1D21;--radius:14px}
+:root{
+  --void:#0A0A0F; --void2:#131320; --violet:#A855F7; --violet-soft:#C084FC;
+  --txt:#EFEAF7; --muted:#9A93AC; --hair:#26263A; --ease:cubic-bezier(.16,1,.3,1);
+}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
-.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
-h1,h2,.display{font-family:'Russo One',sans-serif;font-weight:400;line-height:1.15}
-header{position:sticky;top:0;z-index:50;background:var(--asphalt);border-bottom:3px solid var(--line)}
-.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
-.logo{color:#fff;font-family:'Russo One',sans-serif;font-size:19px;letter-spacing:.5px;text-decoration:none}
-.logo span{color:var(--line)}
-.hphone{display:inline-flex;align-items:center;gap:8px;background:var(--line);color:var(--asphalt);text-decoration:none;
-font-weight:800;padding:10px 16px;border-radius:10px;font-size:15px;white-space:nowrap;transition:transform .15s}
-.hphone:hover{transform:translateY(-1px);background:var(--line-dark)}
-.hero{background:var(--asphalt);color:#fff;position:relative;overflow:hidden;padding:64px 0 330px}
-@media (min-width:1040px){.hero{padding-bottom:150px}}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:96px;
-background:repeating-linear-gradient(90deg, var(--line) 0 64px, transparent 64px 128px) center 46px/128px 10px no-repeat border-box,
-linear-gradient(180deg,#101215,#0B0C0E);background-repeat:repeat-x}
-.hero .wrap{position:relative;z-index:2}
-.wheel{position:absolute;z-index:2;bottom:36px;left:50%;transform:translateX(-50%);line-height:0}
-.wheel svg{width:min(210px,54vw);height:auto}
-.wheel::after{content:"";position:absolute;left:50%;bottom:-7px;transform:translateX(-50%);
-width:78%;height:20px;border-radius:50%;background:radial-gradient(ellipse at center, rgba(0,0,0,.6), transparent 68%)}
-.roll{transform-box:fill-box;transform-origin:center;animation:spin 14s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion: reduce){.roll{animation:none}}
-@media (min-width:1040px){.wheel{left:auto;right:6%;transform:none}.wheel svg{width:min(330px,28vw)}}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--line);font-weight:700;font-size:13px;
-letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
-.eyebrow::before{content:"";width:34px;height:4px;background:var(--line)}
-.hero h1{font-size:clamp(30px,5.4vw,52px);max-width:17ch}
-.hero p.sub{margin:18px 0 28px;font-size:clamp(16px,2.2vw,19px);color:#C6CBD4;max-width:52ch}
-.ratebox{display:inline-flex;align-items:center;gap:14px;background:var(--asphalt2);border:1px solid #33373E;
-border-radius:var(--radius);padding:14px 18px;margin-bottom:30px}
-.ratebox .score{font-family:'Russo One',sans-serif;font-size:34px;color:var(--line)}
-.stars{color:var(--line);letter-spacing:2px;font-size:15px}
-.ratebox small{display:block;color:#9AA1AC;font-size:13px;margin-top:2px}
-.ratebox a{color:#C6CBD4}
-.cta-row{display:flex;flex-wrap:wrap;gap:14px}
-.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:17px;
-padding:16px 28px;border-radius:12px;transition:transform .15s}
-.btn:active{transform:scale(.98)}
-.btn-main{background:var(--line);color:var(--asphalt)}
-.btn-main:hover{background:var(--line-dark)}
-.btn-ghost{border:2px solid #3A3E45;color:#fff}
-.btn-ghost:hover{border-color:var(--line);color:var(--line)}
-.hours-hero{margin-top:26px;color:#9AA1AC;font-size:14px}
-.hours-hero b{color:#fff}
-section{padding:64px 0}
-.sec-head{margin-bottom:34px}
-.sec-head h2{font-size:clamp(24px,3.4vw,34px)}
-.sec-head .eyebrow{color:var(--steel)}
+body{font-family:'Manrope',system-ui,sans-serif;background:var(--void);color:var(--txt);line-height:1.65}
+h1,h2,h3{font-family:'Unbounded',sans-serif;font-weight:600;line-height:1.18}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+header{position:sticky;top:0;z-index:50;background:rgba(10,10,15,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--hair)}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
+.logo{color:var(--txt);text-decoration:none;font-family:'Unbounded',sans-serif;font-weight:700;font-size:16px}
+.logo span{color:var(--violet)}
+.hphone{color:var(--txt);border:1px solid var(--violet);text-decoration:none;font-weight:700;padding:10px 20px;
+  border-radius:999px;font-size:14px;white-space:nowrap;transition:all .3s var(--ease)}
+.hphone:hover{background:var(--violet);box-shadow:0 0 26px rgba(168,85,247,.5)}
+
+/* hero: фото + неон */
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(10deg, rgba(10,10,15,.96) 18%, rgba(10,10,15,.4) 55%, rgba(10,10,15,.15))}
+.hero .wrap{position:relative;z-index:2;padding-bottom:70px;padding-top:130px}
+.glowline{width:120px;height:2px;background:linear-gradient(90deg,var(--violet),transparent);
+  box-shadow:0 0 18px var(--violet);margin-bottom:26px}
+.hero .tag{color:var(--violet-soft);font-size:13px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;margin-bottom:16px}
+.hero h1{font-size:clamp(26px,4.6vw,50px);max-width:19ch}
+.hero h1 em{font-style:normal;color:var(--violet-soft)}
+.hero .sub{margin:20px 0 34px;font-size:16.5px;color:var(--muted);max-width:52ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:15.5px;
+  padding:16px 32px;border-radius:999px;transition:all .3s var(--ease)}
+.btn-main{background:var(--violet);color:#fff;box-shadow:0 0 30px rgba(168,85,247,.35)}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 0 46px rgba(168,85,247,.6)}
+.btn-ghost{border:1px solid var(--hair);color:var(--txt)}
+.btn-ghost:hover{border-color:var(--violet);color:var(--violet-soft)}
+.rate{margin-top:28px;font-size:14px;color:var(--muted)}
+.rate b{color:var(--violet-soft)}
+.rate a{color:var(--muted)}
+
+section{padding:80px 0}
+.k{color:var(--violet-soft);font-size:12.5px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;margin-bottom:14px}
+h2{font-size:clamp(22px,3.2vw,34px);margin-bottom:38px}
+
+/* услуги: стеклянные карточки с glow-рамкой */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
-.svc{background:var(--card);border-radius:var(--radius);padding:24px;border-top:4px solid var(--line);
-box-shadow:0 1px 3px rgba(23,25,28,.07)}
-.svc h3{font-size:17px;margin-bottom:8px}
-.svc p{color:var(--steel);font-size:14.5px;margin-bottom:14px}
-.svc .price{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:16px}
-.svc .price small{color:var(--steel);font-weight:500;font-family:'Manrope',sans-serif}
-.why .grid{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
-.why-item{padding:22px;background:var(--card);border-radius:var(--radius);box-shadow:0 1px 3px rgba(23,25,28,.07)}
-.why-item .display{font-size:24px;color:var(--asphalt);margin-bottom:6px}
-.why-item .display em{font-style:normal;color:var(--line-dark)}
-.why-item p{color:var(--steel);font-size:14.5px}
-.reviews{background:var(--asphalt);color:#fff}
-.reviews .sec-head h2{color:#fff}
-.reviews .eyebrow{color:#9AA1AC}
-.rev{background:var(--asphalt2);border:1px solid #33373E;border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:12px}
-.rev p{color:#D7DBE1;font-size:14.5px;flex:1}
-.rev .who{display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:14px}
-.rev .who .stars{font-size:13px}
-.rev-src{margin-top:22px;font-size:14px;color:#9AA1AC}
-.rev-src a{color:var(--line)}
-.contact .card{background:var(--card);border-radius:var(--radius);padding:30px;box-shadow:0 1px 3px rgba(23,25,28,.07);
-display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.contact dt{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);margin-bottom:5px}
-.contact dd{font-size:17px;font-weight:600;margin-bottom:20px}
-.contact dd a{color:var(--ink);text-decoration:none}
-.contact dd a:hover{color:var(--line-dark)}
-footer{background:var(--asphalt);color:#9AA1AC;padding:26px 0;font-size:13px;border-top:3px solid var(--line)}
-footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
-.demo-badge{border:1px dashed #4A4F57;border-radius:8px;padding:6px 12px}
-.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--line);color:var(--asphalt);
-border-radius:50%;width:60px;height:60px;align-items:center;justify-content:center;font-size:26px;text-decoration:none;
-box-shadow:0 6px 20px rgba(0,0,0,.3)}
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s}
+.svc{background:var(--void2);border:1px solid var(--hair);border-radius:20px;padding:28px;position:relative;
+  transition:border-color .3s,box-shadow .3s,transform .3s var(--ease)}
+.svc:hover{border-color:var(--violet);box-shadow:0 0 34px rgba(168,85,247,.18);transform:translateY(-4px)}
+.svc h3{font-size:15.5px;margin-bottom:12px;color:#fff}
+.svc p{color:var(--muted);font-size:14px}
+
+/* лаунж-полоса */
+.lounge{background:linear-gradient(120deg,#1B1030,#131320);border:1px solid var(--hair);border-radius:24px;
+  padding:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px}
+.lx b{font-family:'Unbounded',sans-serif;font-size:16px;display:block;margin-bottom:8px;color:var(--violet-soft)}
+.lx p{color:var(--muted);font-size:14px}
+
+/* отзывы */
+.rev{background:var(--void2);border:1px solid var(--hair);border-radius:20px;padding:26px}
+.rev .stars{color:var(--violet-soft);letter-spacing:3px;font-size:13px;margin-bottom:12px}
+.rev p{font-size:14.5px;color:#D8D2E4}
+.rev .who{margin-top:16px;font-weight:800;font-size:13.5px;color:var(--violet-soft)}
+.src{margin-top:22px;font-size:14px;color:var(--muted)}
+.src a{color:var(--violet-soft)}
+
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px}
+dt{font-size:11.5px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+dd{font-size:17px;font-weight:600;margin-bottom:20px}
+dd a{color:var(--txt);text-decoration:none;border-bottom:1px dashed var(--hair)}
+dd a:hover{color:var(--violet-soft);border-bottom-color:var(--violet)}
+footer{border-top:1px solid var(--hair);color:var(--muted);padding:26px 0;font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+.demo-badge{border:1px dashed var(--hair);border-radius:999px;padding:5px 14px}
+.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--violet);color:#fff;
+  width:58px;height:58px;align-items:center;justify-content:center;font-size:24px;text-decoration:none;border-radius:50%;
+  box-shadow:0 0 30px rgba(168,85,247,.55)}
+@media(max-width:640px){.fab{display:flex}.hphone{display:none}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .reveal.on{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-a:focus-visible,.btn:focus-visible{outline:3px solid var(--line);outline-offset:2px}
-@media (max-width:640px){.hero{padding:44px 0 310px}.contact .card{grid-template-columns:1fr}
-.fab{display:flex}.hphone .txt{display:none}.hphone{padding:10px 12px}}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--violet);outline-offset:2px}
 </style>
 </head>
 <body>
+
 <header><div class="wrap hrow">
-<a class="logo" href="#">ZONA<span>·КОМФОРТА</span></a>
-<a class="hphone" href="tel:+79621710008">📞 <span class="txt">+7 (962) 171-00-08</span></a>
+  <a class="logo" href="#">ZONA<span>·КОМФОРТА</span></a>
+  <a class="hphone" href="tel:+79621710008">+7 (962) 171-00-08</a>
 </div></header>
 
 <section class="hero">
+  <img class="bg" src="assets/hero.jpg" alt="Автомобиль в детейлинг-студии Zona Комфорта" width="1536" height="1024">
   <div class="wrap">
-    <div class="eyebrow">Калуга · Зерновая, 22 стр. 1</div>
-    <h1>Детейлинг, после которого машина как новая</h1>
-    <p class="sub">Химчистка салона, керамомойка, твёрдый воск, мойка днища. Пока мы наводим красоту — вы отдыхаете в зоне ожидания с чаем и кальяном.</p>
-    <div class="ratebox">
-      <div class="score">4,6</div>
-      <div><div class="stars">★★★★★</div>
-      <small>13 оценок · 10 отзывов · <a href="https://yandex.ru/maps/org/zona_komforta/116958229636/" target="_blank" rel="noopener">отзывы на Яндекс.Картах</a></small></div>
-    </div>
+    <div class="glowline"></div>
+    <div class="tag">Детейлинг-студия · Калуга</div>
+    <h1>Машина как новая. <em>Вы — как в лаунже</em></h1>
+    <p class="sub">Химчистка салона, керамомойка, твёрдый воск, мойка днища. Пока мы наводим блеск,
+    вы отдыхаете в зоне ожидания с чаем и кальяном.</p>
     <div class="cta-row">
       <a class="btn btn-main" href="tel:+79621710008">Записаться</a>
       <a class="btn btn-ghost" href="#services">Услуги</a>
     </div>
-    <p class="hours-hero">Запись по телефону: <b>+7 (962) 171-00-08</b></p>
-  </div>
-  <div class="wheel" aria-hidden="true">
-    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <g class="roll">
-        <circle cx="200" cy="200" r="176" fill="none" stroke="#2E3238" stroke-width="34" stroke-dasharray="20 12"/>
-        <circle cx="200" cy="200" r="158" fill="#101215"/>
-        <circle cx="200" cy="200" r="158" fill="none" stroke="#22252A" stroke-width="6"/>
-        <circle cx="200" cy="200" r="106" fill="#22252A" stroke="#3A3E45" stroke-width="4"/>
-        <g fill="#2E3238" stroke="#454A52" stroke-width="2">
-          <g transform="rotate(0 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
-          <g transform="rotate(72 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
-          <g transform="rotate(144 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
-          <g transform="rotate(216 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
-          <g transform="rotate(288 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
-        </g>
-        <g fill="#5A6270">
-          <circle cx="200" cy="156" r="7"/><circle cx="242" cy="187" r="7"/>
-          <circle cx="226" cy="236" r="7"/><circle cx="174" cy="236" r="7"/>
-          <circle cx="158" cy="187" r="7"/>
-        </g>
-      </g>
-      <path d="M 200 200 m 0 -128 a 128 128 0 0 1 88 34" fill="none" stroke="#9B6CFF" stroke-width="26" stroke-linecap="round"/>
-      <circle cx="200" cy="200" r="34" fill="#9B6CFF"/>
-      <text x="200" y="211" text-anchor="middle" font-family="'Russo One',sans-serif" font-size="24" fill="#17191C">ZK</text>
-    </svg>
+    <p class="rate">Рейтинг <b>4,6</b> · <a href="https://yandex.ru/maps/org/zona_komforta/116958229636/" target="_blank" rel="noopener">10 отзывов на Яндекс.Картах</a> · Зерновая, 22 стр. 1</p>
   </div>
 </section>
 
 <section id="services">
   <div class="wrap">
-    <div class="sec-head reveal"><div class="eyebrow">Что делаем</div><h2>Услуги</h2></div>
+    <div class="k reveal">Что делаем</div>
+    <h2 class="reveal">Услуги студии</h2>
     <div class="grid">
-      <div class="svc reveal"><h3>Химчистка салона</h3><p>Полная химчистка: сиденья, потолок, пластик. Машина пахнет как новая.</p><div class="price">по звонку</div></div>
-      <div class="svc reveal"><h3>Керамомойка</h3><p>Мойка с керамическим составом — блеск и защита ЛКП.</p><div class="price">по звонку</div></div>
-      <div class="svc reveal"><h3>Твёрдый воск</h3><p>Защитное покрытие на месяцы: вода и грязь скатываются сами.</p><div class="price">по звонку</div></div>
-      <div class="svc reveal"><h3>Мойка днища</h3><p>Смываем реагенты и грязь там, куда обычная мойка не добирается.</p><div class="price">по звонку</div></div>
+      <div class="svc reveal"><h3>Химчистка салона</h3><p>Сиденья, потолок, пластик — полная чистка. Машина пахнет как новая.</p></div>
+      <div class="svc reveal"><h3>Керамомойка</h3><p>Мойка с керамическим составом: блеск и защита лакокрасочного покрытия.</p></div>
+      <div class="svc reveal"><h3>Твёрдый воск</h3><p>Защита на месяцы — вода и грязь скатываются сами.</p></div>
+      <div class="svc reveal"><h3>Мойка днища</h3><p>Смываем реагенты там, куда обычная мойка не добирается.</p></div>
     </div>
   </div>
 </section>
 
-<section class="why" style="padding-top:0">
+<section style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head reveal"><div class="eyebrow">Почему к нам</div><h2>Комфорт — в названии</h2></div>
-    <div class="grid">
-      <div class="why-item reveal"><div class="display">Зона <em>ожидания</em></div><p>Чай и кальян, пока машину приводят в порядок.</p></div>
-      <div class="why-item reveal"><div class="display">Скидки по записи</div><p>Записались заранее — получили скидку на комплекс.</p></div>
-      <div class="why-item reveal"><div class="display">Аккуратно к <em>ЛКП</em></div><p>Профессиональная химия и мягкие технологии мойки.</p></div>
-      <div class="why-item reveal"><div class="display">Довозим до идеала</div><p>Не отдаём машину, пока результат не устроит нас самих.</p></div>
+    <div class="lounge reveal">
+      <div class="lx"><b>Лаунж-зона</b><p>Чай и кальян, пока машину приводят в порядок. Комфорт — в названии.</p></div>
+      <div class="lx"><b>Скидки по записи</b><p>Записались заранее — получили скидку на комплекс.</p></div>
+      <div class="lx"><b>До идеала</b><p>Не отдаём машину, пока результат не устроит нас самих.</p></div>
     </div>
   </div>
 </section>
 
-<section class="reviews">
+<section style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head reveal"><div class="eyebrow">Слово клиентам</div><h2>Отзывы с Яндекс.Карт</h2></div>
+    <div class="k reveal">Слово клиентам</div>
+    <h2 class="reveal">Отзывы с Яндекс.Карт</h2>
     <div class="grid">
-      <div class="rev reveal"><p>«Приезжали на химчистку — всё сделали круто и чисто, приятная атмосфера, вежливый персонал. В зоне ожидания можно покурить кальян и попить вкусный чай!»</p>
-        <div class="who"><span>Ольга А.</span><span class="stars">★★★★★</span></div></div>
-      <div class="rev reveal"><p>«Заезжал на мойку днища — сделали чётко. Записался на твёрдый воск, сказали сделают скидку.»</p>
-        <div class="who"><span>Кирилл Н.</span><span class="stars">★★★★★</span></div></div>
-      <div class="rev reveal"><p>«Привозил автомобиль на керамомойку — отмыли отлично, очень доволен услугой, буду ещё приезжать.»</p>
-        <div class="who"><span>Александр С.</span><span class="stars">★★★★★</span></div></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>«Приезжали на химчистку — всё сделали круто и чисто, приятная
+        атмосфера, вежливый персонал. В зоне ожидания можно покурить кальян и попить вкусный чай!»</p><div class="who">Ольга А.</div></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>«Заезжал на мойку днища — сделали чётко. Записался на твёрдый
+        воск, сказали сделают скидку».</p><div class="who">Кирилл Н.</div></div>
+      <div class="rev reveal"><div class="stars">★★★★★</div><p>«Привозил автомобиль на керамомойку — отмыли отлично,
+        очень доволен услугой, буду ещё приезжать».</p><div class="who">Александр С.</div></div>
     </div>
-    <p class="rev-src reveal">Рейтинг 4,6 на Яндекс.Картах. <a href="https://yandex.ru/maps/org/zona_komforta/116958229636/reviews/" target="_blank" rel="noopener">Читать все →</a></p>
+    <p class="src reveal">Рейтинг 4,6. <a href="https://yandex.ru/maps/org/zona_komforta/116958229636/reviews/" target="_blank" rel="noopener">Читать все отзывы →</a></p>
   </div>
 </section>
 
-<section class="contact" id="contact">
+<section id="contact" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head reveal"><div class="eyebrow">Как нас найти</div><h2>Контакты</h2></div>
-    <div class="card reveal">
-      <dl>
-        <dt>Адрес</dt><dd>Калуга, Зерновая ул., 22, стр. 1</dd>
-        <dt>Режим работы</dt><dd>Запись по телефону</dd>
-      </dl>
-      <dl>
-        <dt>Телефоны</dt><dd><a href="tel:+79621710008">+7 (962) 171-00-08</a></dd>
-        <a class="btn btn-main" href="https://yandex.ru/maps/org/zona_komforta/116958229636/" target="_blank" rel="noopener">Маршрут в Яндекс.Картах</a>
-      </dl>
+    <div class="k reveal">Как нас найти</div>
+    <h2 class="reveal">Контакты</h2>
+    <div class="cgrid reveal">
+      <dl><dt>Адрес</dt><dd>Калуга, Зерновая ул., 22, стр. 1</dd></dl>
+      <dl><dt>Телефон</dt><dd><a href="tel:+79621710008">+7 (962) 171-00-08</a></dd>
+          <dt>Запись</dt><dd>По телефону</dd></dl>
+      <dl><dt>Маршрут</dt><dd><a href="https://yandex.ru/maps/org/zona_komforta/116958229636/" target="_blank" rel="noopener">Открыть в Яндекс.Картах</a></dd></dl>
     </div>
   </div>
 </section>
 
 <footer><div class="wrap">
-<span>© 2026 Zona Комфорта · Калуга</span>
-<span class="demo-badge">Демонстрационный макет нового сайта</span>
+  <span>© 2026 Zona Комфорта · Калуга</span>
+  <span class="demo-badge">Демонстрационный макет</span>
 </div></footer>
 
 <a class="fab" href="tel:+79621710008" aria-label="Позвонить">📞</a>
