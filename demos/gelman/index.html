@@ -8,261 +8,226 @@
 <meta name="description" content="Эдуард Витальевич Гельман — стоматолог, стоматолог-хирург в Калуге. Частный приём, честные цены, работа с тревожными пациентами.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paperw:#FBFAF7; --teald:#0E5A55; --teal-l:#EAF3F2; --gold:#B98F3E; --card:#FFFFFF;
-  --ink:#20302E; --muted:#687976; --hair:#E4E2DA; --ease:cubic-bezier(.16,1,.3,1);
+  --ink:#1d1d1f; --mid:#707070; --nav:#474747; --paper:#ffffff; --canvas:#f5f5f7;
+  --blue:#0071e3; --link:#0066cc; --ember:#b64400; --ease:cubic-bezier(.4,0,.25,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--paperw);color:var(--ink);line-height:1.7}
-h1,h2,h3,.serif{font-family:'Spectral',Georgia,serif;line-height:1.25}
-.wrap{max-width:940px;margin:0 auto;padding:0 24px}
+body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--paper);color:var(--ink);
+  line-height:1.47;font-size:17px;letter-spacing:-.022em}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.narrow{max-width:680px;margin:0 auto;padding:0 22px}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
 
-header{border-bottom:1px solid var(--hair);position:sticky;top:0;background:rgba(251,250,247,.94);backdrop-filter:blur(8px);z-index:50}
-.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
-.hleft{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
-.hava{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--teal-l)}
-.hname{font-weight:600;font-size:15px}
-.hname small{display:block;color:var(--muted);font-weight:400;font-size:12.5px}
-.htel{color:var(--teald);text-decoration:none;font-weight:600;font-size:14.5px}
-.htel:hover{text-decoration:underline}
+/* нав 44px */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(20px)}
+.hrow{height:48px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:600;font-size:14px}
+.logo img{width:28px;height:28px;border-radius:50%;object-fit:cover}
+.hlink{color:var(--nav);font-size:13px}
+.hlink:hover{color:var(--ink);text-decoration:none}
 
-/* hero с настоящим портретом */
-.hero{padding:60px 0 56px}
-.hero .grid{display:grid;grid-template-columns:1fr;gap:44px;align-items:center}
-@media(min-width:860px){.hero .grid{grid-template-columns:1.15fr .85fr}}
-.hero .k{color:var(--gold);font-size:12.5px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;margin-bottom:16px}
-.hero h1{font-size:clamp(30px,4.6vw,48px);font-weight:600}
-.hero .spec{margin:10px 0 22px;font-size:17px;color:var(--teald);font-weight:500}
-.hero .sub{color:var(--muted);font-size:16px;max-width:46ch;margin-bottom:30px}
-.hero .sub b{color:var(--ink);font-weight:600}
-.btn{display:inline-block;background:var(--teald);color:#fff;text-decoration:none;font-weight:600;font-size:15px;
-  padding:16px 34px;border-radius:8px;transition:all .3s var(--ease)}
-.btn:hover{background:#0A423E;transform:translateY(-2px);box-shadow:0 12px 28px rgba(14,90,85,.25)}
-.creds{display:flex;gap:26px;margin-top:32px;flex-wrap:wrap}
-.creds div{border-left:3px solid var(--gold);padding-left:12px}
-.creds b{font-size:16px;display:block}
-.creds span{color:var(--muted);font-size:13px}
-.portrait{justify-self:center;position:relative}
-.portrait img{width:min(340px,80vw);height:auto;max-height:480px;object-fit:cover;object-position:top;
-  border-radius:18px;display:block;border:8px solid #fff;box-shadow:0 24px 60px rgba(32,48,46,.22)}
-.portrait::after{content:"";position:absolute;inset:-14px;border:1px solid var(--gold);border-radius:24px;opacity:.5}
-.portrait .pd{position:absolute;left:50%;bottom:-14px;transform:translateX(-50%);background:var(--card);
-  border:1px solid var(--hair);border-radius:999px;padding:9px 18px;font-size:12.5px;font-weight:600;white-space:nowrap;
-  box-shadow:0 8px 22px rgba(32,48,46,.12)}
-.portrait .pd b{color:var(--teald)}
+/* hero: центрированный собор */
+.hero{text-align:center;padding:84px 0 0}
+.eyebrow{font-size:17px;color:var(--ink);font-weight:500}
+.eyebrow .new{color:var(--ember);font-weight:500;margin-right:10px}
+.hero h1{font-size:clamp(44px,8.6vw,92px);font-weight:700;letter-spacing:-.015em;line-height:1.05;margin:10px 0 14px}
+.hero .sub{font-size:clamp(19px,2.6vw,26px);color:var(--mid);font-weight:400;letter-spacing:-.01em;max-width:34ch;margin:0 auto}
+.cta-row{margin:26px 0 10px;display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap}
+.pill{display:inline-block;background:var(--blue);color:#fff;font-size:17px;padding:12px 24px;border-radius:980px;
+  transition:background .25s var(--ease)}
+.pill:hover{background:#0077ED;text-decoration:none}
+.pricefrom{font-size:17px;color:var(--mid)}
+.hero-img{margin-top:44px}
+.hero-img img{width:min(560px,92vw);height:auto;border-radius:28px;display:block;margin:0 auto}
 
-section{padding:60px 0}
-.k2{color:var(--gold);font-size:12.5px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;margin-bottom:12px}
-h2{font-size:clamp(24px,3.4vw,34px);font-weight:600;margin-bottom:28px}
+section{padding:104px 0}
+.band{background:var(--canvas)}
+h2{font-size:clamp(32px,4.6vw,48px);font-weight:600;letter-spacing:-.005em;line-height:1.08;margin-bottom:14px}
+.lead{font-size:21px;color:var(--mid);letter-spacing:.002em;max-width:56ch}
 
-/* частный приём */
-.private{background:var(--teald);color:#fff;border-radius:18px;padding:38px;display:grid;
-  grid-template-columns:1fr;gap:24px;align-items:center}
-@media(min-width:820px){.private{grid-template-columns:1.2fr .8fr}}
-.private h2{color:#fff;margin-bottom:10px}
-.private p{color:#B7D3D1;font-size:15px;max-width:52ch}
-.private .right{text-align:center}
-.private .tel{font-family:'Spectral',serif;font-size:clamp(24px,3.8vw,32px);color:#fff;text-decoration:none;font-weight:600}
-.private .tel:hover{text-decoration:underline}
-.private small{display:block;margin-top:10px;color:#8FB5B2;font-size:12.5px}
+/* полоса-график: две колонки текст+факты */
+.split{display:grid;grid-template-columns:1fr;gap:44px;align-items:center}
+@media(min-width:900px){.split{grid-template-columns:1.05fr .95fr}}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fact{background:var(--paper);border-radius:28px;padding:26px}
+.band .fact{background:var(--paper)}
+.fact b{display:block;font-size:24px;font-weight:600;letter-spacing:-.01em}
+.fact span{color:var(--mid);font-size:14px;letter-spacing:-.01em}
 
-/* прайс-лист */
-.price-tbl{background:var(--card);border:1px solid var(--hair);border-radius:14px;overflow:hidden}
-.price-tbl table{width:100%;border-collapse:collapse;font-size:15px}
-.price-tbl th{font-family:'Spectral',serif;font-weight:600;text-align:left;padding:16px 24px;background:var(--teal-l);
-  color:var(--teald);font-size:14.5px}
-.price-tbl td{padding:14px 24px;border-top:1px solid var(--hair);vertical-align:top}
-.price-tbl td small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
-.price-tbl td.pr{font-weight:600;white-space:nowrap;text-align:right;color:var(--teald)}
-.price-note{font-size:13px;color:var(--muted);margin-top:14px;max-width:66ch}
+/* прайс: чистая таблица без линий-рамок */
+.price{max-width:680px;margin:44px auto 0}
+.prow{display:flex;align-items:baseline;gap:14px;padding:15px 4px;border-bottom:1px solid #d6d6d6}
+.prow:last-child{border-bottom:none}
+.prow .nm{font-weight:500}
+.prow .nm small{display:block;color:var(--mid);font-weight:400;font-size:14px;margin-top:1px}
+.prow .dots{flex:1}
+.prow .pr{font-weight:600;white-space:nowrap}
+.pnote{color:var(--mid);font-size:14px;margin-top:18px;text-align:center}
 
-/* фото-ряд: кабинет, инструменты, результат */
-.gal{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:760px){.gal{grid-template-columns:1fr 1fr 1fr}}
-.gal figure{position:relative;border-radius:14px;overflow:hidden}
-.gal img{width:100%;height:230px;object-fit:cover;display:block;transition:transform .5s var(--ease)}
-.gal figure:hover img{transform:scale(1.04)}
-.gal figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(14,32,30,.85));
-  color:#fff;font-size:13px;font-weight:500;padding:26px 16px 12px}
+/* фото-полоса */
+.gal{display:grid;grid-template-columns:1fr;gap:16px;margin-top:44px}
+@media(min-width:820px){.gal{grid-template-columns:1fr 1fr 1fr}}
+.gal img{width:100%;height:250px;object-fit:cover;border-radius:28px;display:block}
+.gal figcaption{font-size:14px;color:var(--mid);margin-top:10px;text-align:center}
 
-/* 3D зуб */
-.tooth3d{background:linear-gradient(135deg,#0E5A55,#083B37);border-radius:20px;padding:38px;
-  display:grid;grid-template-columns:1fr;gap:20px;align-items:center;color:#B7D3D1;overflow:hidden}
-@media(min-width:820px){.tooth3d{grid-template-columns:1.1fr .9fr}}
-.tooth3d p{font-size:15px;max-width:44ch}
-.t3d-stage{position:relative;justify-self:center}
-.t3d-stage::after{content:"";position:absolute;left:50%;bottom:26px;transform:translateX(-50%);
-  width:56%;height:26px;border-radius:50%;background:radial-gradient(ellipse, rgba(0,0,0,.4), transparent 70%);z-index:0}
-#toothCanvas{position:relative;z-index:1;width:min(400px,82vw);height:min(400px,82vw);cursor:grab;touch-action:none;display:block}
+/* 3D зуб — светлая полоса */
+.tooth-sec{text-align:center}
+.tooth-sec .lead{margin:0 auto}
+#toothCanvas{width:min(380px,80vw);height:min(380px,80vw);margin:8px auto 0;display:block;cursor:grab;touch-action:none}
 
-/* чем помогаю */
-.helps{border-top:1px solid var(--hair)}
-.help{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid var(--hair)}
-.help .ico{width:38px;height:38px;border-radius:10px;background:var(--teal-l);color:var(--teald);display:flex;
-  align-items:center;justify-content:center;font-size:18px}
-.help b{font-size:16px;display:block}
-.help p{color:var(--muted);font-size:14px}
+/* образование */
+.edu{max-width:680px;margin:44px auto 0}
+.erow{display:grid;grid-template-columns:1fr auto;gap:16px;padding:16px 4px;border-bottom:1px solid #d6d6d6;align-items:baseline}
+.erow:last-child{border-bottom:none}
+.erow b{font-weight:500}
+.erow small{display:block;color:var(--mid);font-size:14px;margin-top:1px}
+.erow .yr{font-weight:600;white-space:nowrap}
 
-/* отзывы */
-.pd-rev{background:var(--card);border:1px solid var(--hair);border-radius:14px;padding:28px;margin-bottom:14px}
-.pd-rev p{font-family:'Spectral',serif;font-size:16.5px;font-style:italic}
-.pd-rev cite{display:block;margin-top:12px;font-style:normal;color:var(--muted);font-size:13px}
-.src{font-size:14px;color:var(--muted);margin-top:16px}
-.src a{color:var(--teald)}
+/* отзывы: две карточки */
+.revs{display:grid;grid-template-columns:1fr;gap:16px;margin-top:44px}
+@media(min-width:860px){.revs{grid-template-columns:1fr 1fr}}
+.rev{background:var(--paper);border-radius:28px;padding:34px}
+.band .rev{background:var(--paper)}
+.rev p{font-size:19px;letter-spacing:-.01em;line-height:1.4}
+.rev cite{display:block;margin-top:16px;color:var(--mid);font-style:normal;font-size:14px}
+.rev-src{text-align:center;margin-top:26px;font-size:17px}
 
-footer{color:var(--muted);padding:26px 0;font-size:12.5px;border-top:1px solid var(--hair)}
+/* финал */
+.final{text-align:center}
+.final h2{margin-bottom:8px}
+.final .tel-ph{font-size:clamp(26px,4.6vw,40px);font-weight:600;letter-spacing:-.01em;color:var(--mid)}
+.final .note{color:var(--mid);font-size:14px;margin-top:12px}
+
+footer{background:var(--canvas);color:var(--mid);padding:26px 0;font-size:12px;line-height:1.35}
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
-.demo-badge{border:1px dashed var(--hair);border-radius:8px;padding:5px 12px;white-space:nowrap}
-.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--teald);color:#fff;
-  width:58px;height:58px;align-items:center;justify-content:center;font-size:24px;text-decoration:none;border-radius:50%;
-  box-shadow:0 10px 26px rgba(14,90,85,.4)}
-@media(max-width:640px){.fab{display:flex}.htel{display:none}}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.demo-badge{border:1px solid #d6d6d6;border-radius:980px;padding:5px 14px;white-space:nowrap}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.on{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-a:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+a:focus-visible,.pill:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
 </style>
 </head>
 <body>
 
 <header><div class="wrap hrow">
-  <a class="hleft" href="#"><img class="hava" src="assets/portrait_sq.jpg" alt="Эдуард Гельман">
-    <span class="hname">Эдуард Гельман<small>стоматолог · стоматолог-хирург</small></span></a>
-  <a class="htel" href="#contact">приём по записи</a>
+  <span class="logo"><img src="assets/portrait_sq.jpg" alt="">Эдуард Гельман</span>
+  <a class="hlink" href="#price">Цены</a>
 </div></header>
 
 <section class="hero">
-  <div class="wrap grid">
-    <div>
-      <div class="k">Частный приём · Калуга</div>
-      <h1>Эдуард Витальевич Гельман</h1>
-      <div class="spec">Стоматолог, стоматолог-хирург</div>
-      <p class="sub">Принимаю в собственном кабинете: без конвейера клиник, спешки и навязанных услуг.
-      Подробно объясняю, что происходит с зубом, и <b>честно говорю, если лечение не нужно</b>.
-      Отдельно умею работать с теми, кто боится стоматологов.</p>
-      <a class="btn" href="#contact">Записаться на приём</a>
-      <div class="creds">
-        <div><b>КГМУ, 2021</b><span>диплом «Стоматология»</span></div>
-        <div><b>Ординатура, 2023</b><span>специальность «Стоматология»</span></div>
-        <div><b>Аккредитация</b><span>стоматология общей практики</span></div>
-        <div><b>5,0</b><span>оценка в отзывах пациентов</span></div>
-      </div>
+  <div class="wrap">
+    <p class="eyebrow reveal on"><span class="new">Частный приём</span>Стоматолог · стоматолог-хирург · Калуга</p>
+    <h1 class="reveal on">Свой стоматолог.</h1>
+    <p class="sub reveal on">Лечит спокойно. Объясняет понятно.<br>Не назначает лишнего.</p>
+    <div class="cta-row reveal on">
+      <a class="pill" href="#contact">Записаться на приём</a>
+      <a href="#price">Посмотреть цены ›</a>
     </div>
-    <div class="portrait reveal on">
+    <p class="pricefrom reveal on">Консультация — 500 ₽</p>
+    <div class="hero-img reveal on">
       <img src="assets/portrait2.jpg" alt="Эдуард Витальевич Гельман, стоматолог" width="1365" height="2428">
-      <span class="pd">⭐ <b>5,0</b> на ПроДокторов</span>
     </div>
   </div>
 </section>
 
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="private reveal" id="contact">
-      <div>
-        <h2 class="serif">Личный кабинет — личная ответственность</h2>
-        <p>У частного приёма простое преимущество: вы лечитесь у врача, чьё имя написано на двери.
-        Никто не торопит, план лечения не «спускает администратор», а результат — моя репутация.</p>
-      </div>
-      <div class="right">
-        <span class="tel">+7 (9__) ___-__-__</span>
-        <small>здесь будет ваш личный номер для записи · адрес кабинета — при записи</small>
-      </div>
+<section class="band">
+  <div class="wrap split">
+    <div class="reveal">
+      <h2>Личный кабинет.<br>Личная ответственность.</h2>
+      <p class="lead">Вы лечитесь у врача, чьё имя написано на двери. Никто не торопит,
+      план лечения не «спускает администратор», а результат — репутация одного человека.</p>
+    </div>
+    <div class="facts reveal">
+      <div class="fact"><b>5,0</b><span>оценка в отзывах пациентов</span></div>
+      <div class="fact"><b>8:00–11:45</b><span>приём в будни, по записи</span></div>
+      <div class="fact"><b>КГМУ</b><span>диплом 2021, ординатура 2023</span></div>
+      <div class="fact"><b>Без боли</b><span>начинаем, когда анестезия сработала</span></div>
     </div>
   </div>
 </section>
 
-<section id="price" style="padding-top:0">
+<section id="price">
+  <div class="wrap" style="text-align:center">
+    <h2 class="reveal">Честные цены.</h2>
+    <p class="lead reveal" style="margin:0 auto">Стоимость называется до лечения — и не меняется в процессе.</p>
+  </div>
+  <div class="price reveal">
+    <div class="prow"><span class="nm">Консультация и осмотр<small>план лечения и честный прогноз</small></span><span class="dots"></span><span class="pr">500 ₽</span></div>
+    <div class="prow"><span class="nm">Лечение кариеса<small>анестезия, пломба, полировка</small></span><span class="dots"></span><span class="pr">от 3 500 ₽</span></div>
+    <div class="prow"><span class="nm">Лечение пульпита<small>каналы под контролем</small></span><span class="dots"></span><span class="pr">от 6 500 ₽</span></div>
+    <div class="prow"><span class="nm">Профессиональная гигиена<small>чистка и полировка</small></span><span class="dots"></span><span class="pr">от 3 000 ₽</span></div>
+    <div class="prow"><span class="nm">Художественная реставрация<small>форма и цвет как у своих</small></span><span class="dots"></span><span class="pr">от 4 500 ₽</span></div>
+    <div class="prow"><span class="nm">Удаление зуба<small>бережно, с контролем заживления</small></span><span class="dots"></span><span class="pr">от 2 500 ₽</span></div>
+    <div class="prow"><span class="nm">Сложное удаление<small>включая зубы мудрости</small></span><span class="dots"></span><span class="pr">от 5 000 ₽</span></div>
+  </div>
+  <p class="pnote reveal">Цены ориентировочные. Точная стоимость — после осмотра.</p>
+</section>
+
+<section class="band tooth-sec">
   <div class="wrap">
-    <div class="k2 reveal">Прайс-лист</div>
-    <h2 class="reveal">Цены на приём и лечение</h2>
-    <div class="price-tbl reveal">
-      <table>
-        <tr><th>Услуга</th><th style="text-align:right">Стоимость</th></tr>
-        <tr><td>Консультация и осмотр<small>план лечения и честный прогноз — с этого начинаем всегда</small></td><td class="pr">500 ₽</td></tr>
-        <tr><td>Лечение кариеса<small>анестезия, пломба, тщательная полировка</small></td><td class="pr">от 3 500 ₽</td></tr>
-        <tr><td>Лечение пульпита<small>каналы под контролем, без боли</small></td><td class="pr">от 6 500 ₽</td></tr>
-        <tr><td>Профессиональная гигиена<small>чистка и полировка, рекомендации по уходу</small></td><td class="pr">от 3 000 ₽</td></tr>
-        <tr><td>Художественная реставрация<small>восстановление формы и цвета зуба</small></td><td class="pr">от 4 500 ₽</td></tr>
-        <tr><td>Удаление зуба<small>бережно, с контролем заживления</small></td><td class="pr">от 2 500 ₽</td></tr>
-        <tr><td>Сложное удаление<small>включая зубы мудрости</small></td><td class="pr">от 5 000 ₽</td></tr>
-      </table>
-    </div>
-    <p class="price-note reveal">Точная стоимость — после осмотра: называю цену до начала лечения, и она не меняется в процессе.
-    Оплата за визит, без скрытых позиций.</p>
+    <h2 class="reveal">Наглядно.</h2>
+    <p class="lead reveal">На приёме объясняю на модели: что случилось с зубом и как будем лечить.
+    Понимание снимает половину страха.</p>
+    <canvas id="toothCanvas" width="460" height="460" aria-label="3D-модель зуба"></canvas>
   </div>
 </section>
 
-<section style="padding-top:0">
+<section>
+  <div class="wrap" style="text-align:center">
+    <h2 class="reveal">Кабинет.</h2>
+  </div>
   <div class="wrap">
-    <div class="k2 reveal">Кабинет</div>
-    <h2 class="reveal">Где и как проходит приём</h2>
     <div class="gal reveal">
-      <figure><img src="assets/cabinet.jpg" alt="Стоматологический кабинет" width="1536" height="1024"><figcaption>Кабинет: современная установка, стерильность</figcaption></figure>
-      <figure><img src="assets/hero.jpg" alt="Стерильные инструменты" width="1536" height="1024"><figcaption>Инструменты: одноразовое и стерильное</figcaption></figure>
-      <figure><img src="assets/smile.jpg" alt="Здоровая улыбка" width="1536" height="1024"><figcaption>Результат: здоровые зубы без страха</figcaption></figure>
+      <figure><img src="assets/cabinet.jpg" alt="Стоматологический кабинет" width="1536" height="1024"><figcaption>Современная установка</figcaption></figure>
+      <figure><img src="assets/hero.jpg" alt="Стерильные инструменты" width="1536" height="1024"><figcaption>Стерильные инструменты</figcaption></figure>
+      <figure><img src="assets/smile.jpg" alt="Здоровая улыбка" width="1536" height="1024"><figcaption>Результат без страха</figcaption></figure>
     </div>
   </div>
 </section>
 
-<section style="padding-top:0">
+<section class="band">
+  <div class="wrap" style="text-align:center">
+    <h2 class="reveal">Образование.</h2>
+  </div>
+  <div class="edu reveal">
+    <div class="erow"><span><b>Курский государственный медицинский университет</b><small>диплом № 104635/0000074 · «Стоматология»</small></span><span class="yr">2021</span></div>
+    <div class="erow"><span><b>Ординатура</b><small>специальность «Стоматология»</small></span><span class="yr">2023</span></div>
+    <div class="erow"><span><b>Аккредитация специалиста</b><small>«Стоматология общей практики»</small></span><span class="yr">2021</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="text-align:center">
+    <h2 class="reveal">Пациенты пишут.</h2>
+  </div>
   <div class="wrap">
-    <div class="tooth3d reveal" id="tooth3d-box">
-      <div class="t3d-txt">
-        <h2 class="serif" style="color:#fff;margin-bottom:12px">Здоровый зуб — цель каждого приёма</h2>
-        <p>Объясняю наглядно: что случилось с зубом, почему, и как будем лечить.
-        Понимание снимает половину страха.</p>
+    <div class="revs">
+      <div class="rev reveal" style="background:var(--canvas)">
+        <p>«Умение работать с тревожными пациентами — я из таких. Хожу на лечение
+        больше года только к этому врачу».</p>
+        <cite>Пациентка · ПроДокторов, апрель 2026</cite>
       </div>
-      <div class="t3d-stage"><canvas id="toothCanvas" width="460" height="460" aria-label="3D-модель зуба"></canvas></div>
+      <div class="rev reveal" style="background:var(--canvas)">
+        <p>«Пролечено более 8 зубов. Не навязывает услуг, честно говорит,
+        если лечение не нужно».</p>
+        <cite>Пациентка · ПроДокторов, апрель 2026</cite>
+      </div>
     </div>
+    <p class="rev-src reveal"><a href="https://prodoctorov.ru/kaluga/vrach/997955-gelman/" target="_blank" rel="noopener">Все отзывы на ПроДокторов ›</a></p>
   </div>
 </section>
 
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="k2 reveal">Чем помогаю</div>
-    <h2 class="reveal">Приём и лечение</h2>
-    <div class="helps reveal">
-      <div class="help"><span class="ico">🦷</span><div><b>Лечение кариеса и его осложнений</b><p>Скрупулёзно, с тщательной полировкой пломбы после лечения.</p></div></div>
-      <div class="help"><span class="ico">🛡</span><div><b>Хирургическая стоматология</b><p>Удаление зубов — бережно, с контролем заживления.</p></div></div>
-      <div class="help"><span class="ico">🗺</span><div><b>Взгляд на ситуацию в целом</b><p>Подскажу, если нужен ортодонт или ортопед — чтобы проблемы не копились.</p></div></div>
-      <div class="help"><span class="ico">🤝</span><div><b>Работа с тревожными пациентами</b><p>Спокойный темп, всё объясняю заранее — страх уходит по дороге.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="k2 reveal">Документы</div>
-    <h2 class="reveal">Образование и аккредитация</h2>
-    <div class="price-tbl reveal">
-      <table>
-        <tr><td>Высшее образование<small>ФГБОУ ВО «Курский государственный медицинский университет» Минздрава России</small></td>
-            <td class="pr">диплом 02.07.2021<br><small style="text-align:right">№ 104635/0000074 · «Стоматология»</small></td></tr>
-        <tr><td>Ординатура<small>специальность «Стоматология»</small></td><td class="pr">2023</td></tr>
-        <tr><td>Аккредитация специалиста<small>«Стоматология общей практики»</small></td><td class="pr">23.07.2021</td></tr>
-      </table>
-    </div>
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="k2 reveal">Отзывы</div>
-    <h2 class="reveal">Что пишут пациенты</h2>
-    <div class="pd-rev reveal">
-      <p>«Высокий профессионализм и доброжелательность, особенно отмечаю умение работать
-      с тревожными пациентами (я из таких). Хожу на лечение больше года только к этому врачу».</p>
-      <cite>— пациентка, ПроДокторов, апрель 2026</cite>
-    </div>
-    <div class="pd-rev reveal">
-      <p>«Пролечено уже более 8 зубов. Настоящий профессионал: скрупулёзно подходит к каждому зубу,
-      не навязывает услуг, честно говорит, если лечение не нужно».</p>
-      <cite>— пациентка, ПроДокторов, апрель 2026</cite>
-    </div>
-    <p class="src reveal">Все отзывы — <a href="https://prodoctorov.ru/kaluga/vrach/997955-gelman/" target="_blank" rel="noopener">на моей странице ПроДокторов →</a></p>
+<section class="band final" id="contact">
+  <div class="narrow">
+    <h2 class="reveal">Записаться.</h2>
+    <p class="lead reveal" style="margin:0 auto 18px">Приём в будни с 8:00 до 11:45, строго по записи.</p>
+    <p class="tel-ph reveal">+7 (9__) ___-__-__</p>
+    <p class="note reveal">здесь будет ваш личный номер · адрес кабинета — при записи</p>
   </div>
 </section>
 
@@ -271,13 +236,11 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:
   <span class="demo-badge">Демонстрационный макет</span>
 </div></footer>
 
-<a class="fab" href="#contact" aria-label="Записаться">📞</a>
-
 <script src="https://unpkg.com/three@0.147.0/build/three.min.js"></script>
 <script>
 (function initTooth(){
   const canvas = document.getElementById('toothCanvas');
-  if (!canvas || typeof THREE === 'undefined') { if (canvas) canvas.outerHTML = '<div style="font-size:120px;text-align:center">🦷</div>'; return; }
+  if (!canvas || typeof THREE === 'undefined') { if (canvas) canvas.outerHTML = '<div style="font-size:120px">🦷</div>'; return; }
   try {
     const renderer = new THREE.WebGLRenderer({canvas, alpha: true, antialias: true});
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -286,16 +249,16 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:
     const cam = new THREE.PerspectiveCamera(38, 1, .1, 100);
     cam.position.set(0, .25, 6.2);
 
-    // жемчужный matcap: студийный вид без света
+    // светлый жемчужный matcap под белую полосу
     function makeMatcap(){
       const c = document.createElement('canvas'); c.width = c.height = 256;
       const g = c.getContext('2d');
       let gr = g.createRadialGradient(96, 86, 10, 128, 128, 152);
-      gr.addColorStop(0, '#ffffff'); gr.addColorStop(.35, '#f5f0e6');
-      gr.addColorStop(.7, '#dcd5c6'); gr.addColorStop(1, '#8e897c');
+      gr.addColorStop(0, '#ffffff'); gr.addColorStop(.4, '#f6f3ec');
+      gr.addColorStop(.75, '#ddd8cc'); gr.addColorStop(1, '#9d988c');
       g.fillStyle = gr; g.fillRect(0, 0, 256, 256);
-      gr = g.createLinearGradient(0, 175, 0, 256);
-      gr.addColorStop(0, 'rgba(14,90,85,0)'); gr.addColorStop(1, 'rgba(14,90,85,.38)');
+      gr = g.createLinearGradient(0, 180, 0, 256);
+      gr.addColorStop(0, 'rgba(29,29,31,0)'); gr.addColorStop(1, 'rgba(29,29,31,.28)');
       g.fillStyle = gr; g.fillRect(0, 0, 256, 256);
       gr = g.createRadialGradient(86, 70, 2, 86, 70, 36);
       gr.addColorStop(0, 'rgba(255,255,255,.95)'); gr.addColorStop(1, 'rgba(255,255,255,0)');
@@ -305,7 +268,6 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:
     const mat = new THREE.MeshMatcapMaterial({matcap: makeMatcap()});
     const tooth = new THREE.Group();
 
-    // цельный зуб: деформированная сфера — без швов
     const ss = (a, b, x) => { x = Math.min(1, Math.max(0, (x - a) / (b - a))); return x * x * (3 - 2 * x); };
     const geo = new THREE.SphereGeometry(1, 150, 150);
     const pos = geo.attributes.position;
@@ -313,20 +275,16 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:
       const x = pos.getX(i), y = pos.getY(i), z = pos.getZ(i);
       const theta = Math.atan2(z, x);
       let X = x * 1.04, Y = y, Z = z * .9;
-      // объём коронки
       const belly = 1 + .3 * ss(.0, .55, y) * (1 - ss(.72, 1, y));
       X *= belly; Z *= belly;
-      // жевательная поверхность: приплюснуть + 4 бугра с крестовой фиссурой
       if (y > .55) {
         const capT = ss(.55, 1, y);
         Y = .55 + (y - .55) * .42;
         const cusp = Math.pow(Math.abs(Math.sin(2 * theta)), 1.4) * (1 - ss(.9, 1, y));
         Y += .17 * capT * cusp;
       }
-      // шейка
       const neck = Math.exp(-Math.pow((y + .08) / .17, 2));
       X *= (1 - .15 * neck); Z *= (1 - .15 * neck);
-      // раздвоение на два корня
       if (y < -.12) {
         const t = ss(-.12, -.95, y);
         const side = Math.tanh(x * 6);
@@ -343,34 +301,27 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--gold);outline-offset:
     const body = new THREE.Mesh(geo, mat);
     body.scale.set(1.42, 1.62, 1.42);
     tooth.add(body);
-
     tooth.position.y = .2;
     tooth.rotation.z = .05;
     scene.add(tooth);
 
-    // блёстки
-    const pg = new THREE.BufferGeometry(); const pp = [];
-    for (let i = 0; i < 60; i++) pp.push((Math.random()-.5)*8, (Math.random()-.5)*6, (Math.random()-.5)*4);
-    pg.setAttribute('position', new THREE.Float32BufferAttribute(pp, 3));
-    const stars = new THREE.Points(pg, new THREE.PointsMaterial({color: 0xBFE8E2, size: .05, transparent: true, opacity: .7}));
-    scene.add(stars);
-
-    let tx = 0, ty = 0, dragging = false, px = 0;
-    const onMove = (x, y, r) => { tx = ((x - r.left)/r.width - .5); ty = ((y - r.top)/r.height - .5); };
-    canvas.addEventListener('pointermove', e => onMove(e.clientX, e.clientY, canvas.getBoundingClientRect()));
+    let ty = 0, dragging = false, px = 0;
+    canvas.addEventListener('pointermove', e => {
+      const r = canvas.getBoundingClientRect();
+      ty = ((e.clientY - r.top) / r.height - .5);
+      if (dragging) { tooth.rotation.y += (e.clientX - px) * .01; px = e.clientX; }
+    });
     canvas.addEventListener('pointerdown', e => { dragging = true; px = e.clientX; });
     addEventListener('pointerup', () => dragging = false);
-    canvas.addEventListener('pointermove', e => { if (dragging) { tooth.rotation.y += (e.clientX - px) * .01; px = e.clientX; } });
 
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     (function loop(){
       requestAnimationFrame(loop);
-      if (!dragging && !reduced) tooth.rotation.y += .006;
+      if (!dragging && !reduced) tooth.rotation.y += .005;
       tooth.rotation.x += ((ty * .5) - tooth.rotation.x) * .05;
-      stars.rotation.y += .0008;
       renderer.render(scene, cam);
     })();
-  } catch(e) { canvas.outerHTML = '<div style="font-size:120px;text-align:center">🦷</div>'; }
+  } catch(e) { canvas.outerHTML = '<div style="font-size:120px">🦷</div>'; }
 })();
 
 const els = document.querySelectorAll('.reveal');
