@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Volvo-Калуга — специализированный сервис Volvo</title>
+<meta name="description" content="Сервис только для Volvo в Калуге: ТО, ремонт КПП, автоэлектрика. Знаем эти машины досконально.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--asphalt:#17191C;--asphalt2:#22252A;--line:#4A90D9;--line-dark:#3577BD;
+--bg:#F2F3F5;--card:#FFFFFF;--steel:#5A6270;--ink:#1B1D21;--radius:14px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+h1,h2,.display{font-family:'Russo One',sans-serif;font-weight:400;line-height:1.15}
+header{position:sticky;top:0;z-index:50;background:var(--asphalt);border-bottom:3px solid var(--line)}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+.logo{color:#fff;font-family:'Russo One',sans-serif;font-size:19px;letter-spacing:.5px;text-decoration:none}
+.logo span{color:var(--line)}
+.hphone{display:inline-flex;align-items:center;gap:8px;background:var(--line);color:var(--asphalt);text-decoration:none;
+font-weight:800;padding:10px 16px;border-radius:10px;font-size:15px;white-space:nowrap;transition:transform .15s}
+.hphone:hover{transform:translateY(-1px);background:var(--line-dark)}
+.hero{background:var(--asphalt);color:#fff;position:relative;overflow:hidden;padding:64px 0 330px}
+@media (min-width:1040px){.hero{padding-bottom:150px}}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:96px;
+background:repeating-linear-gradient(90deg, var(--line) 0 64px, transparent 64px 128px) center 46px/128px 10px no-repeat border-box,
+linear-gradient(180deg,#101215,#0B0C0E);background-repeat:repeat-x}
+.hero .wrap{position:relative;z-index:2}
+.wheel{position:absolute;z-index:2;bottom:36px;left:50%;transform:translateX(-50%);line-height:0}
+.wheel svg{width:min(210px,54vw);height:auto}
+.wheel::after{content:"";position:absolute;left:50%;bottom:-7px;transform:translateX(-50%);
+width:78%;height:20px;border-radius:50%;background:radial-gradient(ellipse at center, rgba(0,0,0,.6), transparent 68%)}
+.roll{transform-box:fill-box;transform-origin:center;animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.roll{animation:none}}
+@media (min-width:1040px){.wheel{left:auto;right:6%;transform:none}.wheel svg{width:min(330px,28vw)}}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--line);font-weight:700;font-size:13px;
+letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.eyebrow::before{content:"";width:34px;height:4px;background:var(--line)}
+.hero h1{font-size:clamp(30px,5.4vw,52px);max-width:17ch}
+.hero p.sub{margin:18px 0 28px;font-size:clamp(16px,2.2vw,19px);color:#C6CBD4;max-width:52ch}
+.ratebox{display:inline-flex;align-items:center;gap:14px;background:var(--asphalt2);border:1px solid #33373E;
+border-radius:var(--radius);padding:14px 18px;margin-bottom:30px}
+.ratebox .score{font-family:'Russo One',sans-serif;font-size:34px;color:var(--line)}
+.stars{color:var(--line);letter-spacing:2px;font-size:15px}
+.ratebox small{display:block;color:#9AA1AC;font-size:13px;margin-top:2px}
+.ratebox a{color:#C6CBD4}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:17px;
+padding:16px 28px;border-radius:12px;transition:transform .15s}
+.btn:active{transform:scale(.98)}
+.btn-main{background:var(--line);color:var(--asphalt)}
+.btn-main:hover{background:var(--line-dark)}
+.btn-ghost{border:2px solid #3A3E45;color:#fff}
+.btn-ghost:hover{border-color:var(--line);color:var(--line)}
+.hours-hero{margin-top:26px;color:#9AA1AC;font-size:14px}
+.hours-hero b{color:#fff}
+section{padding:64px 0}
+.sec-head{margin-bottom:34px}
+.sec-head h2{font-size:clamp(24px,3.4vw,34px)}
+.sec-head .eyebrow{color:var(--steel)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.svc{background:var(--card);border-radius:var(--radius);padding:24px;border-top:4px solid var(--line);
+box-shadow:0 1px 3px rgba(23,25,28,.07)}
+.svc h3{font-size:17px;margin-bottom:8px}
+.svc p{color:var(--steel);font-size:14.5px;margin-bottom:14px}
+.svc .price{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:16px}
+.svc .price small{color:var(--steel);font-weight:500;font-family:'Manrope',sans-serif}
+.why .grid{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.why-item{padding:22px;background:var(--card);border-radius:var(--radius);box-shadow:0 1px 3px rgba(23,25,28,.07)}
+.why-item .display{font-size:24px;color:var(--asphalt);margin-bottom:6px}
+.why-item .display em{font-style:normal;color:var(--line-dark)}
+.why-item p{color:var(--steel);font-size:14.5px}
+.reviews{background:var(--asphalt);color:#fff}
+.reviews .sec-head h2{color:#fff}
+.reviews .eyebrow{color:#9AA1AC}
+.rev{background:var(--asphalt2);border:1px solid #33373E;border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:12px}
+.rev p{color:#D7DBE1;font-size:14.5px;flex:1}
+.rev .who{display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:14px}
+.rev .who .stars{font-size:13px}
+.rev-src{margin-top:22px;font-size:14px;color:#9AA1AC}
+.rev-src a{color:var(--line)}
+.contact .card{background:var(--card);border-radius:var(--radius);padding:30px;box-shadow:0 1px 3px rgba(23,25,28,.07);
+display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.contact dt{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);margin-bottom:5px}
+.contact dd{font-size:17px;font-weight:600;margin-bottom:20px}
+.contact dd a{color:var(--ink);text-decoration:none}
+.contact dd a:hover{color:var(--line-dark)}
+footer{background:var(--asphalt);color:#9AA1AC;padding:26px 0;font-size:13px;border-top:3px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
+.demo-badge{border:1px dashed #4A4F57;border-radius:8px;padding:6px 12px}
+.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--line);color:var(--asphalt);
+border-radius:50%;width:60px;height:60px;align-items:center;justify-content:center;font-size:26px;text-decoration:none;
+box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--line);outline-offset:2px}
+@media (max-width:640px){.hero{padding:44px 0 310px}.contact .card{grid-template-columns:1fr}
+.fab{display:flex}.hphone .txt{display:none}.hphone{padding:10px 12px}}
+</style>
+</head>
+<body>
+<header><div class="wrap hrow">
+<a class="logo" href="#">VOLVO<span>·КАЛУГА</span></a>
+<a class="hphone" href="tel:+74842578408">📞 <span class="txt">+7 (4842) 57-84-08</span></a>
+</div></header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Калуга · Октябрьский округ</div>
+    <h1>Сервис только для Volvo</h1>
+    <p class="sub">Работаем с одной маркой — и знаем её до последнего болта. ТО, ремонт КПП, автоэлектрика и те неисправности, от которых отказываются универсальные сервисы.</p>
+    <div class="ratebox"><div class="score" style="font-size:22px">Только Volvo · 20 отзывов на Картах</div></div>
+    <div class="cta-row">
+      <a class="btn btn-main" href="tel:+74842578408">Записаться</a>
+      <a class="btn btn-ghost" href="#services">Услуги</a>
+    </div>
+    <p class="hours-hero">Запись по телефону: <b>+7 (4842) 57-84-08</b></p>
+  </div>
+  <div class="wheel" aria-hidden="true">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <g class="roll">
+        <circle cx="200" cy="200" r="176" fill="none" stroke="#2E3238" stroke-width="34" stroke-dasharray="20 12"/>
+        <circle cx="200" cy="200" r="158" fill="#101215"/>
+        <circle cx="200" cy="200" r="158" fill="none" stroke="#22252A" stroke-width="6"/>
+        <circle cx="200" cy="200" r="106" fill="#22252A" stroke="#3A3E45" stroke-width="4"/>
+        <g fill="#2E3238" stroke="#454A52" stroke-width="2">
+          <g transform="rotate(0 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
+          <g transform="rotate(72 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
+          <g transform="rotate(144 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
+          <g transform="rotate(216 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
+          <g transform="rotate(288 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
+        </g>
+        <g fill="#5A6270">
+          <circle cx="200" cy="156" r="7"/><circle cx="242" cy="187" r="7"/>
+          <circle cx="226" cy="236" r="7"/><circle cx="174" cy="236" r="7"/>
+          <circle cx="158" cy="187" r="7"/>
+        </g>
+      </g>
+      <path d="M 200 200 m 0 -128 a 128 128 0 0 1 88 34" fill="none" stroke="#4A90D9" stroke-width="26" stroke-linecap="round"/>
+      <circle cx="200" cy="200" r="34" fill="#4A90D9"/>
+      <text x="200" y="211" text-anchor="middle" font-family="'Russo One',sans-serif" font-size="30" fill="#17191C">V</text>
+    </svg>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Что делаем</div><h2>Услуги</h2></div>
+    <div class="grid">
+      <div class="svc reveal"><h3>Техобслуживание Volvo</h3><p>Регламентное ТО по карте производителя, оригинальные и проверенные аналоги.</p><div class="price">по звонку</div></div>
+      <div class="svc reveal"><h3>Ремонт КПП</h3><p>Автоматические и механические коробки Volvo — диагностика и ремонт.</p><div class="price">цена по диагностике</div></div>
+      <div class="svc reveal"><h3>Автоэлектрика</h3><p>Сложные электрические неисправности, с которыми «гоняют по сервисам».</p><div class="price">цена по диагностике</div></div>
+      <div class="svc reveal"><h3>Диагностика</h3><p>Фирменная диагностика систем Volvo, честное заключение.</p><div class="price">по звонку</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="why" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Почему к нам</div><h2>Почему владельцы Volvo едут к нам</h2></div>
+    <div class="grid">
+      <div class="why-item reveal"><div class="display"><em>Одна</em> марка</div><p>Только Volvo — типовые болячки каждой модели знаем наизусть.</p></div>
+      <div class="why-item reveal"><div class="display">Центр города</div><p>Удобно доехать из любого района Калуги.</p></div>
+      <div class="why-item reveal"><div class="display">Берёмся за <em>сложное</em></div><p>Чиним то, от чего отказались другие сервисы — см. отзывы.</p></div>
+      <div class="why-item reveal"><div class="display">Выручаем транзитных</div><p>Сломались на трассе М3? Постараемся взять в работу без очереди.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Слово клиентам</div><h2>Отзывы с Яндекс.Карт</h2></div>
+    <div class="grid">
+      <div class="rev reveal"><p>«Уже 3 года пользуюсь услугами данного сервиса. Работают профессионалы своего дела: работают только с Volvo, знают все проблемы автомобилей этой марки.»</p>
+        <div class="who"><span>Владелец XC60</span><span class="stars">★★★★★</span></div></div>
+      <div class="rev reveal"><p>«Ехали с детьми из СПб, по дороге сломалась машина (Volvo XC90) — поломка, которую могли устранить только в специализированном центре. Несмотря на очередь, взяли машину в работу почти сразу. Очень выручили!»</p>
+        <div class="who"><span>Семья из Санкт-Петербурга</span><span class="stars">★★★★★</span></div></div>
+      <div class="rev reveal"><p>«Проблема была с фарами: моргали, гасли, жили своей жизнью. Два года мучился, обращался в разные сервисы в Москве и Калуге — толку ноль. Здесь — решили.»</p>
+        <div class="who"><span>Сергей Л.</span><span class="stars">★★★★★</span></div></div>
+    </div>
+    <p class="rev-src reveal">20 отзывов на Яндекс.Картах. <a href="https://yandex.ru/maps/org/volvo_kaluga/1008625236/reviews/" target="_blank" rel="noopener">Читать все →</a></p>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Как нас найти</div><h2>Контакты</h2></div>
+    <div class="card reveal">
+      <dl>
+        <dt>Адрес</dt><dd>Калуга, Октябрьский округ<br><small style='color:#5A6270'>Точный адрес и схему проезда подскажем по телефону</small></dd>
+        <dt>Режим работы</dt><dd>Запись по телефону</dd>
+      </dl>
+      <dl>
+        <dt>Телефоны</dt><dd><a href="tel:+74842578408">+7 (4842) 57-84-08</a><br><a href="mailto:volvo-kaluga@yandex.ru">volvo-kaluga@yandex.ru</a></dd>
+        <a class="btn btn-main" href="https://yandex.ru/maps/org/volvo_kaluga/1008625236/" target="_blank" rel="noopener">Маршрут в Яндекс.Картах</a>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+<span>© 2026 Volvo-Калуга · Калуга</span>
+<span class="demo-badge">Демонстрационный макет нового сайта</span>
+</div></footer>
+
+<a class="fab" href="tel:+74842578408" aria-label="Позвонить">📞</a>
+
+<script>
+const els = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+  }), {threshold: .12});
+  els.forEach(el => io.observe(el));
+} else { els.forEach(el => el.classList.add('on')); }
+</script>
+</body>
+</html>
