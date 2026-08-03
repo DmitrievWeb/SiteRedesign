@@ -49,6 +49,16 @@ header{position:sticky;top:0;z-index:50;background:var(--asphalt);border-bottom:
   background-repeat:repeat-x;
 }
 .hero .wrap{position:relative;z-index:2}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:center}
+.wheel{display:none;justify-self:center}
+.wheel svg{width:min(380px,34vw);height:auto;filter:drop-shadow(0 18px 40px rgba(0,0,0,.45))}
+.tread{animation:spin 50s linear infinite;transform-origin:center}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.tread{animation:none}}
+@media (min-width:900px){
+  .hero-grid{grid-template-columns:1.15fr .85fr}
+  .wheel{display:block}
+}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--line);font-weight:700;font-size:13px;
   letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
 .eyebrow::before{content:"";width:34px;height:4px;background:var(--line)}
@@ -162,6 +172,8 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--line);outline-offset:
 
 <section class="hero">
   <div class="wrap">
+   <div class="hero-grid">
+    <div>
     <div class="eyebrow">Калуга · Карла Либкнехта, 29</div>
     <h1>Шиномонтаж, который хвалят в отзывах</h1>
     <p class="sub">Переобувка, балансировка, ремонт боковых порезов и правка дисков.
@@ -178,6 +190,44 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--line);outline-offset:
       <a class="btn btn-ghost" href="#price">Цены</a>
     </div>
     <p class="hours-hero">Сегодня работаем: <b>пн–пт 9:00–21:00</b> · <b>сб–вс 10:00–20:00</b></p>
+    </div>
+
+    <div class="wheel" aria-hidden="true">
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <!-- протектор -->
+        <g class="tread">
+          <circle cx="200" cy="200" r="176" fill="none" stroke="#2E3238" stroke-width="34"
+                  stroke-dasharray="20 12"/>
+        </g>
+        <!-- боковина шины -->
+        <circle cx="200" cy="200" r="158" fill="#101215"/>
+        <circle cx="200" cy="200" r="158" fill="none" stroke="#22252A" stroke-width="6"/>
+        <!-- диск -->
+        <circle cx="200" cy="200" r="106" fill="#22252A" stroke="#3A3E45" stroke-width="4"/>
+        <!-- спицы -->
+        <g fill="#2E3238" stroke="#454A52" stroke-width="2">
+          <g transform="rotate(0 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
+          <g transform="rotate(72 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
+          <g transform="rotate(144 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
+          <g transform="rotate(216 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
+          <g transform="rotate(288 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
+        </g>
+        <!-- жёлтый суппорт -->
+        <path d="M 200 200 m 0 -128 a 128 128 0 0 1 88 34" fill="none"
+              stroke="#FFC400" stroke-width="26" stroke-linecap="round"/>
+        <!-- болты -->
+        <g fill="#5A6270">
+          <circle cx="200" cy="156" r="7"/><circle cx="242" cy="187" r="7"/>
+          <circle cx="226" cy="236" r="7"/><circle cx="174" cy="236" r="7"/>
+          <circle cx="158" cy="187" r="7"/>
+        </g>
+        <!-- центральный колпак -->
+        <circle cx="200" cy="200" r="34" fill="#FFC400"/>
+        <text x="200" y="212" text-anchor="middle" font-family="'Russo One',sans-serif"
+              font-size="30" fill="#17191C">40</text>
+      </svg>
+    </div>
+   </div>
   </div>
 </section>
 
