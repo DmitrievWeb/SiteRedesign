@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>152-ФЗ под ключ — проверка реестра РКН и пакет документов за 1 день</title>
+<meta name="description" content="Проверю ваш бизнес в реестре операторов Роскомнадзора бесплатно. Пакет документов 152-ФЗ и черновик уведомления — за 1 день. Штраф за отсутствие в реестре — до 300 000 ₽.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=PT+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0F2440;--navy2:#16335A;--paper:#F6F8FB;--white:#fff;--red:#C8362B;--green:#1E7A43;
+--ink:#152238;--muted:#5E6C84;--hair:#DCE3EE;--ease:cubic-bezier(.4,0,.25,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:16px}
+.wrap{max-width:960px;margin:0 auto;padding:0 22px}
+.mono{font-family:'PT Mono',monospace}
+
+header{background:var(--navy);color:#fff}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0}
+.logo{font-weight:800;font-size:17px;color:#fff;text-decoration:none}
+.logo span{color:#7FB3FF}
+.htel{color:#fff;text-decoration:none;font-weight:600;font-size:14.5px;border:1px solid rgba(255,255,255,.4);
+  border-radius:9px;padding:9px 18px}
+.htel:hover{border-color:#fff}
+
+.hero{background:var(--navy);color:#fff;padding:64px 0 72px}
+.alert{display:inline-flex;align-items:center;gap:10px;background:rgba(200,54,43,.16);border:1px solid rgba(200,54,43,.5);
+  color:#FFB4AC;border-radius:9px;padding:9px 16px;font-size:13.5px;font-weight:600;margin-bottom:22px}
+.hero h1{font-size:clamp(28px,4.6vw,44px);font-weight:800;line-height:1.15;letter-spacing:-.015em;max-width:21ch}
+.hero .sub{margin:18px 0 30px;color:#B9C7DC;font-size:17px;max-width:54ch}
+.hero .sub b{color:#fff}
+.cta{display:inline-block;background:#fff;color:var(--navy);text-decoration:none;font-weight:700;font-size:16px;
+  padding:15px 32px;border-radius:10px;transition:transform .2s var(--ease)}
+.cta:hover{transform:translateY(-2px)}
+.cta.wa{background:var(--green);color:#fff;margin-left:12px}
+.hero .note{margin-top:16px;font-size:13px;color:#8FA3BF}
+
+section{padding:72px 0}
+h2{font-size:clamp(24px,3.4vw,32px);font-weight:800;letter-spacing:-.01em;margin-bottom:12px}
+.lead{color:var(--muted);max-width:58ch;margin-bottom:34px}
+
+/* как это работает */
+.steps{display:grid;grid-template-columns:1fr;gap:14px;counter-reset:s}
+@media(min-width:820px){.steps{grid-template-columns:1fr 1fr 1fr}}
+.step{background:var(--white);border:1px solid var(--hair);border-radius:14px;padding:24px;counter-increment:s}
+.step::before{content:"0" counter(s);font-family:'PT Mono',monospace;color:var(--red);font-weight:700;display:block;margin-bottom:10px}
+.step b{display:block;font-size:16.5px;margin-bottom:6px}
+.step p{color:var(--muted);font-size:14px}
+
+/* что входит */
+.pack{background:var(--white);border:1px solid var(--hair);border-radius:16px;padding:34px;max-width:720px}
+.pack .row{display:flex;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px dashed var(--hair)}
+.pack .row:last-child{border:none}
+.pack .ok{color:var(--green);font-weight:800}
+.pack b{font-weight:600}
+.pack small{display:block;color:var(--muted);font-size:13.5px}
+
+/* тарифы */
+.prices{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:820px){.prices{grid-template-columns:1fr 1fr}}
+.price{background:var(--white);border:1.5px solid var(--hair);border-radius:16px;padding:30px}
+.price.hot{border-color:var(--navy);background:var(--navy);color:#fff}
+.price h3{font-size:18px;font-weight:700;margin-bottom:4px}
+.price .for{font-size:13.5px;color:var(--muted);margin-bottom:16px}
+.price.hot .for{color:#B9C7DC}
+.price .p{font-size:34px;font-weight:800;letter-spacing:-.02em;margin-bottom:16px}
+.price ul{list-style:none;font-size:14.5px}
+.price li{padding:6px 0 6px 24px;position:relative}
+.price li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+.price.hot li::before{color:#7FE0A9}
+
+/* faq-строки */
+.faq{max-width:720px}
+.faq details{border-bottom:1px solid var(--hair)}
+.faq summary{cursor:pointer;padding:16px 4px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::after{content:"+";color:var(--red);font-weight:800}
+.faq details[open] summary::after{content:"–"}
+.faq p{padding:0 4px 16px;color:var(--muted);font-size:14.5px;max-width:64ch}
+
+.final{background:var(--navy);color:#fff;text-align:center}
+.final h2{color:#fff}
+.final p{color:#B9C7DC;max-width:52ch;margin:0 auto 26px}
+
+footer{color:var(--muted);padding:26px 0;font-size:12.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+a:focus-visible,.cta:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<header><div class="wrap hrow">
+  <a class="logo" href="#">152<span>/ФЗ</span> · под ключ</a>
+  <a class="htel" href="https://wa.me/79XXXXXXXXX">WhatsApp</a>
+</div></header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="alert">⚠ С 30.05.2025 штраф за отсутствие уведомления РКН — до 300 000 ₽ (ст. 13.11 КоАП)</span>
+    <h1>Вашего бизнеса нет в реестре операторов Роскомнадзора?</h1>
+    <p class="sub">Если у вас есть сайт с формой заявки, запись клиентов или база контактов —
+    вы <b>оператор персональных данных</b> и обязаны быть в реестре РКН. Проверю бесплатно за 10 минут.
+    Если вас нет — подготовлю <b>полный пакет за 1 день</b>.</p>
+    <a class="cta" href="tel:+79XXXXXXXXX">Проверить меня бесплатно</a><a class="cta wa" href="https://wa.me/79XXXXXXXXX">Написать в WhatsApp</a>
+    <p class="note">Проверка по официальному реестру pd.rkn.gov.ru · ничего не платите, пока не увидите результат</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Как это работает</h2>
+    <p class="lead">Три шага — и вы вне зоны штрафов.</p>
+    <div class="steps">
+      <div class="step"><b>Бесплатная проверка</b><p>Присылаете название/ИНН — проверяю по официальному реестру РКН и присылаю скрин результата.</p></div>
+      <div class="step"><b>Пакет за 1 день</b><p>Готовлю документы под ваш бизнес и черновик уведомления + пошаговую инструкцию подачи через Госуслуги (15 минут).</p></div>
+      <div class="step"><b>Сайт в порядке</b><p>Ставлю на сайт политику, согласия в формы и cookie-баннер — либо передаю файлы вашему разработчику.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>Что входит в пакет</h2>
+    <div class="pack">
+      <div class="row"><span class="ok">✓</span><span><b>Черновик уведомления в РКН</b><small>все поля заполнены под ваш бизнес + инструкция подачи через Госуслуги</small></span></div>
+      <div class="row"><span class="ok">✓</span><span><b>Политика обработки ПДн</b><small>документ для размещения на сайте</small></span></div>
+      <div class="row"><span class="ok">✓</span><span><b>Согласие для форм сайта</b><small>текст + чекбокс под каждую форму</small></span></div>
+      <div class="row"><span class="ok">✓</span><span><b>Приказ о назначении ответственного</b><small>обязателен по ст. 22.1 152-ФЗ</small></span></div>
+      <div class="row"><span class="ok">✓</span><span><b>Cookie-баннер</b><small>готовый код, ставится за 5 минут</small></span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>Стоимость</h2>
+    <div class="prices">
+      <div class="price">
+        <h3>Стандарт</h3>
+        <div class="for">магазины, услуги, сайты-визитки</div>
+        <div class="p">4 900 ₽</div>
+        <ul><li>проверка в реестре</li><li>пакет из 5 документов</li><li>установка на сайт или файлы разработчику</li><li>срок — 1 рабочий день</li></ul>
+      </div>
+      <div class="price hot">
+        <h3>Медицина и красота</h3>
+        <div class="for">стоматологии, клиники, салоны — спецкатегории ПДн</div>
+        <div class="p">9 900 ₽</div>
+        <ul><li>всё из «Стандарта»</li><li>учёт спецкатегорий (здоровье) в уведомлении и политике</li><li>согласия для записи пациентов</li><li>приоритетный срок</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>Частые вопросы</h2>
+    <div class="faq">
+      <details><summary>Нас это точно касается?</summary><p>Если вы собираете хотя бы имя и телефон (форма на сайте, запись по WhatsApp, база клиентов в Excel) — вы оператор ПДн по 152-ФЗ. Обязанность уведомить РКН действует почти для всех: исключения крайне узкие.</p></details>
+      <details><summary>Какие штрафы?</summary><p>Непредставление уведомления — до 300 000 ₽ для юрлиц (ст. 13.11 КоАП, ужесточено 30.05.2025). Отдельные штрафы — за отсутствие политики, согласий и за утечки (до оборотных).</p></details>
+      <details><summary>Это юридическая услуга?</summary><p>Я готовлю типовой пакет документов и черновик уведомления по официальным требованиям и помогаю технически разместить всё на сайте. Это не юридическое заключение; для нестандартных случаев порекомендую юриста.</p></details>
+      <details><summary>Сколько времени займёт у меня?</summary><p>10 минут: прислать реквизиты и подтвердить подачу уведомления через Госуслуги по моей пошаговой инструкции (или сделаю при вас по видеосвязи).</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <h2>Проверьте себя — это бесплатно</h2>
+    <p>Пришлите название компании или ИНН — в ответ пришлю скрин из официального реестра РКН и скажу честно: всё в порядке или есть риск штрафа.</p>
+    <a class="cta" href="https://wa.me/79XXXXXXXXX">Проверить в WhatsApp</a>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <span>ИП [ФИО] · Калуга · услуги по подготовке типовых документов</span>
+  <span>официальный реестр: pd.rkn.gov.ru</span>
+</div></footer>
+
+</body>
+</html>
