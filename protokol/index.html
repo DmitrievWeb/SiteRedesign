@@ -182,13 +182,14 @@ a:focus-visible,.pill:focus-visible,input:focus-visible{outline:3px solid var(--
     <div class="demo reveal" id="demo">
       <div class="demo-head">
         <span class="demo-tag">🎙 записано на планшете в переговорной</span>
-        <span class="demo-meta mono"><span id="dstat">4 участника · 2:17 · ru</span></span>
+        <span class="demo-meta mono"><span id="dstat">4 участника · 1:15 · ru</span></span>
       </div>
       <div class="demo-body">
         <div class="demo-left">
+          <audio id="daudio" src="assets/meeting.mp3" preload="none"></audio>
           <div class="player">
             <button id="dplay" class="dplay" aria-label="Воспроизвести">▶</button>
-            <div class="pbar"><div id="pfill" class="pfill"></div></div>
+            <div class="pbar" id="pbar"><div id="pfill" class="pfill"></div></div>
             <span id="ptime" class="mono">0:00</span>
           </div>
           <div id="transcript" class="transcript"></div>
@@ -329,51 +330,49 @@ a:focus-visible,.pill:focus-visible,input:focus-visible{outline:3px solid var(--
 </div></footer>
 
 <script>
-// --- интерактивное демо: плеер + синхронная расшифровка ---
+// --- интерактивное демо: РЕАЛЬНОЕ аудио + синхронная расшифровка по спикерам ---
 (function(){
+  // тайминги совпадают со сгенерированным meeting.mp3 (assets/gen_demo_audio.py)
   const lines = [
-    {t:0,   w:"Ведущий",      s:"Коллеги, привет. Короткий синк по запуску нового кабинета. Маша, что по фронту?"},
-    {t:9,   w:"Маша · фронт", s:"Почти закрыли вёрстку дашборда, осталась адаптивка под мобильные и пара багов с графиками. К четвергу будет."},
-    {t:19,  w:"Ведущий",      s:"К четвергу — точно или «надеюсь»?"},
-    {t:26,  w:"Маша · фронт", s:"К четвергу вечером закоммичу, в пятницу с утра можно тестировать."},
-    {t:33,  w:"Ведущий",      s:"Дима, по бэкенду — успеваем с биллингом?"},
-    {t:38,  w:"Дима · бэк",   s:"Интеграция с платёжкой готова, но старые подписки надо мигрировать, а маппинга тарифов нет. Нужно решение от продукта."},
-    {t:52,  w:"Ведущий",      s:"Предлагаю старые тарифы заморозить, текущих оставить до конца оплаченного периода. Возражения?"},
-    {t:66,  w:"Дима · бэк",   s:"Меня устраивает. Миграция по этому принципу — к следующей среде."},
-    {t:79,  w:"Ведущий",      s:"Лена, лендинг к запуску?"},
-    {t:84,  w:"Лена · мкт",   s:"Черновик готов, жду финальные скриншоты кабинета для первого экрана."},
-    {t:95,  w:"Ведущий",      s:"Маша скинет скриншоты в пятницу. Лена — собрать лендинг до понедельника и запустить тест рекламы, полторы тысячи в день."},
-    {t:110, w:"Лена · мкт",   s:"Поняла, к понедельнику соберу и запущу."},
+    {t:0.0,   w:"Ведущий",      s:"Коллеги, привет. Короткий синк по запуску нового кабинета. Маша, что по фронту?"},
+    {t:6.9,   w:"Маша · фронт", s:"Почти закрыли вёрстку дашборда, осталась адаптивка под мобильные и пара багов с графиками. К четвергу будет."},
+    {t:14.26, w:"Ведущий",      s:"К четвергу — точно или «надеюсь»?"},
+    {t:18.14, w:"Маша · фронт", s:"К четвергу вечером закоммичу, в пятницу с утра можно тестировать."},
+    {t:24.08, w:"Ведущий",      s:"Дима, по бэкенду — успеваем с биллингом?"},
+    {t:28.49, w:"Дима · бэк",   s:"Интеграция с платёжкой готова, но старые подписки надо мигрировать, а маппинга тарифов нет. Нужно решение от продукта."},
+    {t:38.8,  w:"Ведущий",      s:"Предлагаю старые тарифы заморозить, текущих оставить до конца оплаченного периода. Возражения?"},
+    {t:45.24, w:"Дима · бэк",   s:"Меня устраивает. Миграция по этому принципу — к следующей среде."},
+    {t:51.33, w:"Ведущий",      s:"Лена, лендинг к запуску?"},
+    {t:54.41, w:"Лена · мкт",   s:"Черновик готов, жду финальные скриншоты кабинета для первого экрана."},
+    {t:60.07, w:"Ведущий",      s:"Маша скинет скриншоты в пятницу. Лена — собрать лендинг до понедельника и запустить тест рекламы, полторы тысячи в день."},
+    {t:70.52, w:"Лена · мкт",   s:"Поняла, к понедельнику соберу и запущу."},
   ];
-  const DUR = 137;
   const box = document.getElementById('transcript');
-  if (box) {
+  const audio = document.getElementById('daudio');
+  if (box && audio) {
     lines.forEach((l,i)=>{
       const d=document.createElement('div');d.className='trow';d.dataset.i=i;
-      d.innerHTML=`<span class="tw">${l.w}</span><span class="tt">${Math.floor(l.t/60)}:${String(l.t%60).padStart(2,'0')}</span><p>${l.s}</p>`;
+      d.innerHTML=`<span class="tw">${l.w}</span><span class="tt">${Math.floor(l.t/60)}:${String(Math.floor(l.t%60)).padStart(2,'0')}</span><p>${l.s}</p>`;
+      d.addEventListener('click',()=>{ audio.currentTime=l.t; if(audio.paused) audio.play(); });
       box.appendChild(d);
     });
-    let playing=false, t=0, raf;
-    const btn=document.getElementById('dplay'), fill=document.getElementById('pfill'), tm=document.getElementById('ptime');
-    const rows=[...box.children];
+    const btn=document.getElementById('dplay'), fill=document.getElementById('pfill'),
+          tm=document.getElementById('ptime'), rows=[...box.children], pbar=document.getElementById('pbar');
     function paint(){
-      const pct=Math.min(100,t/DUR*100); fill.style.width=pct+'%';
+      const dur=audio.duration||75, t=audio.currentTime;
+      fill.style.width=Math.min(100,t/dur*100)+'%';
       tm.textContent=`${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,'0')}`;
       let active=0; lines.forEach((l,i)=>{ if(t>=l.t) active=i; });
       rows.forEach((r,i)=>r.classList.toggle('on',i===active));
-      if(rows[active]) rows[active].scrollIntoView({block:'nearest',behavior:'smooth'});
+      if(rows[active] && !audio.paused) rows[active].scrollIntoView({block:'nearest',behavior:'smooth'});
     }
-    let last;
-    function loop(ts){
-      if(!last) last=ts; const dt=(ts-last)/1000; last=ts;
-      if(playing){ t+=dt; if(t>=DUR){t=DUR;playing=false;btn.textContent='▶';} paint(); }
-      raf=requestAnimationFrame(loop);
-    }
-    btn.addEventListener('click',()=>{
-      if(t>=DUR){t=0;}
-      playing=!playing; btn.textContent=playing?'⏸':'▶'; last=null;
-    });
-    paint(); requestAnimationFrame(loop);
+    btn.addEventListener('click',()=>{ audio.paused ? audio.play() : audio.pause(); });
+    audio.addEventListener('play',()=>btn.textContent='⏸');
+    audio.addEventListener('pause',()=>btn.textContent='▶');
+    audio.addEventListener('ended',()=>btn.textContent='▶');
+    audio.addEventListener('timeupdate',paint);
+    pbar.addEventListener('click',e=>{ const r=pbar.getBoundingClientRect(); audio.currentTime=(e.clientX-r.left)/r.width*(audio.duration||75); });
+    paint();
   }
   document.querySelectorAll('.dtab').forEach(tab=>{
     tab.addEventListener('click',()=>{
