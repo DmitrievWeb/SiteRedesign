@@ -4,161 +4,217 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Отделково — ремонт квартир под ключ, Калуга</title>
-<meta name="description" content="Отделково: ремонт и отделка квартир в Калуге. 93 фото работ. Карла Либкнехта, 29.">
+<title>Отделково — ремонт и отделка квартир в Калуге</title>
+<meta name="description" content="Отделково: ремонт квартир под ключ в Калуге. Реальные объекты, видео с процессом, смета по позициям. Карла Либкнехта, 29.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#FAFAF7; --board:#20242B; --yellow:#FFD23F; --yellow-d:#E8B70E; --check:#25A55F;
-  --ink:#23262B; --muted:#71767E; --hair:#E4E4DE; --ease:cubic-bezier(.16,1,.3,1);
+  --plaster:#F2F1EF; --paperc:#FFFFFF; --coal:#1B1A18; --graph:#3E3C38;
+  --sig:#E8501F; --sig-d:#C73E12; --muted:#7C7972; --hair:#DEDCD6; --ease:cubic-bezier(.625,.05,0,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Ubuntu',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.65}
-.wrap{max-width:1020px;margin:0 auto;padding:0 22px}
-h1,h2{font-weight:700;line-height:1.12}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--plaster);color:var(--coal);line-height:1.6;font-size:16px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+h1,h2,.cond{font-family:'Sofia Sans Condensed',sans-serif;text-transform:uppercase;line-height:.96;letter-spacing:.01em}
+.cap{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 
-header{background:var(--board);color:#fff}
+header{position:sticky;top:0;z-index:50;background:rgba(242,241,239,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--hair)}
 .hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
-.logo{color:#fff;text-decoration:none;font-weight:700;font-size:20px}
-.logo span{background:var(--yellow);color:var(--board);padding:2px 8px;border-radius:6px;margin-left:2px}
-.htel{background:var(--yellow);color:var(--board);text-decoration:none;font-weight:700;padding:11px 18px;
-  border-radius:8px;font-size:14.5px;transition:background .2s}
-.htel:hover{background:var(--yellow-d)}
+.logo{font-family:'Sofia Sans Condensed',sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;
+  color:var(--coal);text-decoration:none;letter-spacing:.02em}
+.logo span{color:var(--sig)}
+.hbtns{display:flex;gap:16px;align-items:center}
+.hwa{color:#1E7A43;text-decoration:none;font-weight:600;font-size:14px}
+.htel{background:var(--coal);color:#fff;text-decoration:none;font-weight:600;font-size:14.5px;
+  padding:11px 20px;transition:background .25s var(--ease)}
+.htel:hover{background:#000}
 
-/* hero: чек-лист слева, фото справа */
-.hero{padding:56px 0 66px}
-.hero .wrap{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
-@media(min-width:940px){.hero .wrap{grid-template-columns:1.04fr .96fr}}
-.hero h1{font-size:clamp(30px,4.8vw,50px);max-width:16ch}
-.hero h1 mark{background:var(--yellow);padding:0 8px;border-radius:6px}
-.hero .sub{margin:16px 0 26px;color:var(--muted);font-size:16.5px;max-width:46ch}
-.checklist{background:#fff;border:2px solid var(--board);border-radius:14px;padding:24px 26px;max-width:430px;
-  box-shadow:8px 8px 0 var(--yellow)}
-.checklist h3{font-size:15px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;color:var(--muted)}
-.checklist label{display:flex;gap:12px;align-items:center;padding:9px 0;font-size:15.5px;border-bottom:1px dashed var(--hair)}
-.checklist label:last-of-type{border:none}
-.cbox{width:22px;height:22px;border-radius:6px;border:2px solid var(--board);display:inline-flex;
-  align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0}
-.cbox.on{background:var(--check);border-color:var(--check)}
-.hero .cta{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.btn{display:inline-block;background:var(--board);color:#fff;text-decoration:none;font-weight:700;font-size:15.5px;
-  padding:16px 32px;border-radius:10px;transition:all .25s var(--ease)}
-.btn:hover{background:#000;transform:translateY(-2px)}
-.wa{color:#1E7A43;font-weight:700;text-decoration:none}
-.himg img{width:100%;height:auto;display:block;border-radius:14px;border:2px solid var(--board)}
-.himg figcaption{font-size:13px;color:var(--muted);margin-top:10px}
-.himg figcaption a{color:var(--ink)}
+/* hero: типографика + сразу работы */
+.hero{padding:72px 0 0;text-align:center}
+.hero .cap{display:block;margin-bottom:18px}
+.hero h1{font-size:clamp(56px,11vw,132px);font-weight:800;color:var(--coal)}
+.hero h1 em{font-style:normal;color:var(--sig)}
+.hero .sub{margin:22px auto 30px;font-size:17.5px;color:var(--graph);max-width:52ch}
+.hero .sub b{font-weight:600}
+.cta-row{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--sig);color:#fff;text-decoration:none;font-weight:600;font-size:16px;
+  padding:16px 34px;transition:all .25s var(--ease)}
+.btn:hover{background:var(--sig-d);transform:translateY(-2px)}
+.ghost{color:var(--coal);text-decoration:none;font-weight:600;font-size:15px;border-bottom:2px solid var(--hair)}
+.ghost:hover{border-color:var(--sig)}
 
-section{padding:64px 0}
-.k{display:inline-block;background:var(--yellow);color:var(--board);font-weight:700;font-size:12.5px;
-  letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:6px;margin-bottom:14px}
-h2{font-size:clamp(24px,3.4vw,34px);margin-bottom:30px}
+/* мозаика реальных работ */
+.works{padding:64px 0 90px}
+.works .head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+h2{font-size:clamp(34px,5.4vw,64px);font-weight:800;color:var(--coal)}
+h2 em{font-style:normal;color:var(--sig)}
+.masonry{columns:1;column-gap:14px}
+@media(min-width:640px){.masonry{columns:2}}
+@media(min-width:960px){.masonry{columns:3}}
+.masonry figure{break-inside:avoid;margin-bottom:14px;position:relative;overflow:hidden;background:#fff}
+.masonry img{width:100%;display:block;transition:transform .5s var(--ease)}
+.masonry figure:hover img{transform:scale(1.03)}
+.masonry figcaption{position:absolute;left:0;bottom:0;right:0;padding:30px 14px 10px;font-size:12.5px;color:#fff;
+  background:linear-gradient(transparent,rgba(27,26,24,.72));opacity:0;transition:opacity .3s}
+.masonry figure:hover figcaption{opacity:1}
+.works .note{margin-top:16px;font-size:13.5px;color:var(--muted)}
 
-/* виды работ: доски-плашки */
-.works{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
-.wk{background:#fff;border:1.5px solid var(--hair);border-left:6px solid var(--yellow);border-radius:10px;padding:22px}
-.wk b{display:block;font-size:16.5px;margin-bottom:6px}
-.wk p{color:var(--muted);font-size:14px}
+/* видео: тёмная полоса */
+.video-band{background:var(--coal);color:#fff;padding:90px 0}
+.video-band h2{color:#fff;margin-bottom:8px}
+.video-band .lead{color:#B9B6AF;max-width:56ch;margin-bottom:40px}
+.vgrid{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:880px){.vgrid{grid-template-columns:1fr 1fr}}
+.vbox{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.vbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vcap{margin-top:12px;font-size:13.5px;color:#B9B6AF}
 
-/* гарантии в тёмной доске */
-.board-sec{background:var(--board);color:#fff;border-radius:18px;padding:38px;
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:24px}
-.bi b{color:var(--yellow);font-size:17px;display:block;margin-bottom:6px}
-.bi p{color:#AEB3BB;font-size:14px}
+/* чек-лист: строгие линии */
+.list-sec{padding:90px 0}
+.checkrows{max-width:720px;margin:40px auto 0}
+.chk{display:grid;grid-template-columns:34px 1fr auto;gap:18px;align-items:baseline;padding:18px 4px;border-bottom:1px solid var(--hair)}
+.chk:last-child{border:none}
+.chk .tick{width:24px;height:24px;border:2px solid var(--sig);display:flex;align-items:center;justify-content:center;
+  color:var(--sig);font-weight:700;font-size:14px;transform:translateY(4px)}
+.chk b{font-weight:600;font-size:17px}
+.chk small{display:block;color:var(--muted);font-size:14px;font-weight:400;margin-top:2px}
+.chk .who{color:var(--muted);font-size:13px;white-space:nowrap;letter-spacing:.06em;text-transform:uppercase}
 
-.final{text-align:center}
-.final .tel{font-size:clamp(26px,4.6vw,40px);font-weight:700;color:var(--ink);text-decoration:none}
-.final .tel:hover{color:var(--yellow-d)}
-.final p{color:var(--muted);margin-top:10px;font-size:14.5px}
-.final a.map{color:var(--check);font-weight:700}
+/* гарантии полосой */
+.gar{background:var(--paperc);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:56px 0}
+.gar .wrap{display:grid;grid-template-columns:1fr;gap:30px}
+@media(min-width:820px){.gar .wrap{grid-template-columns:1fr 1fr 1fr 1fr}}
+.g b{display:block;font-family:'Sofia Sans Condensed',sans-serif;font-size:24px;font-weight:700;text-transform:uppercase;margin-bottom:6px}
+.g b em{font-style:normal;color:var(--sig)}
+.g p{color:var(--muted);font-size:14px}
+
+/* контакты */
+.final{padding:90px 0;text-align:center}
+.final .tel{font-family:'Sofia Sans Condensed',sans-serif;font-weight:800;font-size:clamp(38px,7vw,72px);
+  color:var(--coal);text-decoration:none;text-transform:uppercase;letter-spacing:.01em}
+.final .tel:hover{color:var(--sig)}
+.final p{color:var(--muted);margin-top:14px;font-size:15px}
+.final a.lnk{color:var(--sig-d);font-weight:600;text-decoration:none}
+.final .wa{display:inline-block;margin-top:22px;background:#1E7A43;color:#fff;text-decoration:none;
+  font-weight:600;font-size:15px;padding:13px 28px}
+.final .wa:hover{filter:brightness(1.08)}
 
 footer{border-top:1px solid var(--hair);color:var(--muted);padding:24px 0;font-size:13px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
-.demo-badge{border:1px dashed var(--hair);border-radius:8px;padding:5px 12px}
-.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--yellow);color:var(--board);
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
+.demo-badge{border:1px dashed var(--hair);padding:5px 12px;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase}
+.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--sig);color:#fff;
   width:58px;height:58px;align-items:center;justify-content:center;font-size:24px;text-decoration:none;border-radius:50%;
-  box-shadow:0 10px 26px rgba(232,183,14,.5)}
-@media(max-width:640px){.fab{display:flex}.htel{display:none}}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  box-shadow:0 10px 26px rgba(232,80,31,.4)}
+@media(max-width:640px){.fab{display:flex}.hbtns{display:none}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .reveal.on{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-a:focus-visible,.btn:focus-visible{outline:3px solid var(--yellow-d);outline-offset:2px}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--sig);outline-offset:2px}
 </style>
 </head>
 <body>
 
 <header><div class="wrap hrow">
   <a class="logo" href="#">ОТДЕЛ<span>КОВО</span></a>
-  <a class="htel" href="tel:+79307541007">+7 (930) 754-10-07</a>
+  <div class="hbtns">
+    <a class="hwa" href="https://wa.me/79307541007" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="htel" href="tel:+79307541007">+7 (930) 754-10-07</a>
+  </div>
 </div></header>
 
 <section class="hero">
   <div class="wrap">
-    <div>
-      <h1>Ремонт по списку. <mark>Всё по галочкам</mark></h1>
-      <p class="sub">«Отделково» — это отделка квартир в Калуге с понятным списком работ,
-      сроками и сметой. 93 фото сделанных объектов — в нашей карточке на Картах.</p>
-      <div class="checklist reveal on">
-        <h3>Типовой список — под ключ:</h3>
-        <label><span class="cbox on">✓</span> Демонтаж и вынос мусора</label>
-        <label><span class="cbox on">✓</span> Электрика и сантехника</label>
-        <label><span class="cbox on">✓</span> Выравнивание стен и полов</label>
-        <label><span class="cbox on">✓</span> Плитка, обои, покраска</label>
-        <label><span class="cbox on">✓</span> Двери, плинтусы, уборка</label>
-        <label><span class="cbox">…</span> Ваш пункт — обсудим</label>
+    <span class="cap reveal on">Ремонт и отделка квартир · Калуга</span>
+    <h1 class="reveal on">Отделаем<br><em>до блеска</em></h1>
+    <p class="sub reveal on">Квартиры под ключ и отдельные этапы: от стяжки до финишной уборки.
+    <b>Смета по позициям</b>, сроки в договоре, фотоотчёты с объекта.</p>
+    <div class="cta-row reveal on">
+      <a class="btn" href="tel:+79307541007">Получить смету</a>
+      <a class="ghost" href="#works">Смотреть работы ↓</a>
+    </div>
+  </div>
+</section>
+
+<section class="works" id="works">
+  <div class="wrap">
+    <div class="head reveal">
+      <h2>Наши <em>объекты</em></h2>
+      <span class="cap">фото с реальных объектов · сняты нами</span>
+    </div>
+    <div class="masonry reveal">
+      <figure><img src="assets/work/insta1-1.jpg" alt="Объект Отделково" loading="lazy"><figcaption>Объект №1 · Калуга</figcaption></figure>
+      <figure><img src="assets/work/insta2-1.jpg" alt="Объект Отделково" loading="lazy"><figcaption>Объект №2 · Калуга</figcaption></figure>
+      <figure><img src="assets/work/insta3-1.jpg" alt="Объект Отделково" loading="lazy"><figcaption>Объект №3 · Калуга</figcaption></figure>
+      <figure><img src="assets/work/insta1-2.jpg" alt="Объект Отделково" loading="lazy"><figcaption>Объект №1 · Калуга</figcaption></figure>
+      <figure><img src="assets/work/insta2-2.jpg" alt="Объект Отделково" loading="lazy"><figcaption>Объект №2 · Калуга</figcaption></figure>
+      <figure><img src="assets/work/insta3-2.jpg" alt="Объект Отделково" loading="lazy"><figcaption>Объект №3 · Калуга</figcaption></figure>
+      <figure><img src="assets/work/insta1-3.jpg" alt="Объект Отделково" loading="lazy"><figcaption>Объект №1 · Калуга</figcaption></figure>
+      <figure><img src="assets/work/insta2-3.jpg" alt="Объект Отделково" loading="lazy"><figcaption>Объект №2 · Калуга</figcaption></figure>
+      <figure><img src="assets/work/insta3-3.jpg" alt="Объект Отделково" loading="lazy"><figcaption>Объект №3 · Калуга</figcaption></figure>
+      <figure><img src="assets/work/insta1-4.jpg" alt="Объект Отделково" loading="lazy"><figcaption>Объект №1 · Калуга</figcaption></figure>
+      <figure><img src="assets/work/insta2-4.jpg" alt="Объект Отделково" loading="lazy"><figcaption>Объект №2 · Калуга</figcaption></figure>
+      <figure><img src="assets/work/insta3-4.jpg" alt="Объект Отделково" loading="lazy"><figcaption>Объект №3 · Калуга</figcaption></figure>
+    </div>
+    <p class="note">Ещё 93 фото — <a class="lnk" style="color:var(--sig-d);font-weight:600;text-decoration:none" href="https://yandex.ru/maps/org/otdelkovo/1208603559/gallery/" target="_blank" rel="noopener">в галерее на Яндекс.Картах →</a></p>
+  </div>
+</section>
+
+<section class="video-band">
+  <div class="wrap">
+    <h2 class="reveal">Смотрите <em>процесс</em></h2>
+    <p class="lead reveal">Два видео с наших объектов — как идёт работа и что получается в итоге.</p>
+    <div class="vgrid reveal">
+      <div>
+        <div class="vbox"><iframe src="https://www.youtube.com/embed/xiVanxQIWAY" title="Отделково — видео с объекта" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <p class="vcap">Видео №1 · с нашего канала</p>
       </div>
-      <div class="cta">
-        <a class="btn" href="tel:+79307541007">Получить смету</a>
-        <a class="wa" href="https://wa.me/79307541007" target="_blank" rel="noopener">WhatsApp</a>
+      <div>
+        <div class="vbox"><iframe src="https://www.youtube.com/embed/CqCb6OWvdbE" title="Отделково — видео с объекта" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <p class="vcap">Видео №2 · с нашего канала</p>
       </div>
     </div>
-    <figure class="himg reveal on">
-      <img src="assets/hero.jpg" alt="Инструменты отделочников Отделково" width="1536" height="1024">
-      <figcaption>Наши объекты: <a href="https://yandex.ru/maps/org/otdelkovo/1208603559/gallery/" target="_blank" rel="noopener">93 фото на Яндекс.Картах →</a></figcaption>
-    </figure>
   </div>
 </section>
 
-<section style="padding-top:0">
-  <div class="wrap">
-    <span class="k reveal">Что делаем</span>
-    <h2 class="reveal">Виды работ</h2>
-    <div class="works">
-      <div class="wk reveal"><b>Квартиры под ключ</b><p>От бетонной коробки до «заезжай и живи».</p></div>
-      <div class="wk reveal"><b>Косметический ремонт</b><p>Быстро освежить: стены, потолки, полы.</p></div>
-      <div class="wk reveal"><b>Санузлы</b><p>Плитка, сантехника, тёплый пол.</p></div>
-      <div class="wk reveal"><b>Отдельные работы</b><p>Электрика, стяжка, штукатурка — этапами.</p></div>
-    </div>
+<section class="list-sec">
+  <div class="wrap" style="text-align:center">
+    <h2 class="reveal">Всё <em>по галочкам</em></h2>
+    <p class="reveal" style="color:var(--muted);margin-top:10px">Типовой список работ под ключ — ваш пункт добавим.</p>
+  </div>
+  <div class="checkrows reveal">
+    <div class="chk"><span class="tick">✓</span><span><b>Демонтаж и вынос мусора</b><small>подготовка без пыли по всей квартире</small></span><span class="who">этап 1</span></div>
+    <div class="chk"><span class="tick">✓</span><span><b>Электрика и сантехника</b><small>розетки там, где нужно вам</small></span><span class="who">этап 2</span></div>
+    <div class="chk"><span class="tick">✓</span><span><b>Выравнивание стен и полов</b><small>штукатурка, стяжка, наливной пол</small></span><span class="who">этап 3</span></div>
+    <div class="chk"><span class="tick">✓</span><span><b>Плитка, обои, покраска</b><small>финишная отделка по дизайну или каталогу</small></span><span class="who">этап 4</span></div>
+    <div class="chk"><span class="tick">✓</span><span><b>Двери, плинтусы, уборка</b><small>сдаём чистую квартиру, а не стройплощадку</small></span><span class="who">финал</span></div>
   </div>
 </section>
 
-<section style="padding-top:0">
+<div class="gar">
   <div class="wrap">
-    <div class="board-sec reveal">
-      <div class="bi"><b>Смета по позициям</b><p>Видно, за что платите. Сравнивайте с другими — мы не боимся.</p></div>
-      <div class="bi"><b>Сроки в договоре</b><p>Просрочка — наша проблема, не ваша.</p></div>
-      <div class="bi"><b>Фотоотчёты</b><p>Видите ход работ, даже если вы в отъезде.</p></div>
-      <div class="bi"><b>14 отзывов</b><p>Живые оценки на Яндекс.Картах.</p></div>
-    </div>
+    <div class="g reveal"><b>Смета <em>по позициям</em></b><p>Видно, за что платите. Сравнивайте — мы не боимся.</p></div>
+    <div class="g reveal"><b>Сроки <em>в договоре</em></b><p>Просрочка — наша проблема, не ваша.</p></div>
+    <div class="g reveal"><b>Фото<em>отчёты</em></b><p>Видите ход работ, даже если вы в отъезде.</p></div>
+    <div class="g reveal"><b>14 <em>отзывов</em></b><p>Живые оценки на Яндекс.Картах.</p></div>
   </div>
-</section>
+</div>
 
-<section class="final" id="contact" style="padding-top:0">
+<section class="final" id="contact">
   <div class="wrap">
-    <span class="k reveal">Свяжитесь с нами</span>
-    <h2 class="reveal">Пришлите план — вернём смету</h2>
-    <a class="tel reveal" href="tel:+79307541007">+7 (930) 754-10-07</a>
+    <span class="cap reveal">Пришлите план — вернём смету</span><br><br>
+    <a class="tel reveal" href="tel:+79307541007">+7 930 754-10-07</a>
     <p class="reveal">Калуга, ул. Карла Либкнехта, 29, стр. 13, офис 205 ·
-      <a class="map" href="https://yandex.ru/maps/org/otdelkovo/1208603559/" target="_blank" rel="noopener">маршрут</a></p>
+      <a class="lnk" href="https://yandex.ru/maps/org/otdelkovo/1208603559/" target="_blank" rel="noopener">маршрут</a></p>
+    <a class="wa reveal" href="https://wa.me/79307541007" target="_blank" rel="noopener">Написать в WhatsApp</a>
   </div>
 </section>
 
 <footer><div class="wrap">
   <span>© 2026 Отделково · Калуга</span>
-  <span class="demo-badge">Демонстрационный макет</span>
+  <span class="demo-badge">Демонстрационный макет · фото и видео — с сайта otdelkovo.ru</span>
 </div></footer>
 
 <a class="fab" href="tel:+79307541007" aria-label="Позвонить">📞</a>
@@ -168,7 +224,7 @@ const els = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
-  }), {threshold: .12});
+  }), {threshold: .1});
   els.forEach(el => io.observe(el));
 } else { els.forEach(el => el.classList.add('on')); }
 </script>
