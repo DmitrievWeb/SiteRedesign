@@ -6,9 +6,8 @@ from PIL import Image
 HOME = os.path.expanduser("~")
 SR = os.path.join(HOME, "Desktop", "SiteRedesign")
 
-SLUGS = ["stomat-medesi","stomat-siyayushchaya","stomat-edvard","stomat-evrodent","stomat-dentalux",
-         "kuhni-master","kuhni-novye","kuhni-italum","kuhni-refine","kuhni-uyut",
-         "remont-comfort","remont-otdelkovo","remont-stroyprogress","remont-remkvartir","remont-stroyresurs","gelman"]
+import glob as _g
+SLUGS = [os.path.basename(p)[2:-4] for p in _g.glob(os.path.join(HOME, "m_*.png"))]
 
 for slug in SLUGS:
     src = os.path.join(HOME, f"m_{slug}.png")

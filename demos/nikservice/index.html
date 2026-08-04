@@ -8,172 +8,182 @@
 <meta name="description" content="Автотехцентр НикСервис: диагностика и ремонт иномарок в Калуге с 2008 года. Двигатель, АКПП, подвеска, ТО.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0B1D33; --navy2:#102844; --cyan:#37B6FF; --cyan-dim:#1E86C7;
-  --paper:#F4F7FA; --ink:#152538; --muted:#5B6B7E; --line:#24405F; --ease:cubic-bezier(.16,1,.3,1);
+  --void:#000000; --white:#ffffff; --ash:#9a9a9a; --silver:#bdbdbd;
+  --cyan:#37B6FF; --saffron:#ffb829; --ease:cubic-bezier(.16,1,.3,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'IBM Plex Sans',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
-.mono{font-family:'IBM Plex Mono',monospace}
-.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--void);color:var(--white);
+  line-height:1.5;font-size:18px;font-weight:200}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.cap{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ash)}
+.cap.gold{color:var(--saffron)}
+b,strong{font-weight:400}
 
-header{position:sticky;top:0;z-index:50;background:var(--navy);border-bottom:1px solid var(--line)}
-.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0}
-.logo{color:#fff;text-decoration:none;font-weight:700;font-size:19px;letter-spacing:.02em}
-.logo .mono{color:var(--cyan);font-size:12px;display:block;letter-spacing:.18em}
-.hphone{font-family:'IBM Plex Mono',monospace;background:transparent;border:1px solid var(--cyan);color:var(--cyan);
-  text-decoration:none;font-weight:600;padding:10px 18px;font-size:14px;white-space:nowrap;transition:all .25s var(--ease)}
-.hphone:hover{background:var(--cyan);color:var(--navy)}
+header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.8);backdrop-filter:blur(10px)}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0}
+.logo{color:var(--white);text-decoration:none;font-weight:600;font-size:15px;letter-spacing:.12em;text-transform:uppercase}
+.logo span{color:var(--cyan)}
+.nlinks{display:flex;gap:26px;align-items:center}
+.nlinks a{color:var(--ash);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+.nlinks a:hover{color:var(--white)}
+.pill{display:inline-block;background:var(--cyan);color:#04121C;text-decoration:none;font-weight:600;
+  font-size:14px;letter-spacing:.03em;text-transform:uppercase;padding:13px 26px;border-radius:24px;
+  transition:transform .3s var(--ease)}
+.pill:hover{transform:translateY(-2px)}
 
-/* hero: чертёжная сетка */
-.hero{background:var(--navy);color:#fff;position:relative;overflow:hidden;padding:70px 0 80px;
-  background-image:linear-gradient(var(--line) 1px, transparent 1px),linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size:44px 44px;background-position:center}
-.hero .wrap{display:grid;grid-template-columns:1fr;gap:44px;align-items:center}
+/* hero: асимметрия, частицы справа */
+.hero{position:relative;padding:88px 0 110px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr;gap:50px;align-items:center;position:relative;z-index:2}
 @media(min-width:960px){.hero .wrap{grid-template-columns:1.05fr .95fr}}
-.crumb{font-family:'IBM Plex Mono',monospace;color:var(--cyan);font-size:13px;letter-spacing:.14em;margin-bottom:18px}
-.hero h1{font-size:clamp(30px,4.6vw,50px);font-weight:700;line-height:1.12;max-width:18ch}
+.hero h1{font-size:clamp(42px,6.6vw,86px);font-weight:400;line-height:1.02;letter-spacing:-.04em}
 .hero h1 em{font-style:normal;color:var(--cyan)}
-.hero .sub{margin:20px 0 30px;font-size:17px;color:#AEC1D6;max-width:50ch}
-.spec{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:32px}
-.spec div{border-left:2px solid var(--cyan);padding-left:12px}
-.spec .mono{font-size:24px;font-weight:600;color:#fff}
-.spec small{color:#7E93AB;font-size:12.5px}
-.cta-row{display:flex;flex-wrap:wrap;gap:14px}
-.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:16px;
-  padding:15px 26px;transition:all .25s var(--ease)}
-.btn-main{background:var(--cyan);color:var(--navy)}
-.btn-main:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(55,182,255,.3)}
-.btn-ghost{border:1px solid #3C5878;color:#D7E4F2}
-.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+.hero .cap{margin-bottom:26px;display:block}
+.hero .sub{margin:26px 0 36px;color:var(--silver);max-width:44ch}
+.hero .sub b{color:var(--white)}
+.hero .links{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.ghostlink{color:var(--ash);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+.ghostlink:hover{color:var(--saffron)}
+#gearCanvas{width:min(480px,88vw);height:min(480px,88vw);justify-self:center;display:block}
 
-/* фото в рамке-чертеже */
-.draft{position:relative;padding:18px}
-.draft::before,.draft::after{content:"";position:absolute;width:46px;height:46px;border:2px solid var(--cyan)}
-.draft::before{top:0;left:0;border-right:none;border-bottom:none}
-.draft::after{bottom:0;right:0;border-left:none;border-top:none}
-.draft img{display:block;width:100%;height:auto;filter:saturate(.92)}
-.draft .tag{position:absolute;left:30px;bottom:30px;background:rgba(11,29,51,.85);border:1px solid var(--cyan);
-  color:var(--cyan);font-family:'IBM Plex Mono',monospace;font-size:12px;padding:6px 10px;letter-spacing:.1em}
+section{padding:96px 0}
+.two{display:grid;grid-template-columns:1fr;gap:44px}
+@media(min-width:920px){.two{grid-template-columns:.9fr 1.1fr}}
+h2{font-size:clamp(34px,4.6vw,56px);font-weight:400;letter-spacing:-.03em;line-height:1.05}
+h2 em{font-style:normal;color:var(--cyan)}
+.lead{color:var(--silver);max-width:52ch}
 
-section{padding:70px 0}
-.numbered{display:flex;align-items:baseline;gap:14px;margin-bottom:36px}
-.numbered .mono{color:var(--cyan-dim);font-size:15px}
-.numbered h2{font-size:clamp(24px,3.2vw,32px);font-weight:700}
+/* услуги: крупные строки, никаких карточек */
+.svc{border-top:1px solid #1E1E1E}
+.srow{display:grid;grid-template-columns:1fr;gap:6px;padding:26px 0;border-bottom:1px solid #1E1E1E;
+  transition:padding .3s var(--ease)}
+@media(min-width:760px){.srow{grid-template-columns:56px 1fr auto;gap:24px;align-items:baseline}}
+.srow .n{color:var(--cyan);font-weight:600;font-size:13px;letter-spacing:.1em}
+.srow h3{font-weight:400;font-size:24px;letter-spacing:-.015em}
+.srow p{color:var(--ash);font-size:15px;margin-top:4px;max-width:56ch}
+.srow .tagr{color:var(--ash);font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
 
-/* услуги: строки-спецификации */
-.rows{border-top:1px solid #D7DFE8}
-.row{display:grid;grid-template-columns:56px 1fr auto;gap:18px;align-items:baseline;padding:20px 6px;
-  border-bottom:1px solid #D7DFE8;transition:background .2s}
-.row:hover{background:#fff}
-.row .idx{font-family:'IBM Plex Mono',monospace;color:var(--cyan-dim);font-size:13px}
-.row h3{font-size:17px;font-weight:600}
-.row p{color:var(--muted);font-size:14.5px;margin-top:3px}
-.row .price{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;white-space:nowrap;text-align:right}
-@media(max-width:640px){.row{grid-template-columns:40px 1fr}.row .price{grid-column:2;text-align:left}}
+/* цифры воздухом */
+.numbers{display:flex;flex-wrap:wrap;gap:70px;justify-content:center;text-align:center}
+.numbers b{display:block;font-weight:400;font-size:clamp(48px,7vw,84px);letter-spacing:-.04em;line-height:1}
+.numbers b em{font-style:normal;color:var(--saffron)}
+.numbers span{color:var(--ash);font-size:14px}
 
-/* две площадки */
-.sites{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
-.site-card{background:var(--navy);color:#fff;padding:28px;position:relative}
-.site-card .mono{color:var(--cyan);font-size:12px;letter-spacing:.16em;margin-bottom:12px;display:block}
-.site-card h3{font-size:19px;margin-bottom:8px}
-.site-card p{color:#AEC1D6;font-size:14.5px;margin-bottom:16px}
-.site-card a{color:var(--cyan);font-family:'IBM Plex Mono',monospace;text-decoration:none;font-size:15px}
+/* фото-дуэт */
+.duo{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:820px){.duo{grid-template-columns:1.2fr .8fr}}
+.duo img{width:100%;height:340px;object-fit:cover;border-radius:24px;display:block}
+.duo figcaption{color:var(--ash);font-size:13px;margin-top:12px;letter-spacing:.03em}
 
-/* отзывы */
-.quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
-.q{background:#fff;border:1px solid #D7DFE8;padding:26px;position:relative}
-.q::before{content:"“";position:absolute;top:8px;right:18px;font-size:64px;color:#E3EBF3;font-family:Georgia,serif}
-.q p{font-size:15px;position:relative;z-index:1}
-.q .who{margin-top:16px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--cyan-dim)}
-.src{margin-top:20px;font-size:14px;color:var(--muted)}
-.src a{color:var(--cyan-dim)}
+/* две площадки: текстом */
+.sites{display:grid;grid-template-columns:1fr;gap:44px;max-width:820px}
+@media(min-width:760px){.sites{grid-template-columns:1fr 1fr}}
+.site .cap{display:block;margin-bottom:12px}
+.site h3{font-weight:400;font-size:26px;letter-spacing:-.02em;margin-bottom:6px}
+.site p{color:var(--silver);font-size:15px;margin-bottom:14px}
+.site a{color:var(--white);text-decoration:none;font-weight:400;border-bottom:1px solid #333}
+.site a:hover{color:var(--cyan);border-color:var(--cyan)}
 
-/* контакты */
-.contact{background:var(--navy);color:#fff}
-.contact .numbered h2{color:#fff}
-.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px}
-.contact dt{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--cyan);letter-spacing:.16em;margin-bottom:8px}
-.contact dd{font-size:17px;margin-bottom:20px}
-.contact dd a{color:#fff;text-decoration:none;border-bottom:1px dashed #3C5878}
-.contact dd a:hover{color:var(--cyan)}
-footer{background:#081526;color:#7E93AB;padding:24px 0;font-size:13px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
-.demo-badge{border:1px dashed #335072;padding:5px 12px;font-family:'IBM Plex Mono',monospace;font-size:11.5px}
-.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--cyan);color:var(--navy);
-  width:58px;height:58px;align-items:center;justify-content:center;font-size:24px;text-decoration:none;border-radius:50%;
-  box-shadow:0 6px 20px rgba(0,0,0,.35)}
-@media(max-width:640px){.fab{display:flex}.hphone{display:none}}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+/* отзывы: две большие цитаты */
+.qq{display:grid;grid-template-columns:1fr;gap:44px;max-width:960px}
+@media(min-width:860px){.qq{grid-template-columns:1fr 1fr}}
+.qq p{font-weight:200;font-size:21px;line-height:1.55;color:#E2E2E2}
+.qq .who{margin-top:16px;color:var(--saffron);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.qsrc{margin-top:38px;font-size:15px;color:var(--ash)}
+.qsrc a{color:var(--cyan);text-decoration:none}
+
+footer{border-top:1px solid #1E1E1E;color:var(--ash);padding:28px 0;font-size:13px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
+.demo-badge{border:1px dashed #333;border-radius:24px;padding:6px 14px;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--cyan);color:#04121C;
+  width:58px;height:58px;align-items:center;justify-content:center;font-size:24px;text-decoration:none;border-radius:50%}
+@media(max-width:640px){.fab{display:flex}.nlinks{display:none}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .reveal.on{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-a:focus-visible,.btn:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+a:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
 </style>
 </head>
 <body>
 
 <header><div class="wrap hrow">
-  <a class="logo" href="#">НикСервис <span class="mono">АВТОТЕХЦЕНТР · КАЛУГА</span></a>
-  <a class="hphone" href="tel:+74842400740">+7 (4842) 40-07-40</a>
+  <a class="logo" href="#">НИК<span>СЕРВИС</span></a>
+  <nav class="nlinks">
+    <a href="#svc">Услуги</a><a href="#contact">Площадки</a>
+    <a class="pill" href="tel:+74842400740">40-07-40</a>
+  </nav>
 </div></header>
 
 <section class="hero">
   <div class="wrap">
     <div>
-      <div class="crumb">КАЛУГА · МОСКОВСКАЯ 289 К.7 · С 2008 ГОДА</div>
-      <h1>Ремонт иномарок <em>по-инженерному</em></h1>
-      <p class="sub">Двигатель, АКПП и вариаторы, подвеска, электрика. Сначала диагностика и причина —
-      потом смета и ремонт. Запчасти найдём и привезём сами.</p>
-      <div class="spec">
-        <div><span class="mono">18</span><br><small>лет опыта</small></div>
-        <div><span class="mono">4,8</span><br><small>рейтинг · 177 оценок</small></div>
-        <div><span class="mono">2</span><br><small>площадки в Калуге</small></div>
-      </div>
-      <div class="cta-row">
-        <a class="btn btn-main" href="tel:+74842400740">Записаться на диагностику</a>
-        <a class="btn btn-ghost" href="#services">Спецификация услуг</a>
+      <span class="cap gold">Автотехцентр · Калуга · с 2008 года</span>
+      <h1>Диагноз точен.<br>Ремонт <em>по делу</em>.</h1>
+      <p class="sub">Двигатель, АКПП и вариаторы, подвеска, электрика. Сначала находим
+      <b>причину</b>, потом называем смету — и она не меняется в процессе.</p>
+      <div class="links">
+        <a class="pill" href="tel:+74842400740">Записаться на диагностику</a>
+        <a class="ghostlink" href="#svc">Спецификация →</a>
       </div>
     </div>
-    <div class="draft reveal">
-      <img src="assets/hero.jpg" alt="Двигатель в ремзоне НикСервис" width="1536" height="1024">
-      <span class="tag">РЕМЗОНА · UNIT 01</span>
-    </div>
+    <canvas id="gearCanvas" width="960" height="960" aria-hidden="true"></canvas>
   </div>
 </section>
 
-<section id="services">
+<section id="svc" style="padding-top:0">
   <div class="wrap">
-    <div class="numbered reveal"><span class="mono">/01</span><h2>Спецификация услуг</h2></div>
-    <div class="rows reveal">
-      <div class="row"><span class="idx">01</span><div><h3>Ремонт двигателей</h3><p>Бензин и дизель, любая марка и год. Дефектовка перед ремонтом — обязательно.</p></div><span class="price">по диагностике</span></div>
-      <div class="row"><span class="idx">02</span><div><h3>АКПП, вариаторы, DSG, PowerShift</h3><p>Отдельный цех коробок на пер. Тульский, 66. Ремонт гидротрансформаторов.</p></div><span class="price">по диагностике</span></div>
-      <div class="row"><span class="idx">03</span><div><h3>Ходовая и подвеска</h3><p>Диагностика, ремонт, развал-схождение после работ.</p></div><span class="price">от диагностики</span></div>
-      <div class="row"><span class="idx">04</span><div><h3>Компьютерная диагностика</h3><p>Двигатель, коробка, электрика — с расшифровкой и объяснением.</p></div><span class="price">по звонку</span></div>
-      <div class="row"><span class="idx">05</span><div><h3>Техобслуживание</h3><p>Масло, фильтры, колодки — регламентное ТО с отметкой.</p></div><span class="price">по звонку</span></div>
-      <div class="row"><span class="idx">06</span><div><h3>Рулевые рейки и электрика</h3><p>Ремонт реек, поиск сложных электрических неисправностей.</p></div><span class="price">по звонку</span></div>
+    <div class="two" style="margin-bottom:44px">
+      <h2 class="reveal">Что <em>чиним</em></h2>
+      <p class="lead reveal">Любые иномарки, вне зависимости от года и комплектации.
+      Запчасти подберём и привезём сами — вам не нужно ничего искать.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="srow"><span class="n">01</span><div><h3>Ремонт двигателей</h3><p>Бензин и дизель. Дефектовка перед ремонтом — обязательно.</p></div><span class="tagr">по диагностике</span></div>
+      <div class="srow"><span class="n">02</span><div><h3>АКПП · вариаторы · DSG</h3><p>Отдельный цех коробок и гидротрансформаторов на пер. Тульский, 66.</p></div><span class="tagr">по диагностике</span></div>
+      <div class="srow"><span class="n">03</span><div><h3>Ходовая и подвеска</h3><p>Диагностика, ремонт, развал-схождение после работ.</p></div><span class="tagr">от диагностики</span></div>
+      <div class="srow"><span class="n">04</span><div><h3>Компьютерная диагностика</h3><p>Двигатель, коробка, электрика — с расшифровкой человеческим языком.</p></div><span class="tagr">по звонку</span></div>
+      <div class="srow"><span class="n">05</span><div><h3>ТО и рулевые рейки</h3><p>Регламентное обслуживание, ремонт реек, поиск сложных неисправностей.</p></div><span class="tagr">по звонку</span></div>
     </div>
   </div>
 </section>
 
 <section style="padding-top:0">
+  <div class="wrap numbers reveal">
+    <div><b>18</b><span>лет в ремонте</span></div>
+    <div><b>4,8 <em>★</em></b><span>рейтинг · 177 оценок</span></div>
+    <div><b>2</b><span>площадки в Калуге</span></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
   <div class="wrap">
-    <div class="numbered reveal"><span class="mono">/02</span><h2>Две площадки</h2></div>
+    <div class="duo reveal">
+      <figure><img src="assets/hero.jpg" alt="Двигатель в ремзоне" width="1536" height="1024"><figcaption>Ремзона · Московская, 289 к. 7</figcaption></figure>
+      <figure><img src="assets/g3.jpg" alt="Шестерни АКПП" width="1536" height="1024"><figcaption>Цех АКПП · пер. Тульский, 66</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0" id="contact">
+  <div class="wrap">
+    <h2 class="reveal" style="margin-bottom:44px">Две <em>площадки</em></h2>
     <div class="sites">
-      <div class="site-card reveal">
-        <span class="mono">ПЛОЩАДКА A · ОСНОВНОЙ СЕРВИС</span>
-        <h3>Московская, 289 корп. 7</h3>
+      <div class="site reveal">
+        <span class="cap">Площадка A · основной сервис</span>
+        <h3>Московская, 289 к. 7</h3>
         <p>Двигатель, ходовая, диагностика, ТО, электрика.</p>
         <a href="tel:+74842400740">+7 (4842) 40-07-40</a><br>
         <a href="tel:+79307540740">+7 (930) 754-07-40</a>
       </div>
-      <div class="site-card reveal">
-        <span class="mono">ПЛОЩАДКА B · ЦЕХ АКПП</span>
+      <div class="site reveal">
+        <span class="cap">Площадка B · цех АКПП</span>
         <h3>пер. Тульский, 66</h3>
         <p>АКПП, вариаторы, DSG, PowerShift, гидротрансформаторы.</p>
-        <a href="tel:+79206113611">+7 (920) 611-36-11</a>
+        <a href="tel:+79206113611">+7 (920) 611-36-11</a><br>
+        <a href="https://yandex.ru/maps/org/nikservice/223086700773/" target="_blank" rel="noopener">Маршрут в Яндекс.Картах</a>
       </div>
     </div>
   </div>
@@ -181,40 +191,74 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--cyan);outline-offset:
 
 <section style="padding-top:0">
   <div class="wrap">
-    <div class="numbered reveal"><span class="mono">/03</span><h2>Отзывы с Яндекс.Карт</h2></div>
-    <div class="quotes">
-      <div class="q reveal"><p>Отличный сервис, грамотный персонал. Качественное выполнение работ и очень демократичные
-        цены. И не надо заботиться о поиске запасных частей. Словом, СУПЕР!</p><div class="who">— Игорь Е.</div></div>
-      <div class="q reveal"><p>Очень быстро решили проблему — починили буквально за 20 минут.</p><div class="who">— Наталья Н.</div></div>
+    <h2 class="reveal" style="margin-bottom:44px">Отзывы <em>с Карт</em></h2>
+    <div class="qq">
+      <div class="reveal"><p>«Отличный сервис, грамотный персонал. Качественное выполнение работ и очень
+        демократичные цены. И не надо заботиться о поиске запасных частей. Словом — супер!»</p>
+        <div class="who">Игорь Е. · ★★★★★</div></div>
+      <div class="reveal"><p>«Очень быстро решили проблему — починили буквально за 20 минут».</p>
+        <div class="who">Наталья Н. · ★★★★★</div></div>
     </div>
-    <p class="src reveal">Рейтинг 4,8 — 177 оценок. <a href="https://yandex.ru/maps/org/nikservice/223086700773/reviews/" target="_blank" rel="noopener">Читать все отзывы →</a></p>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="numbered reveal"><span class="mono">/04</span><h2>Контакты</h2></div>
-    <div class="cgrid reveal">
-      <dl><dt>АДРЕС</dt><dd>Калуга, ул. Московская, 289 корп. 7</dd>
-          <dt>ЦЕХ АКПП</dt><dd>Калуга, пер. Тульский, 66</dd></dl>
-      <dl><dt>ТЕЛЕФОНЫ</dt>
-          <dd><a href="tel:+74842400740">+7 (4842) 40-07-40</a><br>
-              <a href="tel:+79307540740">+7 (930) 754-07-40</a><br>
-              <a href="tel:+79206113611">+7 (920) 611-36-11</a> — АКПП</dd></dl>
-      <dl><dt>ЗАПИСЬ</dt><dd>По телефону</dd>
-          <dt>МАРШРУТ</dt><dd><a href="https://yandex.ru/maps/org/nikservice/223086700773/" target="_blank" rel="noopener">Открыть в Яндекс.Картах</a></dd></dl>
-    </div>
+    <p class="qsrc reveal">Рейтинг 4,8 — 177 оценок ·
+      <a href="https://yandex.ru/maps/org/nikservice/223086700773/reviews/" target="_blank" rel="noopener">читать все →</a></p>
   </div>
 </section>
 
 <footer><div class="wrap">
   <span>© 2026 НикСервис · Калуга · с 2008 года</span>
-  <span class="demo-badge">ДЕМОНСТРАЦИОННЫЙ МАКЕТ</span>
+  <span class="demo-badge">Демонстрационный макет</span>
 </div></footer>
 
 <a class="fab" href="tel:+74842400740" aria-label="Позвонить">📞</a>
 
 <script>
+// поле частиц-треугольников, образующих кольцо-шестерню (сигнатура Dala, цвета техцентра)
+(function(){
+  const cv = document.getElementById('gearCanvas');
+  if (!cv) return;
+  const ctx = cv.getContext('2d');
+  const W = cv.width, H = cv.height, CX = W/2, CY = H/2;
+  const COLORS = ['#37B6FF','#ffb829','#7FE0D4','#5A8DEE','#BFE8FF'];
+  const pts = [];
+  const N = 520;
+  for (let i = 0; i < N; i++) {
+    const a = Math.random() * Math.PI * 2;
+    const teeth = 1 + .14 * Math.max(0, Math.sin(a * 9));           // 9 зубьев шестерни
+    const band = 230 + (Math.random() - .5) * 90;
+    pts.push({a, r: band * teeth, sp: .0006 + Math.random() * .0012,
+      s: 4 + Math.random() * 7, c: COLORS[(Math.random() * COLORS.length) | 0],
+      o: .35 + Math.random() * .55, w: Math.random() * Math.PI * 2});
+  }
+  // ambient-частицы вне кольца
+  for (let i = 0; i < 70; i++) {
+    pts.push({a: Math.random() * Math.PI * 2, r: 60 + Math.random() * 420,
+      sp: .0002 + Math.random() * .0004, s: 3 + Math.random() * 4,
+      c: COLORS[(Math.random() * COLORS.length) | 0], o: .1 + Math.random() * .2,
+      w: Math.random() * Math.PI * 2, amb: true});
+  }
+  function tri(x, y, s, rot, c, o) {
+    ctx.save(); ctx.translate(x, y); ctx.rotate(rot);
+    ctx.globalAlpha = o; ctx.strokeStyle = c; ctx.lineWidth = 1.6;
+    ctx.beginPath();
+    ctx.moveTo(0, -s); ctx.lineTo(s * .87, s * .5); ctx.lineTo(-s * .87, s * .5);
+    ctx.closePath(); ctx.stroke(); ctx.restore();
+  }
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let t = 0;
+  (function frame(){
+    ctx.clearRect(0, 0, W, H);
+    for (const p of pts) {
+      if (!reduced) { p.a += p.sp; p.w += .01; }
+      const wob = p.amb ? 0 : Math.sin(p.w) * 6;
+      const x = CX + Math.cos(p.a) * (p.r + wob);
+      const y = CY + Math.sin(p.a) * (p.r + wob);
+      tri(x, y, p.s, p.a + p.w * .3, p.c, p.o);
+    }
+    t++;
+    if (!reduced) requestAnimationFrame(frame);
+  })();
+})();
+
 const els = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver(es => es.forEach(e => {

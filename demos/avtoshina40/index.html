@@ -8,205 +8,212 @@
 <meta name="description" content="Магазин шин и дисков в Калуге: 70+ брендов, подбор по авто, шиномонтаж и сезонное хранение. Рейтинг 5,0 на Яндекс.Картах.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Commissioner:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --rubber:#151714; --rubber2:#1E211D; --lime:#C6F24E; --lime-dark:#A7D32E;
-  --chalk:#F1F2EE; --ink:#191B17; --muted:#70756B; --hair:#33362F; --ease:cubic-bezier(.16,1,.3,1);
+  --ink:#1d1d1f; --mid:#707070; --paper:#ffffff; --canvas:#f5f5f7;
+  --lime:#6FA80C; --lime-fill:#7CBB12; --ease:cubic-bezier(.4,0,.25,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Commissioner',system-ui,sans-serif;background:var(--rubber);color:var(--chalk);line-height:1.6}
-.bebas{font-family:'Bebas Neue',sans-serif;letter-spacing:.03em}
-.wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--paper);color:var(--ink);
+  line-height:1.47;font-size:17px;letter-spacing:-.022em}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+a{color:var(--lime);text-decoration:none}
+a:hover{text-decoration:underline}
 
-header{border-bottom:1px solid var(--hair)}
-.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0}
-.logo{color:var(--chalk);text-decoration:none;font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.06em}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(20px)}
+.hrow{height:48px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{color:var(--ink);font-weight:700;font-size:14px;text-decoration:none}
 .logo span{color:var(--lime)}
-.htel{color:var(--chalk);text-decoration:none;font-weight:600;font-size:15px}
-.htel:hover{color:var(--lime)}
+.hlink{color:#474747;font-size:13px;text-decoration:none}
+.hlink:hover{color:var(--ink)}
 
-/* hero: заголовок + интерактивный подбор */
-.hero{padding:64px 0 70px;border-bottom:1px solid var(--hair)}
-.hero .wrap{display:grid;grid-template-columns:1fr;gap:44px}
-@media(min-width:960px){.hero .wrap{grid-template-columns:1fr 440px;align-items:start}}
-.badge5{display:inline-flex;align-items:baseline;gap:10px;margin-bottom:20px}
-.badge5 .n{font-family:'Bebas Neue',sans-serif;font-size:56px;color:var(--lime);line-height:1}
-.badge5 small{color:var(--muted);font-size:13px;max-width:16ch}
-.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,7vw,84px);line-height:.96;letter-spacing:.02em}
-.hero h1 em{font-style:normal;color:var(--lime)}
-.hero .sub{margin:20px 0 0;font-size:16.5px;color:#B9BEB2;max-width:46ch}
-.hero .sub a{color:var(--lime)}
+/* hero-собор */
+.hero{text-align:center;padding:80px 0 0}
+.eyebrow{font-size:17px;font-weight:500}
+.hero h1{font-size:clamp(42px,8vw,88px);font-weight:700;letter-spacing:-.015em;line-height:1.05;margin:10px 0 12px}
+.hero .sub{font-size:clamp(19px,2.6vw,25px);color:var(--mid);letter-spacing:-.01em;max-width:36ch;margin:0 auto}
+.cta-row{margin:26px 0 8px;display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap}
+.pill{display:inline-block;background:var(--lime-fill);color:#fff;font-size:17px;font-weight:500;
+  padding:12px 26px;border-radius:980px;transition:filter .25s var(--ease);text-decoration:none}
+.pill:hover{filter:brightness(1.06);text-decoration:none}
+.pricefrom{font-size:17px;color:var(--mid)}
+.hero-img img{width:min(520px,88vw);height:auto;margin:36px auto 0;display:block}
 
-/* панель подбора */
-.picker{background:var(--rubber2);border:1px solid var(--hair);border-radius:18px;padding:28px}
-.picker .lbl{font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-.rgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px}
-.rbtn{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.04em;background:transparent;color:var(--chalk);
-  border:1.5px solid var(--hair);border-radius:10px;padding:12px 0;cursor:pointer;transition:all .2s var(--ease)}
-.rbtn:hover{border-color:var(--lime)}
-.rbtn.act{background:var(--lime);color:var(--rubber);border-color:var(--lime)}
-.pout{border-top:1px dashed var(--hair);padding-top:20px}
-.pout .price{font-family:'Bebas Neue',sans-serif;font-size:54px;color:var(--lime);line-height:1}
-.pout .price small{font-size:22px;color:var(--chalk)}
-.pout p{color:var(--muted);font-size:13.5px;margin-top:8px;min-height:42px}
-.pcall{display:flex;width:100%;justify-content:center;margin-top:18px;background:var(--lime);color:var(--rubber);
-  text-decoration:none;font-weight:700;font-size:16px;padding:16px;border-radius:12px;transition:background .2s}
-.pcall:hover{background:var(--lime-dark)}
+section{padding:100px 0}
+.band{background:var(--canvas)}
+h2{font-size:clamp(30px,4.4vw,46px);font-weight:600;letter-spacing:-.005em;line-height:1.1;margin-bottom:12px}
+.lead{font-size:21px;color:var(--mid);letter-spacing:.002em;max-width:52ch}
+.center{text-align:center}
+.center .lead{margin:0 auto}
 
-/* фото-полка на всю ширину */
-.shelf{position:relative}
-.shelf img{width:100%;height:min(46vh,420px);object-fit:cover;display:block}
-.shelf .cap{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(21,23,20,.94));
-  padding:60px 0 20px}
-.shelf .cap .wrap{display:flex;flex-wrap:wrap;gap:10px}
-.brand{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.08em;color:#D6DACF;border:1px solid var(--hair);
-  border-radius:99px;padding:6px 16px}
+/* сезоны — finish-карточки */
+.finishes{display:grid;grid-template-columns:1fr;gap:16px;margin-top:44px}
+@media(min-width:820px){.finishes{grid-template-columns:1fr 1fr 1fr}}
+.fin{border-radius:28px;padding:34px;text-align:center}
+.fin.summer{background:#EAF3D4}
+.fin.winter{background:#DCEBF5}
+.fin.all{background:#E8E8ED}
+.fin .emoji{font-size:44px;display:block;margin-bottom:12px}
+.fin b{display:block;font-size:21px;font-weight:600;letter-spacing:-.01em}
+.fin span{color:#55585E;font-size:14px}
 
-section{padding:68px 0}
-.k{color:var(--lime);font-size:12.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;margin-bottom:10px}
-h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,4.6vw,52px);letter-spacing:.03em;margin-bottom:34px}
+/* радиусы-чипы + цена */
+.radline{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:40px}
+.rchip{border:1.5px solid #d6d6d6;border-radius:980px;padding:9px 18px;font-size:15px;font-weight:500;cursor:pointer;
+  background:#fff;transition:all .2s var(--ease)}
+.rchip:hover{border-color:var(--ink)}
+.rchip.act{background:var(--ink);border-color:var(--ink);color:#fff}
+.radprice{text-align:center;margin-top:22px;font-size:21px;color:var(--mid)}
+.radprice b{color:var(--ink);font-weight:600;font-size:28px;letter-spacing:-.01em}
+.radnote{text-align:center;color:var(--mid);font-size:14px;margin-top:8px}
 
-/* услуги: большой список строк с линией протектора */
-.slist .item{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:20px 0;
-  border-bottom:2px dashed var(--hair)}
-.slist .item h3{font-size:19px;font-weight:700}
-.slist .item p{color:var(--muted);font-size:14px;margin-top:4px;max-width:56ch}
-.slist .tagp{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--lime);white-space:nowrap}
+/* фото-дуэт продукта */
+.duo{display:grid;grid-template-columns:1fr;gap:16px;margin-top:44px}
+@media(min-width:820px){.duo{grid-template-columns:1fr 1fr}}
+.duo figure{border-radius:28px;overflow:hidden;background:#fff}
+.band .duo figure{background:var(--paper)}
+.duo img{width:100%;height:320px;object-fit:cover;display:block}
+.duo figcaption{padding:16px 22px;font-size:14px;color:var(--mid)}
 
-/* отзывы-чеки */
-.checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-.check{background:#FBFBF7;color:var(--ink);padding:24px 22px;font-size:14px;position:relative;
-  clip-path:polygon(0 0,100% 0,100% calc(100% - 8px),95% 100%,90% calc(100% - 8px),85% 100%,80% calc(100% - 8px),75% 100%,70% calc(100% - 8px),65% 100%,60% calc(100% - 8px),55% 100%,50% calc(100% - 8px),45% 100%,40% calc(100% - 8px),35% 100%,30% calc(100% - 8px),25% 100%,20% calc(100% - 8px),15% 100%,10% calc(100% - 8px),5% 100%,0 calc(100% - 8px))}
-.check .head{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.1em;border-bottom:1px dashed #B9B9AE;
-  padding-bottom:8px;margin-bottom:12px;display:flex;justify-content:space-between}
-.check p{color:#3A3D35}
-.check .who{margin-top:12px;font-weight:700;font-size:13px;color:#191B17}
-.check .stars{color:#D9A400;letter-spacing:2px}
-.src{margin-top:22px;font-size:14px;color:var(--muted)}
-.src a{color:var(--lime)}
+/* цикл: строки */
+.cyc{max-width:680px;margin:44px auto 0}
+.crow{display:flex;align-items:baseline;gap:14px;padding:16px 4px;border-bottom:1px solid #d6d6d6}
+.crow:last-child{border:none}
+.crow .nm{font-weight:500}
+.crow .nm small{display:block;color:var(--mid);font-weight:400;font-size:14px}
+.crow .dots{flex:1}
+.crow .pr{font-weight:600;white-space:nowrap}
 
-/* контакты: тёмная строка */
-.cbar{border-top:1px solid var(--hair);padding:70px 0}
-.cbar .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;align-items:start}
-.cbar dt{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.cbar dd{font-size:17px;font-weight:600}
-.cbar dd a{color:var(--chalk);text-decoration:none}
-.cbar dd a:hover{color:var(--lime)}
-footer{border-top:1px solid var(--hair);color:var(--muted);padding:24px 0;font-size:13px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
-.demo-badge{border:1px dashed var(--hair);border-radius:8px;padding:5px 12px}
-.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--lime);color:var(--rubber);
-  width:58px;height:58px;align-items:center;justify-content:center;font-size:24px;text-decoration:none;border-radius:50%;
-  box-shadow:0 10px 26px rgba(198,242,78,.35)}
-@media(max-width:640px){.fab{display:flex}.htel{display:none}}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+/* отзывы */
+.revs{display:grid;grid-template-columns:1fr;gap:16px;margin-top:44px}
+@media(min-width:860px){.revs{grid-template-columns:1fr 1fr 1fr}}
+.rev{background:var(--paper);border-radius:28px;padding:30px}
+.rev .st{color:#F5A623;letter-spacing:2px;font-size:13px;margin-bottom:10px}
+.rev p{font-size:15.5px;letter-spacing:-.01em}
+.rev b{display:block;margin-top:14px;font-size:14px;font-weight:600}
+.rev-src{text-align:center;margin-top:28px;font-size:17px}
+
+.final{text-align:center}
+.final .tel{font-size:clamp(24px,4.4vw,36px);font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.final .tel:hover{color:var(--lime)}
+.final .more{color:var(--mid);font-size:15px;margin-top:12px}
+.final .more a{color:var(--ink)}
+
+footer{background:var(--canvas);color:var(--mid);padding:26px 0;font-size:12px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
+.demo-badge{border:1px solid #d6d6d6;border-radius:980px;padding:5px 14px;white-space:nowrap}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.on{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-a:focus-visible,button:focus-visible{outline:3px solid var(--lime);outline-offset:2px}
+a:focus-visible,.pill:focus-visible,.rchip:focus-visible{outline:3px solid var(--lime);outline-offset:2px}
 </style>
 </head>
 <body>
 
 <header><div class="wrap hrow">
   <a class="logo" href="#">АВТОШИНА<span>40</span></a>
-  <a class="htel" href="tel:+79036365580">+7 (903) 636-55-80</a>
+  <a class="hlink" href="tel:+79036365580">+7 (903) 636-55-80</a>
 </div></header>
 
 <section class="hero">
   <div class="wrap">
-    <div>
-      <div class="badge5"><span class="n">5,0</span><small>рейтинг · 335 оценок на Яндекс.Картах</small></div>
-      <h1>Шины. Диски. <em>Сразу на колёса</em></h1>
-      <p class="sub">70+ брендов от Cordiant до Michelin: в наличии на Зерновой, 50А и под заказ за 1–2 дня.
-      Купили — тут же собрали, отбалансировали и поставили. Второй комплект возьмём
-      <a href="#services">на хранение</a>.</p>
+    <p class="eyebrow reveal on">Автошина40 · Зерновая, 50А</p>
+    <h1 class="reveal on">Шина. Дело сезонное.</h1>
+    <p class="sub reveal on">70+ брендов в наличии и под заказ за 1–2 дня.
+    Купили — сразу собрали, отбалансировали и поставили.</p>
+    <div class="cta-row reveal on">
+      <a class="pill" href="tel:+79036365580">Подобрать по телефону</a>
+      <a href="#cycle">Что входит ›</a>
     </div>
-    <div class="picker reveal on">
-      <div class="lbl">Переобувка под ключ — ваш радиус:</div>
-      <div class="rgrid" id="rgrid">
-        <button class="rbtn" data-r="R13" data-p="≈1 600" data-t="Комплект 4 колеса: снятие, монтаж, балансировка.">R13</button>
-        <button class="rbtn" data-r="R14" data-p="≈1 800" data-t="Комплект 4 колеса: снятие, монтаж, балансировка.">R14</button>
-        <button class="rbtn act" data-r="R15" data-p="≈2 000" data-t="Самый ходовой размер — есть все сезоны в наличии.">R15</button>
-        <button class="rbtn" data-r="R16" data-p="≈2 200" data-t="Комплект 4 колеса: снятие, монтаж, балансировка.">R16</button>
-        <button class="rbtn" data-r="R17" data-p="≈2 500" data-t="Низкопрофиль — работаем аккуратно, без заломов.">R17</button>
-        <button class="rbtn" data-r="R18" data-p="≈2 800" data-t="Низкопрофиль — работаем аккуратно, без заломов.">R18</button>
-        <button class="rbtn" data-r="R19" data-p="≈3 100" data-t="Премиум-размеры: бережный монтаж.">R19</button>
-        <button class="rbtn" data-r="R20" data-p="≈3 400" data-t="Премиум-размеры: бережный монтаж.">R20</button>
-      </div>
-      <div class="pout">
-        <div class="price" id="pprice">≈2 000 <small>₽</small></div>
-        <p id="ptext">Самый ходовой размер — есть все сезоны в наличии.</p>
-        <a class="pcall" href="tel:+79036365580">Уточнить и записаться</a>
-      </div>
+    <p class="pricefrom reveal on">Рейтинг 5,0 · 335 оценок на Яндекс.Картах</p>
+    <div class="hero-img reveal on"><img src="assets/g1.jpg" alt="Шина на белом фоне" width="1536" height="1024"></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap center">
+    <h2 class="reveal">Выберите сезон.</h2>
+    <p class="lead reveal">Остальное — подбор размера, брендов и цены — сделаем за один звонок.</p>
+    <div class="finishes">
+      <div class="fin summer reveal"><span class="emoji">☀️</span><b>Лето</b><span>от городских до спортивных</span></div>
+      <div class="fin winter reveal"><span class="emoji">❄️</span><b>Зима</b><span>шипы и «липучка»</span></div>
+      <div class="fin all reveal"><span class="emoji">🌤</span><b>Всесезонка</b><span>для мягких зим и экономных</span></div>
+    </div>
+    <div class="radline reveal" id="rads">
+      <button class="rchip" data-p="≈1 600">R13</button><button class="rchip" data-p="≈1 800">R14</button>
+      <button class="rchip act" data-p="≈2 000">R15</button><button class="rchip" data-p="≈2 200">R16</button>
+      <button class="rchip" data-p="≈2 500">R17</button><button class="rchip" data-p="≈2 800">R18</button>
+      <button class="rchip" data-p="≈3 100">R19</button><button class="rchip" data-p="≈3 400">R20</button>
+    </div>
+    <p class="radprice reveal">Переобувка комплекта — <b id="rp">≈2 000 ₽</b></p>
+    <p class="radnote reveal">снятие, монтаж, балансировка · точная цена по телефону</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap center">
+    <h2 class="reveal">Крупным планом.</h2>
+  </div>
+  <div class="wrap">
+    <div class="duo reveal">
+      <figure><img src="assets/g2.jpg" alt="Протектор макро" width="1536" height="1024"><figcaption>Протектор — новый, свежих DOT-дат</figcaption></figure>
+      <figure><img src="assets/g4.jpg" alt="Литой диск" width="1536" height="1024"><figcaption>Диски — литые и штампованные, подбор по PCD</figcaption></figure>
     </div>
   </div>
 </section>
 
-<div class="shelf reveal on">
-  <img src="assets/hero.jpg" alt="Шины в магазине Автошина40" width="1536" height="1024">
-  <div class="cap"><div class="wrap">
-    <span class="brand">MICHELIN</span><span class="brand">NOKIAN</span><span class="brand">CORDIANT</span>
-    <span class="brand">HANKOOK</span><span class="brand">PIRELLI</span><span class="brand">+65 брендов</span>
-  </div></div>
-</div>
-
-<section id="services">
-  <div class="wrap">
-    <div class="k reveal">Кроме продажи</div>
-    <h2 class="reveal">Полный цикл</h2>
-    <div class="slist reveal">
-      <div class="item"><div><h3>Подбор по авто и бюджету</h3><p>Скажите марку и сумму — предложим премиум и разумную альтернативу, без навязывания.</p></div><span class="tagp">Бесплатно</span></div>
-      <div class="item"><div><h3>Шиномонтаж и балансировка</h3><p>Своя мастерская: забираете готовые колёса или уезжаете уже переобутыми.</p></div><span class="tagp">от 1 600 ₽</span></div>
-      <div class="item"><div><h3>Сезонное хранение</h3><p>Храним второй комплект — дома место не занимает.</p></div><span class="tagp">по звонку</span></div>
-      <div class="item"><div><h3>Доставка под заказ</h3><p>1–2 дня — даже «последним паровозом перед Новым годом», проверено клиентами.</p></div><span class="tagp">1–2 дня</span></div>
-    </div>
+<section class="band" id="cycle">
+  <div class="wrap center">
+    <h2 class="reveal">Полный цикл.</h2>
+    <p class="lead reveal">Один адрес — от подбора до сезонного хранения.</p>
+  </div>
+  <div class="cyc reveal">
+    <div class="crow"><span class="nm">Подбор по авто и бюджету<small>премиум и разумная альтернатива — без навязывания</small></span><span class="dots"></span><span class="pr">бесплатно</span></div>
+    <div class="crow"><span class="nm">Шиномонтаж и балансировка<small>своя мастерская на месте</small></span><span class="dots"></span><span class="pr">от 1 600 ₽</span></div>
+    <div class="crow"><span class="nm">Сезонное хранение<small>второй комплект — у нас, а не на балконе</small></span><span class="dots"></span><span class="pr">по звонку</span></div>
+    <div class="crow"><span class="nm">Доставка под заказ<small>1–2 дня, даже в высокий сезон</small></span><span class="dots"></span><span class="pr">1–2 дня</span></div>
   </div>
 </section>
 
-<section style="padding-top:0">
+<section>
+  <div class="wrap center">
+    <h2 class="reveal">Почему 5,0.</h2>
+  </div>
   <div class="wrap">
-    <div class="k reveal">Пробит чек — оставлен отзыв</div>
-    <h2 class="reveal">Отзывы с Яндекс.Карт</h2>
-    <div class="checks">
-      <div class="check reveal"><div class="head"><span>АВТОШИНА40</span><span>★5,0</span></div>
-        <p>Помогли подобрать диски с нужными параметрами, доставка быстрая, персонал всегда на связи + качественный шиномонтаж. Рекомендую!</p>
-        <div class="who">Дмитрий Т. <span class="stars">★★★★★</span></div></div>
-      <div class="check reveal"><div class="head"><span>АВТОШИНА40</span><span>★5,0</span></div>
-        <p>По телефону сразу получил квалифицированную консультацию. На следующий день подобрали шины под мои запросы. Спасибо Тимуру!</p>
-        <div class="who">Сергеич <span class="stars">★★★★★</span></div></div>
-      <div class="check reveal"><div class="head"><span>АВТОШИНА40</span><span>★5,0</span></div>
-        <p>Привезли практически последним паровозом перед Новым годом! Сразу собрали колёса и отбалансировали — забрала готовые.</p>
-        <div class="who">Натали <span class="stars">★★★★★</span></div></div>
+    <div class="revs">
+      <div class="rev reveal" style="background:var(--canvas)"><div class="st">★★★★★</div>
+        <p>«Помогли подобрать диски с нужными параметрами, доставка быстрая, персонал всегда на связи + качественный шиномонтаж».</p><b>Дмитрий Т.</b></div>
+      <div class="rev reveal" style="background:var(--canvas)"><div class="st">★★★★★</div>
+        <p>«По телефону сразу получил квалифицированную консультацию. На следующий день подобрали шины под мои запросы».</p><b>Сергеич</b></div>
+      <div class="rev reveal" style="background:var(--canvas)"><div class="st">★★★★★</div>
+        <p>«Привезли практически последним паровозом перед Новым годом! Сразу собрали и отбалансировали».</p><b>Натали</b></div>
     </div>
-    <p class="src reveal">Рейтинг 5,0 — 335 оценок. <a href="https://yandex.ru/maps/org/avtoshina40/54453622118/reviews/" target="_blank" rel="noopener">Читать все 203 отзыва →</a></p>
+    <p class="rev-src reveal"><a href="https://yandex.ru/maps/org/avtoshina40/54453622118/reviews/" target="_blank" rel="noopener">Все 203 отзыва на Яндекс.Картах ›</a></p>
   </div>
 </section>
 
-<div class="cbar" id="contact">
+<section class="band final" id="contact">
   <div class="wrap">
-    <dl><dt>Адрес</dt><dd>Калуга, Зерновая ул., 50А</dd></dl>
-    <dl><dt>Телефоны</dt><dd><a href="tel:+79036365580">+7 (903) 636-55-80</a><br>
-      <a href="tel:+79106099905">+7 (910) 609-99-05</a><br><a href="tel:+74842595580">+7 (4842) 59-55-80</a></dd></dl>
-    <dl><dt>Маршрут</dt><dd><a href="https://yandex.ru/maps/org/avtoshina40/54453622118/" target="_blank" rel="noopener">Яндекс.Карты →</a></dd></dl>
+    <h2 class="reveal">Позвоните — подберём.</h2>
+    <p class="reveal"><a class="tel" href="tel:+79036365580">+7 (903) 636-55-80</a></p>
+    <p class="more reveal">ещё: <a href="tel:+79106099905">+7 (910) 609-99-05</a> · <a href="tel:+74842595580">+7 (4842) 59-55-80</a><br>
+    Калуга, Зерновая ул., 50А · <a href="https://yandex.ru/maps/org/avtoshina40/54453622118/" target="_blank" rel="noopener">маршрут ›</a></p>
   </div>
-</div>
+</section>
 
 <footer><div class="wrap">
-  <span>© 2026 Автошина40 · Калуга · цены подбора ориентировочные, точные — по телефону</span>
+  <span>© 2026 Автошина40 · Калуга · цены подбора ориентировочные</span>
   <span class="demo-badge">Демонстрационный макет</span>
 </div></footer>
 
-<a class="fab" href="tel:+79036365580" aria-label="Позвонить">📞</a>
-
 <script>
-document.getElementById('rgrid').addEventListener('click', e => {
-  const b = e.target.closest('.rbtn'); if (!b) return;
-  document.querySelectorAll('.rbtn').forEach(x => x.classList.remove('act'));
+document.getElementById('rads').addEventListener('click', e => {
+  const b = e.target.closest('.rchip'); if (!b) return;
+  document.querySelectorAll('.rchip').forEach(x => x.classList.remove('act'));
   b.classList.add('act');
-  document.getElementById('pprice').innerHTML = b.dataset.p + ' <small>₽</small>';
-  document.getElementById('ptext').textContent = b.dataset.t;
+  document.getElementById('rp').textContent = b.dataset.p + ' ₽';
 });
 const els = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window) {

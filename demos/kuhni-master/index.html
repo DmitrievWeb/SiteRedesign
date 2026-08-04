@@ -8,158 +8,165 @@
 <meta name="description" content="Кухни на заказ в Калуге: замер, проект, производство, установка. Ленина, 63/10. 136 фото работ.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --forest:#1C332B; --forest2:#244137; --brass:#C9A45C; --linen:#F5F1E8;
-  --txt:#EFEBDF; --muted:#9DAAA0; --hair:#33534A; --ease:cubic-bezier(.16,1,.3,1);
+  --void:#000000; --charcoal:#202020; --graphite:#333333; --cream:#f5f5f0;
+  --white:#ffffff; --smoke:#999999; --ease:cubic-bezier(.625,.05,0,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Jost',system-ui,sans-serif;background:var(--forest);color:var(--txt);line-height:1.7}
-h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;line-height:1.15}
-.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--void);color:var(--white);
+  line-height:1.5;font-size:16px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.serif-it{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500}
+.cap{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--smoke)}
 
-header{position:absolute;top:0;left:0;right:0;z-index:10}
-.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:22px 0}
-.logo{color:#fff;text-decoration:none;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:24px;letter-spacing:.05em}
-.logo span{color:var(--brass)}
-.htel{color:#fff;text-decoration:none;font-weight:500;font-size:15px;letter-spacing:.04em;border-bottom:1px solid rgba(255,255,255,.35)}
-.htel:hover{border-bottom-color:var(--brass);color:var(--brass)}
+header{position:absolute;top:0;left:0;right:0;z-index:20}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:24px 0}
+.logo{color:var(--white);text-decoration:none;font-weight:500;font-size:15px;letter-spacing:.22em;text-transform:uppercase}
+.logo span{color:var(--cream)}
+.pill{display:inline-block;background:var(--cream);color:#000;text-decoration:none;font-weight:500;
+  font-size:15px;padding:12px 26px;border-radius:9999px;box-shadow:rgba(0,0,0,.15) 0 4px 20px;
+  transition:transform .25s var(--ease)}
+.pill:hover{transform:translateY(-2px)}
 
-/* hero: фуллскрин кухня */
-.hero{position:relative;min-height:96vh;display:flex;align-items:flex-end}
-.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(8deg, rgba(28,51,43,.95) 16%, rgba(28,51,43,.35) 55%, rgba(28,51,43,.25))}
-.hero .wrap{position:relative;z-index:2;padding-bottom:72px}
-.hero .over{color:var(--brass);font-size:12.5px;letter-spacing:.34em;text-transform:uppercase;margin-bottom:18px}
-.hero h1{font-size:clamp(38px,6.4vw,72px);max-width:16ch}
-.hero h1 em{font-style:italic;color:var(--brass)}
-.hero .sub{margin:18px 0 32px;font-size:16.5px;color:#C9D2CB;max-width:48ch}
-.btn{display:inline-block;background:var(--brass);color:var(--forest);text-decoration:none;font-weight:600;
-  font-size:14.5px;letter-spacing:.16em;text-transform:uppercase;padding:18px 40px;transition:all .3s var(--ease)}
-.btn:hover{background:#D9B872;transform:translateY(-2px)}
-.hero .ghost{display:inline-block;margin-left:20px;color:#fff;text-decoration:none;font-size:14.5px;
-  letter-spacing:.1em;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:4px}
-.hero .ghost:hover{color:var(--brass);border-bottom-color:var(--brass)}
+.fold{position:relative;min-height:88vh;display:flex;align-items:flex-end}
+.fold img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fold::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.3) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,.7) 100%)}
+.fold .wrap{position:relative;z-index:2;padding-bottom:58px;width:100%}
+.glass{position:absolute;top:100px;right:24px;z-index:3;background:rgba(200,200,200,.1);
+  backdrop-filter:blur(20px) saturate(1.4);border-radius:9999px;padding:9px 18px;
+  font-size:11px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--white);
+  box-shadow:rgba(0,0,0,.35) 0 10px 30px, inset rgba(255,255,255,.08) 0 1px 0}
+.fold h1{font-size:clamp(36px,5.8vw,64px);font-weight:300;line-height:1.06;letter-spacing:-.025em;max-width:17ch}
+.fold h1 .serif-it{letter-spacing:0}
+.fold .sub{margin:16px 0 28px;color:#CDCDC7;font-weight:300;font-size:17px;max-width:44ch}
+.fold .row{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.ghost{display:inline-block;color:var(--white);text-decoration:none;font-weight:500;font-size:15px;
+  padding:11px 24px;border:1px solid rgba(255,255,255,.5);border-radius:9999px;transition:all .25s var(--ease)}
+.ghost:hover{border-color:var(--cream);color:var(--cream)}
 
-section{padding:84px 0}
-.k{color:var(--brass);font-size:12px;letter-spacing:.34em;text-transform:uppercase;margin-bottom:14px}
-h2{font-size:clamp(30px,4.2vw,46px);margin-bottom:40px}
+section{padding:100px 0}
+h2{font-size:clamp(30px,4.2vw,50px);font-weight:300;letter-spacing:-.025em;line-height:1.1;margin-bottom:44px}
+h2 .serif-it{letter-spacing:0}
 
-/* этапы римскими */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair)}
-.st{background:var(--forest);padding:34px 28px}
-.st .rn{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;color:var(--brass);margin-bottom:14px}
-.st b{display:block;font-size:17px;font-weight:600;letter-spacing:.04em;margin-bottom:8px}
-.st p{color:var(--muted);font-size:14px}
+/* этапы: строки */
+.steps{max-width:720px}
+.st{display:grid;grid-template-columns:64px 1fr;gap:22px;padding:24px 0;border-bottom:1px solid var(--graphite)}
+.st:last-child{border:none}
+.st .n{font-family:'Playfair Display',serif;font-style:italic;color:var(--cream);font-size:22px}
+.st b{display:block;font-weight:400;font-size:20px;letter-spacing:-.01em;margin-bottom:4px}
+.st p{color:var(--smoke);font-weight:300;font-size:14.5px;max-width:56ch}
 
-/* цифры-строка */
-.nums{display:flex;flex-wrap:wrap;gap:40px;justify-content:center;text-align:center}
-.nums div{min-width:150px}
-.nums b{font-family:'Cormorant Garamond',serif;font-size:52px;color:var(--brass);display:block;line-height:1}
-.nums span{color:var(--muted);font-size:14px}
+/* кино-мозаика фото */
+.mosaic{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:860px){.mosaic{grid-template-columns:1.25fr .75fr;grid-auto-rows:250px}}
+.shot{position:relative;border-radius:10px;overflow:hidden}
+.shot.tall{grid-row:span 2}
+.shot img{width:100%;height:100%;min-height:230px;object-fit:cover;display:block;transition:transform .6s var(--ease)}
+.shot:hover img{transform:scale(1.03)}
+.shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 18px 14px;font-size:13.5px;
+  background:linear-gradient(transparent, rgba(0,0,0,.68))}
+.more-link{margin-top:22px;font-size:14px;color:var(--smoke)}
+.more-link a{color:var(--cream);text-decoration:none}
+.more-link a:hover{text-decoration:underline}
 
-/* материалы: строки с линиями */
-.mat{max-width:660px;margin:0 auto}
-.mrow{display:flex;align-items:baseline;gap:16px;padding:17px 0;border-bottom:1px solid var(--hair)}
-.mrow h3{font-size:21px;white-space:nowrap;font-weight:600}
-.mrow .line{flex:1;border-bottom:1px dotted var(--hair);transform:translateY(-4px)}
-.mrow span{color:var(--muted);font-size:13.5px;text-align:right;max-width:24ch}
+/* факты charcoal */
+.facts{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:820px){.facts{grid-template-columns:1fr 1fr 1fr}}
+.fact{background:var(--charcoal);border-radius:10px;padding:32px}
+.fact b{display:block;font-weight:300;font-size:40px;letter-spacing:-.03em;color:var(--cream)}
+.fact span{color:var(--smoke);font-weight:300;font-size:14px}
 
-/* приглашение на льняном фоне */
-.invite{background:var(--linen);color:#2B2A22;text-align:center}
-.invite h2{color:#2B2A22}
-.invite p{color:#6E6B58;max-width:50ch;margin:0 auto 30px}
-.invite .tel{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,44px);color:#2B2A22;text-decoration:none}
-.invite .tel:hover{color:#8A6E1F}
-.invite .row{margin-top:22px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.invite .wa{display:inline-block;background:#1E7A43;color:#fff;text-decoration:none;font-weight:600;
-  font-size:14px;padding:14px 30px;letter-spacing:.08em}
-.invite .wa:hover{filter:brightness(1.08)}
-.invite small{display:block;margin-top:18px;color:#8A8672;font-size:13px}
-.invite small a{color:#8A6E1F}
+.final{text-align:center}
+.final .tel{font-family:'Playfair Display',serif;font-size:clamp(26px,4.6vw,42px);color:var(--cream);text-decoration:none}
+.final .tel:hover{text-decoration:underline}
+.final p{color:var(--smoke);font-weight:300;margin-top:14px;font-size:14.5px}
+.final .wa{display:inline-block;margin-top:20px;color:#7FCF9B;border:1px solid #2E4636;border-radius:9999px;
+  padding:11px 24px;text-decoration:none;font-weight:500;font-size:14.5px}
+.final .wa:hover{border-color:#7FCF9B}
 
-footer{border-top:1px solid var(--hair);color:var(--muted);padding:26px 0;font-size:13px}
-footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
-.demo-badge{border:1px dashed var(--hair);padding:5px 14px;letter-spacing:.08em}
-.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--brass);color:var(--forest);
+footer{border-top:1px solid #1B1B1B;color:var(--smoke);padding:28px 0;font-size:12.5px;font-weight:300}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
+.demo-badge{border:1px dashed var(--graphite);border-radius:9999px;padding:5px 14px;font-size:11px;letter-spacing:.06em}
+.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--cream);color:#000;
   width:58px;height:58px;align-items:center;justify-content:center;font-size:24px;text-decoration:none;border-radius:50%;
-  box-shadow:0 10px 26px rgba(0,0,0,.45)}
-@media(max-width:640px){.fab{display:flex}.htel{display:none}.hero .ghost{margin-left:0;margin-top:14px;display:block;width:max-content}}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  box-shadow:rgba(0,0,0,.4) 0 10px 26px}
+@media(max-width:640px){.fab{display:flex}.hrow .pill{display:none}.glass{top:80px}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .reveal.on{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-a:focus-visible,.btn:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+a:focus-visible{outline:3px solid var(--cream);outline-offset:2px}
 </style>
 </head>
 <body>
 
 <header><div class="wrap hrow">
   <a class="logo" href="#">Мастер<span>Кухни</span></a>
-  <a class="htel" href="tel:+79208943295">+7 (920) 894-32-95</a>
+  <a class="pill" href="tel:+79208943295">Бесплатный замер</a>
 </div></header>
 
-<section class="hero">
-  <img class="bg" src="assets/hero.jpg" alt="Кухня на заказ от Мастер Кухни" width="1536" height="1024">
+<section class="fold">
+  <img class="bg" src="assets/hero.jpg" alt="Тёмно-зелёная кухня с латунью" width="1536" height="1024">
+  <span class="glass">Кухни на заказ · 136 фото работ</span>
   <div class="wrap">
-    <div class="over">Кухни на заказ · Калуга · Ленина 63/10</div>
-    <h1>Кухня, ради которой <em>зовут гостей</em></h1>
-    <p class="sub">Проектируем и делаем кухни под ваш размер, стиль и бюджет.
-    От замера до установки — своя команда, без посредников.</p>
-    <a class="btn" href="tel:+79208943295">Бесплатный замер</a>
-    <a class="ghost" href="https://yandex.ru/maps/org/master_kukhni/64114754104/gallery/" target="_blank" rel="noopener">Смотреть 136 фото работ →</a>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="nums reveal">
-      <div><b>136</b><span>фото готовых кухонь</span></div>
-      <div><b>44</b><span>отзыва на Яндекс.Картах</span></div>
-      <div><b>0 ₽</b><span>замер и проект</span></div>
+    <h1>Кухня вашей <span class="serif-it">мечты</span> уже готова. Осталось её сделать.</h1>
+    <p class="sub">Проектируем и производим кухни под ваш размер, стиль и бюджет.
+    От замера до установки — своя команда, без посредников. Ленина, 63/10.</p>
+    <div class="row">
+      <a class="pill" href="tel:+79208943295">+7 (920) 894-32-95</a>
+      <a class="ghost" href="#work">Как это делается</a>
     </div>
   </div>
 </section>
 
-<section style="padding-top:0">
+<section id="work">
   <div class="wrap">
-    <div class="k reveal">Как рождается кухня</div>
-    <h2 class="reveal">Четыре шага</h2>
+    <span class="cap reveal">Путь заказа</span>
+    <h2 class="reveal">Четыре <span class="serif-it">вечера</span> — и проект готов</h2>
     <div class="steps reveal">
-      <div class="st"><div class="rn">I</div><b>Замер</b><p>Приезжаем с образцами, меряем до миллиметра. Бесплатно.</p></div>
-      <div class="st"><div class="rn">II</div><b>Проект</b><p>3D-проект и смета: видите свою кухню до заказа.</p></div>
-      <div class="st"><div class="rn">III</div><b>Производство</b><p>Фурнитура и фасады под ваш бюджет — честно о плюсах каждого.</p></div>
-      <div class="st"><div class="rn">IV</div><b>Установка</b><p>Собираем аккуратно, подключаем технику, убираем за собой.</p></div>
+      <div class="st"><span class="n">I</span><div><b>Замер</b><p>Приезжаем с образцами, меряем до миллиметра. Бесплатно и без обязательств.</p></div></div>
+      <div class="st"><span class="n">II</span><div><b>Проект</b><p>3D-визуализация и смета: вы видите свою кухню до заказа, цена фиксируется.</p></div></div>
+      <div class="st"><span class="n">III</span><div><b>Производство</b><p>Фасады и фурнитура под ваш бюджет — честно о плюсах и минусах каждого варианта.</p></div></div>
+      <div class="st"><span class="n">IV</span><div><b>Установка</b><p>Собираем аккуратно, подключаем технику, убираем за собой.</p></div></div>
     </div>
   </div>
 </section>
 
 <section style="padding-top:0">
   <div class="wrap">
-    <div class="k reveal">Из чего делаем</div>
-    <h2 class="reveal">Материалы</h2>
-    <div class="mat reveal">
-      <div class="mrow"><h3>Фасады</h3><span class="line"></span><span>эмаль, плёнка, пластик, шпон</span></div>
-      <div class="mrow"><h3>Столешницы</h3><span class="line"></span><span>искусственный камень, HPL, массив</span></div>
-      <div class="mrow"><h3>Фурнитура</h3><span class="line"></span><span>доводчики и направляющие, к которым не возвращаются с ремонтом</span></div>
-      <div class="mrow"><h3>Техника</h3><span class="line"></span><span>встроим вашу или подберём новую</span></div>
+    <span class="cap reveal">Детали</span>
+    <h2 class="reveal">Из чего складывается <span class="serif-it">дорого</span></h2>
+    <div class="mosaic reveal">
+      <figure class="shot tall"><img src="assets/g4.jpg" alt="Кухня с островом вечером" width="1536" height="1024"><figcaption>Остров с подвесным светом — центр дома</figcaption></figure>
+      <figure class="shot"><img src="assets/g2.jpg" alt="Латунная ручка" width="1536" height="1024"><figcaption>Латунь на матовом фасаде</figcaption></figure>
+      <figure class="shot"><img src="assets/g3.jpg" alt="Камень столешницы" width="1536" height="1024"><figcaption>Камень, который приятно трогать</figcaption></figure>
+    </div>
+    <p class="more-link reveal">Ещё 136 фото готовых кухонь —
+      <a href="https://yandex.ru/maps/org/master_kukhni/64114754104/gallery/" target="_blank" rel="noopener">в нашей галерее на Яндекс.Картах →</a></p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="facts">
+      <div class="fact reveal"><b>136</b><span>фото готовых кухонь на Картах</span></div>
+      <div class="fact reveal"><b>44</b><span>отзыва · «Хорошее место»</span></div>
+      <div class="fact reveal"><b>0 ₽</b><span>замер и 3D-проект</span></div>
     </div>
   </div>
 </section>
 
-<section class="invite" id="contact">
+<section style="padding-top:0" class="final" id="contact">
   <div class="wrap">
-    <div class="k reveal" style="color:#8A6E1F">Начнём с разговора</div>
-    <h2 class="reveal">Расскажите, какую кухню хотите</h2>
-    <p class="reveal">Позвоните или напишите в WhatsApp — обсудим планировку, покажем варианты,
-    договоримся о замере в удобный день.</p>
+    <span class="cap reveal">Начнём с разговора</span>
+    <h2 class="reveal">Расскажите, какую кухню <span class="serif-it">хотите</span></h2>
     <a class="tel reveal" href="tel:+79208943295">+7 (920) 894-32-95</a>
-    <div class="row reveal">
-      <a class="wa" href="https://wa.me/79208943295" target="_blank" rel="noopener">Написать в WhatsApp</a>
-    </div>
-    <small class="reveal">Калуга, ул. Ленина, 63/10 ·
-      <a href="https://yandex.ru/maps/org/master_kukhni/64114754104/" target="_blank" rel="noopener">маршрут на Яндекс.Картах</a></small>
+    <p class="reveal">Калуга, ул. Ленина, 63/10 ·
+      <a href="https://yandex.ru/maps/org/master_kukhni/64114754104/" target="_blank" rel="noopener" style="color:var(--white)">маршрут</a></p>
+    <a class="wa reveal" href="https://wa.me/79208943295" target="_blank" rel="noopener">Написать в WhatsApp</a>
   </div>
 </section>
 

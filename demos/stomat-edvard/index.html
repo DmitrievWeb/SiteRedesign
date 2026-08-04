@@ -8,148 +8,165 @@
 <meta name="description" content="Стоматологическая клиника «Эдвард» в Калуге: приём по записи, внимательный подход. Хрустальная, 44к5.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --emerald:#0F2E26; --emerald2:#164035; --brass:#C8A24A; --cream:#F4EFE4;
-  --txt:#EFEAD9; --muted:#9DA894; --hair:#2A4A40; --ease:cubic-bezier(.16,1,.3,1);
+  --void:#000000; --charcoal:#202020; --graphite:#333333; --cream:#f5f5f0;
+  --white:#ffffff; --smoke:#999999; --ease:cubic-bezier(.625,.05,0,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Raleway',system-ui,sans-serif;background:var(--emerald);color:var(--txt);line-height:1.7}
-h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-height:1.2}
-.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--void);color:var(--white);
+  line-height:1.5;font-size:16px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+.serif-it{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:500}
+.cap{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--smoke)}
 
-header{border-bottom:1px solid var(--hair)}
-.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 0}
-.logo{color:var(--txt);text-decoration:none;font-family:'Playfair Display',serif;font-size:26px;letter-spacing:.06em}
-.logo span{color:var(--brass)}
-.htel{color:var(--brass);text-decoration:none;font-weight:600;font-size:14.5px;letter-spacing:.06em;
-  border-bottom:1px solid transparent}
-.htel:hover{border-bottom-color:var(--brass)}
+header{position:absolute;top:0;left:0;right:0;z-index:20}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:24px 0}
+.logo{color:var(--white);text-decoration:none;font-family:'Playfair Display',serif;font-size:22px;letter-spacing:.06em}
+.logo span{color:var(--cream)}
+.pill{display:inline-block;background:var(--cream);color:#000;text-decoration:none;font-weight:500;
+  font-size:15px;padding:12px 26px;border-radius:9999px;box-shadow:rgba(0,0,0,.15) 0 4px 20px;
+  transition:transform .25s var(--ease)}
+.pill:hover{transform:translateY(-2px)}
 
-/* hero центрированный, вертикальный, с фото ниже */
-.hero{text-align:center;padding:76px 0 0}
-.hero .mono-line{color:var(--brass);font-size:12px;letter-spacing:.4em;text-transform:uppercase;margin-bottom:26px}
-.hero h1{font-size:clamp(32px,5.4vw,58px);max-width:18ch;margin:0 auto}
-.hero h1 em{color:var(--brass)}
-.hero .sub{margin:24px auto 36px;font-size:16px;color:var(--muted);max-width:50ch}
-.btn{display:inline-block;background:transparent;border:1px solid var(--brass);color:var(--brass);text-decoration:none;
-  font-weight:600;font-size:14px;letter-spacing:.18em;text-transform:uppercase;padding:17px 42px;
-  transition:all .3s var(--ease)}
-.btn:hover{background:var(--brass);color:var(--emerald)}
-.hero .ph{margin-top:56px;position:relative}
-.hero .ph img{width:100%;max-height:440px;object-fit:cover;display:block}
-.hero .ph::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(200,162,74,.4);pointer-events:none}
-.hero .ph .plate{position:absolute;left:50%;bottom:-26px;transform:translateX(-50%);background:var(--brass);
-  color:var(--emerald);font-family:'Raleway',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.24em;
-  text-transform:uppercase;padding:14px 30px;white-space:nowrap}
+.fold{position:relative;min-height:84vh;display:flex;align-items:flex-end}
+.fold img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fold::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.32) 0%, rgba(0,0,0,.05) 40%, rgba(0,0,0,.72) 100%)}
+.fold .wrap{position:relative;z-index:2;padding-bottom:58px;width:100%}
+.glass{position:absolute;top:100px;right:24px;z-index:3;background:rgba(200,200,200,.1);
+  backdrop-filter:blur(20px) saturate(1.4);border-radius:9999px;padding:9px 18px;
+  font-size:11px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--white);
+  box-shadow:rgba(0,0,0,.35) 0 10px 30px, inset rgba(255,255,255,.08) 0 1px 0}
+.fold h1{font-size:clamp(34px,5.6vw,60px);font-weight:300;line-height:1.08;letter-spacing:-.025em;max-width:19ch}
+.fold h1 .serif-it{letter-spacing:0}
+.fold .sub{margin:16px 0 28px;color:#CFCFC9;font-weight:300;font-size:17px;max-width:44ch}
+.fold .row{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.ghost{display:inline-block;color:var(--white);text-decoration:none;font-weight:500;font-size:15px;
+  padding:11px 24px;border:1px solid rgba(255,255,255,.5);border-radius:9999px;transition:all .25s var(--ease)}
+.ghost:hover{border-color:var(--cream);color:var(--cream)}
 
-section{padding:86px 0}
-.center-k{color:var(--brass);font-size:12px;letter-spacing:.4em;text-transform:uppercase;text-align:center;margin-bottom:16px}
-h2{font-size:clamp(26px,3.6vw,38px);text-align:center;margin-bottom:44px}
+section{padding:96px 0}
+h2{font-size:clamp(28px,4vw,46px);font-weight:300;letter-spacing:-.02em;line-height:1.14;margin-bottom:40px}
+h2 .serif-it{letter-spacing:0}
 
-/* услуги: меню-карта */
-.menu{max-width:640px;margin:0 auto}
-.mrow{display:flex;align-items:baseline;gap:14px;padding:18px 0}
-.mrow h3{font-size:20px;white-space:nowrap}
-.mrow .dots{flex:1;border-bottom:1px dotted var(--hair);transform:translateY(-5px)}
-.mrow .note{color:var(--muted);font-size:13.5px;white-space:nowrap}
-.mrow + .mdesc{color:var(--muted);font-size:14px;margin:-10px 0 8px;max-width:56ch}
+/* меню услуг: строки на войде */
+.menu{max-width:640px}
+.mrow{display:flex;align-items:baseline;gap:16px;padding:20px 0;border-bottom:1px solid var(--graphite)}
+.mrow:last-child{border:none}
+.mrow h3{font-weight:400;font-size:21px;white-space:nowrap;letter-spacing:-.01em}
+.mrow .line{flex:1;border-bottom:1px dotted var(--graphite);transform:translateY(-5px)}
+.mrow p{color:var(--smoke);font-weight:300;font-size:14px;text-align:right;max-width:26ch}
 
-/* полоса-приглашение на крем-фоне */
-.invite{background:var(--cream);color:#2E2A1E;text-align:center;padding:80px 0}
-.invite h2{color:#2E2A1E}
-.invite .tel{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,46px);color:#2E2A1E;text-decoration:none;display:inline-block;margin-top:6px}
-.invite .tel:hover{color:#8A6E1F}
-.invite p{color:#6E6650;margin-top:16px;font-size:14.5px}
-.invite .go{display:inline-block;margin-top:26px;border-bottom:1px solid #8A6E1F;color:#8A6E1F;text-decoration:none;
-  font-weight:600;font-size:14px;letter-spacing:.1em}
+/* киноряд */
+.strip{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:860px){.strip{grid-template-columns:1fr 1fr 1fr}}
+.shot{position:relative;border-radius:10px;overflow:hidden}
+.shot img{width:100%;height:290px;object-fit:cover;display:block;transition:transform .6s var(--ease)}
+.shot:hover img{transform:scale(1.03)}
+.shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 18px 14px;font-size:13.5px;
+  background:linear-gradient(transparent, rgba(0,0,0,.68))}
 
-/* три принципа */
-.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--hair);
-  border:1px solid var(--hair)}
-.pr{background:var(--emerald);padding:34px 28px;text-align:center}
-.pr .n{font-family:'Playfair Display',serif;font-style:italic;color:var(--brass);font-size:22px;margin-bottom:12px}
-.pr b{display:block;font-size:16.5px;margin-bottom:8px;letter-spacing:.04em}
-.pr p{color:var(--muted);font-size:14px}
+/* принципы: charcoal */
+.princ{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:820px){.princ{grid-template-columns:1fr 1fr 1fr}}
+.pr{background:var(--charcoal);border-radius:10px;padding:32px}
+.pr .n{font-family:'Playfair Display',serif;font-style:italic;color:var(--cream);font-size:20px;margin-bottom:12px}
+.pr b{display:block;font-weight:500;font-size:16px;letter-spacing:.02em;margin-bottom:8px}
+.pr p{color:var(--smoke);font-weight:300;font-size:14px}
 
-footer{border-top:1px solid var(--hair);color:var(--muted);padding:28px 0;font-size:12.5px}
+/* финал */
+.final{text-align:center}
+.final .tel{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,44px);color:var(--cream);text-decoration:none}
+.final .tel:hover{text-decoration:underline}
+.final p{color:var(--smoke);font-weight:300;margin-top:14px;font-size:14.5px}
+.final a.map{color:var(--white);border-bottom:1px solid var(--graphite);text-decoration:none}
+.final a.map:hover{color:var(--cream);border-color:var(--cream)}
+
+footer{border-top:1px solid #1B1B1B;color:var(--smoke);padding:28px 0;font-size:12.5px;font-weight:300}
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
-.demo-badge{border:1px dashed var(--hair);padding:5px 14px;letter-spacing:.1em}
-.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--brass);color:var(--emerald);
+.demo-badge{border:1px dashed var(--graphite);border-radius:9999px;padding:5px 14px;font-size:11px;letter-spacing:.06em}
+.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--cream);color:#000;
   width:58px;height:58px;align-items:center;justify-content:center;font-size:24px;text-decoration:none;border-radius:50%;
-  box-shadow:0 10px 26px rgba(0,0,0,.45)}
-@media(max-width:640px){.fab{display:flex}.htel{display:none}}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  box-shadow:rgba(0,0,0,.4) 0 10px 26px}
+@media(max-width:640px){.fab{display:flex}.hrow .pill{display:none}.glass{top:80px}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .reveal.on{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-a:focus-visible,.btn:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+a:focus-visible{outline:3px solid var(--cream);outline-offset:2px}
 </style>
 </head>
 <body>
 
 <header><div class="wrap hrow">
   <a class="logo" href="#">Эдвард<span>.</span></a>
-  <a class="htel" href="tel:+79206204444">+7 (920) 620-44-44</a>
+  <a class="pill" href="tel:+79206204444">Записаться</a>
 </div></header>
 
-<section class="hero">
+<section class="fold">
+  <img class="bg" src="assets/hero.jpg" alt="Интерьер приватной клиники Эдвард" width="1536" height="1024">
+  <span class="glass">Приватная стоматология</span>
   <div class="wrap">
-    <div class="mono-line">Приватная стоматология · Калуга</div>
-    <h1>Стоматология, где вас <em>знают по имени</em></h1>
+    <h1>Стоматология, где вас знают <span class="serif-it">по имени</span></h1>
     <p class="sub">Небольшая клиника на Хрустальной: один пациент — всё внимание врача.
     Приём строго по записи, без ожидания в коридоре и конвейера.</p>
-    <a class="btn" href="tel:+79206204444">Записаться на приём</a>
-    <div class="ph reveal">
-      <img src="assets/hero.jpg" alt="Интерьер клиники Эдвард" width="1536" height="1024">
-      <span class="plate">Хрустальная, 44 к. 5</span>
+    <div class="row">
+      <a class="pill" href="tel:+79206204444">+7 (920) 620-44-44</a>
+      <a class="ghost" href="#menu">Карта услуг</a>
     </div>
   </div>
 </section>
 
-<section id="services">
+<section id="menu">
   <div class="wrap">
-    <div class="center-k reveal">Карта услуг</div>
-    <h2 class="reveal">Чем мы занимаемся</h2>
+    <span class="cap reveal">Карта услуг</span>
+    <h2 class="reveal">Всё <span class="serif-it">неспешно</span> и по делу</h2>
     <div class="menu reveal">
-      <div class="mrow"><h3>Консультация</h3><span class="dots"></span><span class="note">осмотр и план</span></div>
-      <p class="mdesc">Неспешный первичный приём: осмотр, снимки, понятный план лечения и смета.</p>
-      <div class="mrow"><h3>Лечение</h3><span class="dots"></span><span class="note">терапия</span></div>
-      <p class="mdesc">Кариес и его осложнения — под анестезией, которая точно подействовала.</p>
-      <div class="mrow"><h3>Гигиена</h3><span class="dots"></span><span class="note">профилактика</span></div>
-      <p class="mdesc">Профессиональная чистка и рекомендации по домашнему уходу.</p>
-      <div class="mrow"><h3>Протезирование</h3><span class="dots"></span><span class="note">эстетика</span></div>
-      <p class="mdesc">Коронки и реставрации, неотличимые от своих зубов.</p>
+      <div class="mrow"><h3>Консультация</h3><span class="line"></span><p>осмотр, снимки, план и смета</p></div>
+      <div class="mrow"><h3>Лечение</h3><span class="line"></span><p>кариес и его осложнения, без боли</p></div>
+      <div class="mrow"><h3>Гигиена</h3><span class="line"></span><p>профессиональная чистка</p></div>
+      <div class="mrow"><h3>Протезирование</h3><span class="line"></span><p>коронки, неотличимые от своих</p></div>
     </div>
   </div>
 </section>
 
-<section class="invite" style="padding:80px 0">
+<section style="padding-top:0">
   <div class="wrap">
-    <div class="center-k reveal" style="color:#8A6E1F">Запись</div>
-    <h2 class="reveal">Один звонок — и время за вами</h2>
+    <div class="strip reveal">
+      <figure class="shot"><img src="assets/g2.jpg" alt="Кресло в тёплом свете" width="1536" height="1024"><figcaption>Кабинет. Вечерний приём — пожалуйста</figcaption></figure>
+      <figure class="shot"><img src="assets/g3.jpg" alt="Инструменты в золотом свете" width="1536" height="1024"><figcaption>Инструменты. Стерильно и только для вас</figcaption></figure>
+      <figure class="shot"><img src="assets/g4.jpg" alt="Дверь клиники" width="1536" height="1024"><figcaption>Хрустальная, 44 к. 5. Звоните — встретим</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <span class="cap reveal">Принципы</span>
+    <h2 class="reveal">Три правила <span class="serif-it">«Эдварда»</span></h2>
+    <div class="princ">
+      <div class="pr reveal"><div class="n">i.</div><b>Время — ваше</b><p>Приём по записи: врач ждёт вас, а не наоборот.</p></div>
+      <div class="pr reveal"><div class="n">ii.</div><b>Честная смета</b><p>Стоимость известна до начала лечения.</p></div>
+      <div class="pr reveal"><div class="n">iii.</div><b>Без боли</b><p>Начинаем только когда анестезия подействовала.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0" class="final" id="contact">
+  <div class="wrap">
+    <span class="cap reveal">Запись</span>
+    <h2 class="reveal">Один звонок — и время <span class="serif-it">за вами</span></h2>
     <a class="tel reveal" href="tel:+79206204444">+7 (920) 620-44-44</a>
-    <p class="reveal">Калуга, Хрустальная ул., 44, корп. 5 · приём по записи</p>
-    <a class="go reveal" href="https://yandex.ru/maps/org/edvard/108539075654/" target="_blank" rel="noopener">Маршрут и фото клиники — на Яндекс.Картах</a>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="center-k reveal">Принципы</div>
-    <h2 class="reveal">Три правила «Эдварда»</h2>
-    <div class="principles reveal">
-      <div class="pr"><div class="n">i.</div><b>Время — ваше</b><p>Приём по записи: врач ждёт вас, а не наоборот.</p></div>
-      <div class="pr"><div class="n">ii.</div><b>Честная смета</b><p>Стоимость известна до начала лечения.</p></div>
-      <div class="pr"><div class="n">iii.</div><b>Без боли</b><p>Начинаем только когда анестезия подействовала.</p></div>
-    </div>
+    <p class="reveal">Калуга, Хрустальная ул., 44, корп. 5 · приём по записи<br>
+      <a class="map" href="https://yandex.ru/maps/org/edvard/108539075654/" target="_blank" rel="noopener">Маршрут и фото — на Яндекс.Картах</a></p>
   </div>
 </section>
 
 <footer><div class="wrap">
   <span>© 2026 Стоматология «Эдвард» · Калуга. Имеются противопоказания, необходима консультация специалиста.</span>
-  <span class="demo-badge">ДЕМО-МАКЕТ</span>
+  <span class="demo-badge">Демонстрационный макет</span>
 </div></footer>
 
 <a class="fab" href="tel:+79206204444" aria-label="Позвонить">📞</a>

@@ -4,379 +4,230 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Шинсервис40 — шиномонтаж и автосервис в Калуге | Карла Либкнехта, 29</title>
-<meta name="description" content="Шиномонтаж, балансировка, ремонт боковых порезов и правка дисков в Калуге. Рейтинг 5,0 на Яндекс.Картах. Работаем без выходных.">
+<title>Шинсервис40 — шиномонтаж и автосервис в Калуге</title>
+<meta name="description" content="Шиномонтаж, балансировка, ремонт боковых порезов и правка дисков в Калуге. Рейтинг 5,0 на Яндекс.Картах. Карла Либкнехта, 29.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <style>
 :root{
-  --asphalt:#17191C;
-  --asphalt2:#22252A;
-  --line:#FFC400;
-  --line-dark:#E5AF00;
-  --bg:#F2F3F5;
-  --card:#FFFFFF;
-  --steel:#5A6270;
-  --ink:#1B1D21;
-  --radius:14px;
+  --void:#000000; --charcoal:#1C1C1E; --graphite:#333333; --amber:#FFC400;
+  --white:#ffffff; --smoke:#999999; --ease:cubic-bezier(.625,.05,0,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Manrope',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
-img{max-width:100%}
-.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
-h1,h2,.display{font-family:'Russo One',sans-serif;font-weight:400;line-height:1.15}
-.num{font-family:'JetBrains Mono',monospace}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--void);color:var(--white);
+  line-height:1.5;font-size:16px;font-weight:400}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+.serif-it{font-family:'Playfair Display',Georgia,serif;font-style:italic}
+.lbl{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--smoke)}
 
-/* ── шапка ── */
-header{position:sticky;top:0;z-index:50;background:var(--asphalt);border-bottom:3px solid var(--line)}
-.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
-.logo{color:#fff;font-family:'Russo One',sans-serif;font-size:20px;letter-spacing:.5px;text-decoration:none}
-.logo span{color:var(--line)}
-.hphone{display:inline-flex;align-items:center;gap:8px;background:var(--line);color:var(--asphalt);text-decoration:none;
-  font-weight:800;padding:10px 16px;border-radius:10px;font-size:15px;white-space:nowrap;transition:transform .15s}
-.hphone:hover{transform:translateY(-1px);background:var(--line-dark)}
+/* нав поверх фолда */
+header{position:absolute;top:0;left:0;right:0;z-index:20}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:22px 0}
+.logo{color:var(--white);text-decoration:none;font-weight:500;font-size:16px;letter-spacing:.04em}
+.logo span{color:var(--amber)}
+.pill{display:inline-block;background:var(--amber);color:#141414;text-decoration:none;font-weight:500;
+  font-size:15px;padding:12px 24px;border-radius:9999px;box-shadow:rgba(0,0,0,.15) 0 4px 20px;
+  transition:transform .25s var(--ease)}
+.pill:hover{transform:translateY(-2px)}
 
-/* ── hero: асфальт + разметка ── */
-.hero{background:var(--asphalt);color:#fff;position:relative;overflow:hidden;
-  padding:64px 0 330px}
-@media (min-width:1040px){.hero{padding-bottom:150px}}
-.hero::after{ /* дорожное полотно с разметкой внизу hero */
-  content:"";position:absolute;left:0;right:0;bottom:0;height:96px;
-  background:
-    repeating-linear-gradient(90deg, var(--line) 0 64px, transparent 64px 128px) center 46px/128px 10px no-repeat border-box,
-    linear-gradient(180deg,#101215,#0B0C0E);
-  background-repeat:repeat-x;
-}
-.hero .wrap{position:relative;z-index:2}
-/* колесо стоит на дороге (hero::after) и медленно катится */
-.wheel{position:absolute;z-index:2;bottom:36px;left:50%;transform:translateX(-50%);line-height:0}
-.wheel svg{width:min(210px,54vw);height:auto}
-.wheel::after{ /* тень в точке контакта с асфальтом */
-  content:"";position:absolute;left:50%;bottom:-7px;transform:translateX(-50%);
-  width:78%;height:20px;border-radius:50%;
-  background:radial-gradient(ellipse at center, rgba(0,0,0,.6), transparent 68%)}
-.roll{transform-box:fill-box;transform-origin:center;animation:spin 14s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-@media (prefers-reduced-motion: reduce){.roll{animation:none}}
-@media (min-width:1040px){
-  .wheel{left:auto;right:6%;transform:none}
-  .wheel svg{width:min(330px,28vw)}
-}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--line);font-weight:700;font-size:13px;
-  letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
-.eyebrow::before{content:"";width:34px;height:4px;background:var(--line)}
-.hero h1{font-size:clamp(30px,5.4vw,54px);max-width:16ch}
-.hero p.sub{margin:18px 0 28px;font-size:clamp(16px,2.2vw,19px);color:#C6CBD4;max-width:52ch}
-.ratebox{display:inline-flex;align-items:center;gap:14px;background:var(--asphalt2);border:1px solid #33373E;
-  border-radius:var(--radius);padding:14px 18px;margin-bottom:30px}
-.ratebox .score{font-family:'Russo One',sans-serif;font-size:34px;color:var(--line)}
-.stars{color:var(--line);letter-spacing:2px;font-size:15px}
-.ratebox small{display:block;color:#9AA1AC;font-size:13px;margin-top:2px}
-.ratebox a{color:#C6CBD4}
-.cta-row{display:flex;flex-wrap:wrap;gap:14px}
-.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:17px;
-  padding:16px 28px;border-radius:12px;transition:transform .15s}
-.btn:active{transform:scale(.98)}
-.btn-main{background:var(--line);color:var(--asphalt)}
-.btn-main:hover{background:var(--line-dark)}
-.btn-ghost{border:2px solid #3A3E45;color:#fff}
-.btn-ghost:hover{border-color:var(--line);color:var(--line)}
-.hours-hero{margin-top:26px;color:#9AA1AC;font-size:14px}
-.hours-hero b{color:#fff}
+/* фолд = фотография */
+.fold{position:relative;min-height:82vh;display:flex;align-items:flex-end;overflow:hidden}
+.fold img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fold::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,.72) 100%)}
+.fold .wrap{position:relative;z-index:2;padding-bottom:56px;width:100%}
+.glass{position:absolute;top:96px;right:24px;z-index:3;background:rgba(200,200,200,.1);
+  backdrop-filter:blur(20px) saturate(1.4);border-radius:9999px;padding:9px 18px;
+  font-size:11px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;
+  box-shadow:rgba(0,0,0,.35) 0 10px 30px, inset rgba(255,255,255,.08) 0 1px 0}
+.glass b{color:var(--amber)}
+.fold h1{font-size:clamp(34px,5.8vw,62px);font-weight:300;line-height:1.08;letter-spacing:-.025em;max-width:17ch}
+.fold h1 .serif-it{color:var(--amber);letter-spacing:0}
+.fold .sub{margin:16px 0 26px;color:#C9C9C9;font-weight:300;font-size:17px;max-width:46ch}
+.fold .row{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.ghost{display:inline-block;color:var(--white);text-decoration:none;font-weight:500;font-size:15px;
+  padding:11px 22px;border:1px solid rgba(255,255,255,.55);border-radius:9999px;transition:all .25s var(--ease)}
+.ghost:hover{border-color:var(--amber);color:var(--amber)}
+.fold .hours{margin-top:22px;font-size:13px;color:var(--smoke)}
+.fold .hours b{color:var(--white);font-weight:500}
 
-/* ── секции ── */
-section{padding:64px 0}
-.sec-head{margin-bottom:34px}
-.sec-head h2{font-size:clamp(24px,3.4vw,34px)}
-.sec-head .eyebrow{color:var(--steel)}
-.sec-head .eyebrow::before{background:var(--line)}
+section{padding:96px 0}
+h2{font-size:clamp(28px,3.8vw,44px);font-weight:300;letter-spacing:-.02em;line-height:1.15;margin-bottom:40px}
+h2 .serif-it{color:var(--amber)}
 
-/* услуги */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
-.svc{background:var(--card);border-radius:var(--radius);padding:24px;border-top:4px solid var(--line);
-  box-shadow:0 1px 3px rgba(23,25,28,.07)}
-.svc h3{font-size:17px;margin-bottom:8px}
-.svc p{color:var(--steel);font-size:14.5px;margin-bottom:14px}
-.svc .price{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:16px}
-.svc .price small{color:var(--steel);font-weight:500;font-family:'Manrope',sans-serif}
+/* прайс: строки на войде, без контейнеров */
+.prices{max-width:640px}
+.prow{display:flex;align-items:baseline;gap:14px;padding:15px 0;border-bottom:1px solid var(--graphite)}
+.prow:last-child{border-bottom:none}
+.prow .nm{font-weight:400;color:#E4E4E4}
+.prow .nm small{display:block;color:var(--smoke);font-size:13px;font-weight:300;margin-top:2px}
+.prow .dots{flex:1}
+.prow .pr{font-weight:500;color:var(--amber);white-space:nowrap}
+.pnote{color:var(--smoke);font-size:13px;font-weight:300;margin-top:18px;max-width:60ch}
 
-/* прайс */
-.pricetab{background:var(--asphalt);color:#fff;border-radius:var(--radius);overflow:hidden}
-.pricetab table{width:100%;border-collapse:collapse;font-size:15.5px}
-.pricetab th{font-family:'Russo One',sans-serif;font-weight:400;text-align:left;padding:16px 22px;
-  background:var(--asphalt2);color:var(--line);font-size:14px;letter-spacing:.06em;text-transform:uppercase}
-.pricetab td{padding:13px 22px;border-top:1px solid #2A2E34}
-.pricetab td:last-child{font-family:'JetBrains Mono',monospace;font-weight:700;text-align:right;white-space:nowrap}
-.pricenote{color:var(--steel);font-size:13.5px;margin-top:14px;max-width:70ch}
+/* сплит: прайс слева, комплекс справа в charcoal */
+.split{display:grid;grid-template-columns:1fr;gap:48px;align-items:start}
+@media(min-width:960px){.split{grid-template-columns:1.1fr .9fr}}
+.kompleks{background:var(--charcoal);border-radius:10px;padding:34px}
+.kompleks .lbl{margin-bottom:18px;display:block}
+.krow{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #2A2A2C;font-size:15px}
+.krow:last-child{border:none}
+.krow b{font-weight:500;color:var(--amber)}
+.kompleks .foot{margin-top:16px;font-size:12.5px;color:var(--smoke);font-weight:300}
 
-/* почему мы */
-.why .grid{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
-.why-item{padding:22px;background:var(--card);border-radius:var(--radius);box-shadow:0 1px 3px rgba(23,25,28,.07)}
-.why-item .display{font-size:26px;color:var(--asphalt);margin-bottom:6px}
-.why-item .display em{font-style:normal;color:var(--line-dark)}
-.why-item p{color:var(--steel);font-size:14.5px}
+/* кино-триптих */
+.trip{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:860px){.trip{grid-template-columns:1fr 1fr 1fr}}
+.shot{position:relative;border-radius:10px;overflow:hidden}
+.shot img{width:100%;height:300px;object-fit:cover;display:block;transition:transform .6s var(--ease)}
+.shot:hover img{transform:scale(1.03)}
+.shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 18px 14px;font-size:13.5px;font-weight:400;
+  background:linear-gradient(transparent, rgba(0,0,0,.65))}
 
-/* отзывы */
-.reviews{background:var(--asphalt);color:#fff}
-.reviews .sec-head h2{color:#fff}
-.reviews .eyebrow{color:#9AA1AC}
-.rev{background:var(--asphalt2);border:1px solid #33373E;border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:12px}
-.rev p{color:#D7DBE1;font-size:14.5px;flex:1}
-.rev .who{display:flex;align-items:center;justify-content:space-between;font-weight:700;font-size:14px}
-.rev .who .stars{font-size:13px}
-.rev-src{margin-top:22px;font-size:14px;color:#9AA1AC}
-.rev-src a{color:var(--line)}
+/* отзывы: цитаты воздухом */
+.quotes{display:grid;grid-template-columns:1fr;gap:44px;max-width:960px}
+@media(min-width:860px){.quotes{grid-template-columns:1fr 1fr 1fr;gap:32px}}
+.q p{font-weight:300;font-size:16px;color:#D6D6D6;line-height:1.65}
+.q .who{margin-top:14px}
+.q .who b{display:block;font-weight:500;font-size:14px;color:var(--white)}
+.q .who span{color:var(--amber);font-size:12px;letter-spacing:.14em}
+.qsrc{margin-top:40px;font-size:14px;color:var(--smoke)}
+.qsrc a{color:var(--amber);text-decoration:none}
+.qsrc a:hover{text-decoration:underline}
 
-/* контакты */
-.contact .card{background:var(--card);border-radius:var(--radius);padding:30px;box-shadow:0 1px 3px rgba(23,25,28,.07);
-  display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.contact dt{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);margin-bottom:5px}
-.contact dd{font-size:17px;font-weight:600;margin-bottom:20px}
-.contact dd a{color:var(--ink);text-decoration:none}
-.contact dd a:hover{color:var(--line-dark)}
-.contact .btn-main{margin-top:4px}
+/* контакты: charcoal-плита */
+.contact-card{background:var(--charcoal);border-radius:10px;padding:44px;display:grid;
+  grid-template-columns:1fr;gap:32px}
+@media(min-width:860px){.contact-card{grid-template-columns:1fr 1fr auto;align-items:center}}
+.contact-card dt{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--smoke);margin-bottom:8px}
+.contact-card dd{font-size:16px;font-weight:400}
+.contact-card dd + dt{margin-top:20px}
+.contact-card a{color:var(--white);text-decoration:none}
+.contact-card a:hover{color:var(--amber)}
 
-/* футер */
-footer{background:var(--asphalt);color:#9AA1AC;padding:26px 0;font-size:13px;border-top:3px solid var(--line)}
+footer{border-top:1px solid var(--graphite);color:var(--smoke);padding:26px 0;font-size:13px;font-weight:300}
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
-.demo-badge{border:1px dashed #4A4F57;border-radius:8px;padding:6px 12px}
-
-/* плавающая кнопка звонка на мобиле */
-.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--line);color:var(--asphalt);
-  border-radius:50%;width:60px;height:60px;align-items:center;justify-content:center;font-size:26px;text-decoration:none;
-  box-shadow:0 6px 20px rgba(0,0,0,.3)}
-
-/* появление при прокрутке */
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s,transform .5s}
+.demo-badge{border:1px dashed var(--graphite);border-radius:9999px;padding:5px 14px;font-size:11px;letter-spacing:.06em}
+.fab{display:none;position:fixed;right:16px;bottom:16px;z-index:60;background:var(--amber);color:#141414;
+  width:58px;height:58px;align-items:center;justify-content:center;font-size:24px;text-decoration:none;border-radius:50%;
+  box-shadow:rgba(0,0,0,.4) 0 10px 26px}
+@media(max-width:640px){.fab{display:flex}.hrow .pill{display:none}.glass{top:78px}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .reveal.on{opacity:1;transform:none}
-@media (prefers-reduced-motion: reduce){
-  .reveal{opacity:1;transform:none;transition:none}
-  html{scroll-behavior:auto}
-}
-a:focus-visible,.btn:focus-visible{outline:3px solid var(--line);outline-offset:2px}
-
-@media (max-width:640px){
-  .hero{padding:44px 0 310px}
-  .contact .card{grid-template-columns:1fr}
-  .fab{display:flex}
-  .hphone .txt{display:none}
-  .hphone{padding:10px 12px}
-}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+a:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap hrow">
-    <a class="logo" href="#">ШИНСЕРВИС<span>40</span></a>
-    <a class="hphone" href="tel:+79038139799">📞 <span class="txt">+7 903 813-97-99</span></a>
-  </div>
-</header>
+<header><div class="wrap hrow">
+  <a class="logo" href="#">ШИНСЕРВИС<span>40</span></a>
+  <a class="pill" href="tel:+79038139799">Записаться</a>
+</div></header>
 
-<section class="hero">
+<section class="fold">
+  <img class="bg" src="assets/g1.jpg" alt="Колесо в свете лампы ночного шиномонтажа" width="1536" height="1024">
+  <span class="glass">★ <b>5,0</b> · 194 оценки</span>
   <div class="wrap">
-    <div class="eyebrow">Калуга · Карла Либкнехта, 29</div>
-    <h1>Шиномонтаж, который хвалят в отзывах</h1>
-    <p class="sub">Переобувка, балансировка, ремонт боковых порезов и правка дисков.
-    Работаем по записи и в живой очереди — две машины одновременно, без долгого ожидания.</p>
-    <div class="ratebox">
-      <div class="score">5,0</div>
+    <h1>Быстро переобуть.<br>Спокойно <span class="serif-it">уехать</span>.</h1>
+    <p class="sub">Шиномонтаж и мелкий автосервис на Карла Либкнехта, 29. Работаем по записи
+    и в живой очереди — две машины одновременно, комплект за ~20 минут.</p>
+    <div class="row">
+      <a class="pill" href="tel:+79038139799">Позвонить Сергею</a>
+      <a class="ghost" href="#price">Цены</a>
+    </div>
+    <p class="hours"><b>пн–пт 9:00–21:00</b> · <b>сб–вс 10:00–20:00</b> · без обеда</p>
+  </div>
+</section>
+
+<section id="price">
+  <div class="wrap split">
+    <div>
+      <h2 class="reveal">Прейскурант <span class="serif-it">ночной смены</span></h2>
+      <div class="prices reveal">
+        <div class="prow"><span class="nm">Ремонт боковых порезов<small>горячая вулканизация — берём то, от чего отказывают другие</small></span><span class="dots"></span><span class="pr">от 800 ₽</span></div>
+        <div class="prow"><span class="nm">Устранение грыж</span><span class="dots"></span><span class="pr">от 800 ₽</span></div>
+        <div class="prow"><span class="nm">Правка штампованных дисков</span><span class="dots"></span><span class="pr">от 150 ₽</span></div>
+        <div class="prow"><span class="nm">Правка литых дисков<small>устранение восьмёрок</small></span><span class="dots"></span><span class="pr">от 250 ₽</span></div>
+        <div class="prow"><span class="nm">Ремонт проколов</span><span class="dots"></span><span class="pr">от 30 ₽</span></div>
+        <div class="prow"><span class="nm">Балансировка</span><span class="dots"></span><span class="pr">от 90 ₽</span></div>
+      </div>
+      <p class="pnote reveal">Расходные материалы оплачиваются отдельно. Низкопрофиль — коэффициент 1,5.
+      Гарантия на работы — 3 дня.</p>
+    </div>
+    <div class="kompleks reveal">
+      <span class="lbl">Переобувка под ключ · 4 колеса</span>
+      <div class="krow"><span>R12 – R14</span><b>1 200 ₽</b></div>
+      <div class="krow"><span>R15</span><b>1 300 ₽</b></div>
+      <div class="krow"><span>R16</span><b>1 400 ₽</b></div>
+      <div class="krow"><span>R17 – R19</span><b>от 1 500 ₽</b></div>
+      <div class="krow"><span>Джип</span><b>от 1 800 ₽</b></div>
+      <div class="krow"><span>Микроавтобус, ГАЗель</span><b>от 1 800 ₽</b></div>
+      <p class="foot">Монтаж, балансировка, мойка колёс, снятие и установка — всё включено.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2 class="reveal">Как это <span class="serif-it">выглядит</span></h2>
+    <div class="trip reveal">
+      <figure class="shot"><img src="assets/g2.jpg" alt="Протектор новой шины" width="1536" height="1024"><figcaption>Резина, которую приятно ставить</figcaption></figure>
+      <figure class="shot"><img src="assets/g3.jpg" alt="Балансировочный станок" width="1536" height="1024"><figcaption>Балансировка на станке — не «на глаз»</figcaption></figure>
+      <figure class="shot"><img src="assets/g4.jpg" alt="Затяжка колёсных болтов" width="1536" height="1024"><figcaption>Затяжка с контролем момента</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2 class="reveal">Слово <span class="serif-it">клиентам</span></h2>
+    <div class="quotes">
+      <div class="q reveal">
+        <p>«Приехала после окончания рабочего дня — не отказали: переобули, помыли колёса,
+        отбалансировали за 20 минут. Рекорд!»</p>
+        <div class="who"><b>Виктория Л.</b><span>★★★★★</span></div>
+      </div>
+      <div class="q reveal">
+        <p>«Есть балансировка, мойка колёс и правка дисков — всё под ключ. Мастер работает быстро».</p>
+        <div class="who"><b>Дмитрий</b><span>★★★★★</span></div>
+      </div>
+      <div class="q reveal">
+        <p>«Ребята настоящие профессионалы: чётко и быстро, но качественно. Уже много лет
+        переобуваемся только здесь».</p>
+        <div class="who"><b>Евгения</b><span>★★★★★</span></div>
+      </div>
+    </div>
+    <p class="qsrc reveal">Рейтинг 5,0 — 194 оценки.
+      <a href="https://yandex.ru/maps/org/shinservis40/1814888795/reviews/" target="_blank" rel="noopener">Читать все 103 отзыва на Яндекс.Картах →</a></p>
+  </div>
+</section>
+
+<section style="padding-top:0" id="contact">
+  <div class="wrap">
+    <div class="contact-card reveal">
       <div>
-        <div class="stars">★★★★★</div>
-        <small>194 оценки · <a href="https://yandex.ru/maps/org/shinservis40/1814888795/" target="_blank" rel="noopener">103 отзыва на Яндекс.Картах</a></small>
+        <dt>Адрес</dt><dd>Калуга, ул. Карла Либкнехта, 29, стр. 6</dd>
+        <dt>Режим</dt><dd>пн–пт 9:00–21:00 · сб–вс 10:00–20:00</dd>
       </div>
-    </div>
-    <div class="cta-row">
-      <a class="btn btn-main" href="tel:+79038139799">Позвонить и записаться</a>
-      <a class="btn btn-ghost" href="#price">Цены</a>
-    </div>
-    <p class="hours-hero">Сегодня работаем: <b>пн–пт 9:00–21:00</b> · <b>сб–вс 10:00–20:00</b></p>
-  </div>
-
-  <div class="wheel" aria-hidden="true">
-    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-      <!-- вращающаяся часть: шина, диск, спицы, болты -->
-      <g class="roll">
-        <circle cx="200" cy="200" r="176" fill="none" stroke="#2E3238" stroke-width="34"
-                stroke-dasharray="20 12"/>
-        <circle cx="200" cy="200" r="158" fill="#101215"/>
-        <circle cx="200" cy="200" r="158" fill="none" stroke="#22252A" stroke-width="6"/>
-        <circle cx="200" cy="200" r="106" fill="#22252A" stroke="#3A3E45" stroke-width="4"/>
-        <g fill="#2E3238" stroke="#454A52" stroke-width="2">
-          <g transform="rotate(0 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
-          <g transform="rotate(72 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
-          <g transform="rotate(144 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
-          <g transform="rotate(216 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
-          <g transform="rotate(288 200 200)"><rect x="188" y="108" width="24" height="80" rx="10"/></g>
-        </g>
-        <g fill="#5A6270">
-          <circle cx="200" cy="156" r="7"/><circle cx="242" cy="187" r="7"/>
-          <circle cx="226" cy="236" r="7"/><circle cx="174" cy="236" r="7"/>
-          <circle cx="158" cy="187" r="7"/>
-        </g>
-      </g>
-      <!-- неподвижное: жёлтый суппорт и колпак 40 -->
-      <path d="M 200 200 m 0 -128 a 128 128 0 0 1 88 34" fill="none"
-            stroke="#FFC400" stroke-width="26" stroke-linecap="round"/>
-      <circle cx="200" cy="200" r="34" fill="#FFC400"/>
-      <text x="200" y="212" text-anchor="middle" font-family="'Russo One',sans-serif"
-            font-size="30" fill="#17191C">40</text>
-    </svg>
-  </div>
-</section>
-
-<section id="services">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">Что делаем</div>
-      <h2>Услуги и цены</h2>
-    </div>
-    <div class="grid">
-      <div class="svc reveal">
-        <h3>Сезонная переобувка</h3>
-        <p>Комплекс: шиномонтаж, балансировка, мойка колёс, снятие и установка.</p>
-        <div class="price">от 1 200 ₽ <small>/ комплект R13–R14</small></div>
-      </div>
-      <div class="svc reveal">
-        <h3>Ремонт боковых порезов</h3>
-        <p>Горячая вулканизация. Порезы и грыжи, которые не берут в других сервисах.</p>
-        <div class="price">от 800 ₽</div>
-      </div>
-      <div class="svc reveal">
-        <h3>Правка дисков</h3>
-        <p>Штампованные и литые диски любой сложности, устранение восьмёрок.</p>
-        <div class="price">от 150 ₽</div>
-      </div>
-      <div class="svc reveal">
-        <h3>Ремонт проколов</h3>
-        <p>Камерные и бескамерные шины, жгут или заплатка — по ситуации.</p>
-        <div class="price">от 30 ₽</div>
-      </div>
-      <div class="svc reveal">
-        <h3>Балансировка и подкачка</h3>
-        <p>Профилактика износа: балансировка после установки новой резины.</p>
-        <div class="price">от 90 ₽ <small>/ колесо</small></div>
-      </div>
-      <div class="svc reveal">
-        <h3>Автосервис</h3>
-        <p>Замена масла и колодок, диагностика и ремонт подвески, тормоза, подшипники, стойки.</p>
-        <div class="price">цена по звонку</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="price" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">Прозрачный прайс</div>
-      <h2>Переобувка под ключ</h2>
-    </div>
-    <div class="pricetab reveal">
-      <table>
-        <tr><th>Размер колёс</th><th style="text-align:right">Комплект из 4 колёс</th></tr>
-        <tr><td>R12 – R14</td><td>1 200 ₽</td></tr>
-        <tr><td>R15</td><td>1 300 ₽</td></tr>
-        <tr><td>R16</td><td>1 400 ₽</td></tr>
-        <tr><td>R17 – R19 (легковые и паркетники)</td><td>от 1 500 ₽</td></tr>
-        <tr><td>Джип</td><td>от 1 800 ₽</td></tr>
-        <tr><td>Микроавтобус, Газель</td><td>от 1 800 ₽</td></tr>
-      </table>
-    </div>
-    <p class="pricenote reveal">В комплекс входят шиномонтаж, балансировка, мойка колёс, снятие и установка.
-    Расходные материалы оплачиваются отдельно. Для низкопрофильных шин действует коэффициент 1,5.
-    Гарантия на услуги шиномонтажа — 3 дня.</p>
-  </div>
-</section>
-
-<section class="why" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">Почему к нам едут</div>
-      <h2>Быстро и без сюрпризов</h2>
-    </div>
-    <div class="grid">
-      <div class="why-item reveal">
-        <div class="display num">~20 <em>мин</em></div>
-        <p>Средняя переобувка комплекта — работаем на двух постах одновременно.</p>
-      </div>
-      <div class="why-item reveal">
-        <div class="display">Запись <em>и</em> очередь</div>
-        <p>Приезжайте по записи — займёмся сразу. Или вставайте в живую очередь.</p>
-      </div>
-      <div class="why-item reveal">
-        <div class="display num">7 <em>дней</em> в неделю</div>
-        <p>Открыты до 21:00 в будни — успеете после работы. Выходные тоже работаем.</p>
-      </div>
-      <div class="why-item reveal">
-        <div class="display">Честная диагностика</div>
-        <p>Нашли проблему — сразу показываем и советуем, как лучше поступить.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="reviews">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">Слово клиентам</div>
-      <h2>Отзывы с Яндекс.Карт</h2>
-    </div>
-    <div class="grid">
-      <div class="rev reveal">
-        <p>«Приехала после окончания рабочего дня, и мне не отказали: полностью переобули машину,
-        помыли колёса, перебортировали, отбалансировали за 20 минут. Рекорд! Теперь ваш постоянный клиент».</p>
-        <div class="who"><span>Виктория Л.</span><span class="stars">★★★★★</span></div>
-      </div>
-      <div class="rev reveal">
-        <p>«Всё отлично: есть балансировка, мойка колёс и правка дисков — всё под ключ.
-        Поток идёт хороший, мастер работает быстро».</p>
-        <div class="who"><span>Дмитрий</span><span class="stars">★★★★★</span></div>
-      </div>
-      <div class="rev reveal">
-        <p>«Ребята настоящие профессионалы: работают чётко, колёса меняют быстро, но качественно.
-        Уже много лет переобуваемся в Шинсервис40».</p>
-        <div class="who"><span>Евгения</span><span class="stars">★★★★★</span></div>
-      </div>
-    </div>
-    <p class="rev-src reveal">Рейтинг 5,0 — 194 оценки.
-      <a href="https://yandex.ru/maps/org/shinservis40/1814888795/reviews/" target="_blank" rel="noopener">Читать все 103 отзыва →</a></p>
-  </div>
-</section>
-
-<section class="contact" id="contact">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="eyebrow">Как нас найти</div>
-      <h2>Контакты</h2>
-    </div>
-    <div class="card reveal">
-      <dl>
-        <dt>Адрес</dt>
-        <dd>Калуга, ул. Карла Либкнехта, 29, стр. 6</dd>
-        <dt>Режим работы</dt>
-        <dd>Пн–пт 9:00–21:00<br>Сб–вс 10:00–20:00</dd>
-      </dl>
-      <dl>
+      <div>
         <dt>Телефоны</dt>
-        <dd>
-          <a href="tel:+79038139799">+7 903 813-97-99</a> — Сергей<br>
-          <a href="tel:+79005715909">+7 900 571-59-09</a>
-        </dd>
-        <a class="btn btn-main" href="https://yandex.ru/maps/org/shinservis40/1814888795/" target="_blank" rel="noopener">Маршрут в Яндекс.Картах</a>
-      </dl>
+        <dd><a href="tel:+79038139799">+7 903 813-97-99</a> — Сергей<br>
+            <a href="tel:+79005715909">+7 900 571-59-09</a></dd>
+        <dt style="margin-top:20px">Маршрут</dt>
+        <dd><a href="https://yandex.ru/maps/org/shinservis40/1814888795/" target="_blank" rel="noopener">Открыть в Яндекс.Картах →</a></dd>
+      </div>
+      <a class="pill" href="tel:+79038139799">Записаться</a>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="wrap">
-    <span>© 2026 Шинсервис40 · Калуга</span>
-    <span class="demo-badge">Демонстрационный макет нового сайта</span>
-  </div>
-</footer>
+<footer><div class="wrap">
+  <span>© 2026 Шинсервис40 · Калуга</span>
+  <span class="demo-badge">Демонстрационный макет нового сайта</span>
+</div></footer>
 
 <a class="fab" href="tel:+79038139799" aria-label="Позвонить">📞</a>
 
@@ -387,9 +238,7 @@ if ('IntersectionObserver' in window) {
     if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
   }), {threshold: .12});
   els.forEach(el => io.observe(el));
-} else {
-  els.forEach(el => el.classList.add('on'));
-}
+} else { els.forEach(el => el.classList.add('on')); }
 </script>
 </body>
 </html>
