@@ -183,6 +183,7 @@ a:focus-visible,.pill:focus-visible,input:focus-visible{outline:3px solid var(--
       <div class="ft reveal"><div class="ic">🗂</div><b>Папка-приёмник</b><p>Кидаете запись с любого ПК в общую папку — обработается сама, без приложения.</p></div>
       <div class="ft reveal"><div class="ic">🔒</div><b>Аудио не уходит в облако</b><p>Распознавание речи — локально на вашем сервере (GigaAM, Сбер). Наружу идёт только текст для сборки протокола. Топ-тариф — полностью офлайн.</p></div>
       <div class="ft reveal"><div class="ic">♾</div><b>Без лимита участников</b><p>В отличие от западных сервисов — работает и на планёрке, и на большом совете директоров.</p></div>
+      <div class="ft reveal"><div class="ic">🔑</div><b>Лицензия под ваш сервер</b><p>Продукт ставится на ваше железо и активируется ключом с привязкой к серверу — вы владеете копией, а не арендуете доступ.</p></div>
     </div>
   </div>
 </section>
@@ -194,22 +195,22 @@ a:focus-visible,.pill:focus-visible,input:focus-visible{outline:3px solid var(--
     <div class="plans">
       <div class="plan reveal">
         <h3>Старт</h3>
-        <div class="for">одна переговорная, облачный режим</div>
+        <div class="for">1 переговорная</div>
         <div class="p">39 000 ₽ <span>разово</span></div>
-        <ul><li>сервер-пайплайн + приложение</li><li>Битрикс24-интеграция</li><li>установка и настройка</li><li>месяц поддержки</li></ul>
+        <ul><li>лицензия на <b>1 точку записи</b></li><li>распознавание локально (GigaAM)</li><li>протокол через GigaChat</li><li>Битрикс24-интеграция, установка</li><li>обновления 12 мес</li></ul>
       </div>
       <div class="plan mid reveal">
         <span class="tag">Популярный</span>
         <h3>Компания</h3>
         <div class="for">несколько переговорных, все отделы</div>
         <div class="p">89 000 ₽ <span>разово</span></div>
-        <ul><li>всё из «Старт»</li><li>несколько точек записи</li><li>шаблоны протоколов под вас</li><li>3 месяца поддержки</li></ul>
+        <ul><li>лицензия на <b>до 10 точек записи</b></li><li>всё из «Старт»</li><li>шаблоны протоколов под вас</li><li>приоритетная поддержка</li><li>обновления 36 мес</li></ul>
       </div>
       <div class="plan reveal">
         <h3>Локальный</h3>
-        <div class="for">банки, госсектор — данные никуда не уходят</div>
+        <div class="for">банки, госсектор — интернет запрещён</div>
         <div class="p">от 149 000 ₽</div>
-        <ul><li>полностью on-premise на GigaAM</li><li>работает без интернета</li><li>под реестр отечественного ПО</li><li>сопровождение по договору</li></ul>
+        <ul><li>протокол на <b>локальной LLM</b> — полный офлайн</li><li>ничего не выходит наружу совсем</li><li>бессрочная лицензия</li><li>под реестр отечественного ПО</li><li>сопровождение по договору</li></ul>
       </div>
     </div>
   </div>
@@ -220,17 +221,15 @@ a:focus-visible,.pill:focus-visible,input:focus-visible{outline:3px solid var(--
     <div class="final reveal">
       <h2>Посчитаем экономию для вашей компании</h2>
       <p>Оставьте контакт — покажу демо на вашем совещании и назову точную цену под ваши переговорные.</p>
-      <form class="formrow" onsubmit="event.preventDefault();this.querySelector('input').value='Спасибо! Свяжусь в течение дня.';this.querySelector('input').disabled=true;">
-        <input type="text" placeholder="Телефон или e-mail" aria-label="Контакт" required>
-        <button class="pill" type="submit">Запросить демо</button>
-      </form>
-      <p style="margin-top:16px;font-size:13px;color:var(--muted)">или напишите в Telegram / WhatsApp — контакт в подвале</p>
+      <a class="pill" href="mailto:nikita.igorevich.d@gmail.com?subject=ПротоколАИ%20—%20запрос%20демо&body=Здравствуйте!%20Хочу%20демо%20ПротоколАИ.%20Компания:%20___,%20переговорных:%20___." style="font-size:16px;padding:15px 34px">Написать на почту →</a>
+      <p style="margin-top:18px;font-size:15px;color:var(--txt)">nikita.igorevich.d@gmail.com</p>
+      <p style="margin-top:6px;font-size:13px;color:var(--muted)">отвечу в течение дня, покажу демо на вашем совещании</p>
     </div>
   </div>
 </section>
 
 <footer><div class="wrap">
-  <span>© 2026 ПротоколАИ · Калуга · протоколы совещаний в российском контуре</span>
+  <span>© 2026 ПротоколАИ · Калуга · <a href="mailto:nikita.igorevich.d@gmail.com" style="color:var(--muted)">nikita.igorevich.d@gmail.com</a></span>
   <span class="demo-badge">Демонстрационный лендинг · рабочее название</span>
 </div></footer>
 
