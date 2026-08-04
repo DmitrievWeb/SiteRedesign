@@ -106,6 +106,40 @@ h2{font-size:clamp(26px,3.6vw,38px);font-weight:700;letter-spacing:-.02em;line-h
 footer{border-top:1px solid var(--line);color:var(--muted);padding:28px 0;font-size:13px;margin-top:20px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
 .demo-badge{border:1px dashed var(--line);border-radius:8px;padding:5px 12px;font-size:11.5px}
+/* интерактивное демо */
+.demo{background:var(--panel);border:1px solid var(--line);border-radius:20px;overflow:hidden;text-align:left}
+.demo-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 22px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.demo-tag{font-size:13px;color:var(--accent2);font-weight:600}
+.demo-meta{color:var(--muted)}
+.demo-body{display:grid;grid-template-columns:1fr}
+@media(min-width:860px){.demo-body{grid-template-columns:1fr 1fr}}
+.demo-left{padding:20px 22px;border-bottom:1px solid var(--line)}
+@media(min-width:860px){.demo-left{border-bottom:none;border-right:1px solid var(--line)}}
+.player{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.dplay{width:44px;height:44px;border-radius:50%;border:none;background:var(--accent);color:#04102A;font-size:16px;cursor:pointer;flex-shrink:0;transition:filter .2s}
+.dplay:hover{filter:brightness(1.1)}
+.pbar{flex:1;height:6px;background:var(--panel2);border-radius:99px;overflow:hidden}
+.pfill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:99px}
+.transcript{max-height:340px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;padding-right:6px}
+.trow{padding:10px 12px;border-radius:10px;transition:background .2s,opacity .2s;opacity:.5}
+.trow.on{background:var(--panel2);opacity:1}
+.trow .tw{font-size:12.5px;font-weight:600;color:var(--accent)}
+.trow .tt{font-size:11px;color:var(--muted);margin-left:8px}
+.trow p{font-size:14px;margin-top:4px;color:var(--txt)}
+.demo-right{padding:20px 22px}
+.dtabs{display:flex;gap:8px;margin-bottom:16px}
+.dtab{background:var(--panel2);border:1px solid var(--line);color:var(--muted);border-radius:9px;padding:9px 14px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+.dtab.active{background:var(--accent);color:#04102A;border-color:var(--accent)}
+.dtab-body h4{font-size:16px;margin-bottom:8px}
+.dsum{font-size:14px;color:var(--muted);margin-bottom:16px}
+.dsec b{font-size:13px;color:var(--accent2);display:block;margin-bottom:6px}
+.dsec ul{list-style:none}
+.dsec li{font-size:14px;padding:5px 0 5px 20px;position:relative}
+.dsec li::before{content:"—";position:absolute;left:0;color:var(--muted)}
+.task{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}
+.task .tw{background:var(--panel2);border-radius:6px;padding:3px 10px;font-weight:600;font-size:12.5px}
+.task .td{margin-left:auto;font-size:12px;color:var(--warn);font-family:'JetBrains Mono',monospace}
+.dnote{font-size:12.5px;color:var(--muted);margin-top:14px}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
 .reveal.on{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
@@ -136,6 +170,50 @@ a:focus-visible,.pill:focus-visible,input:focus-visible{outline:3px solid var(--
       <div class="fcard reveal"><div class="n">01</div><div class="ic">🎙</div><b>Запись в один тап</b><p>Планшет в переговорной или загрузка готового .wav/.m4a. Никаких настроек для участников.</p></div>
       <div class="fcard reveal"><div class="n">02</div><div class="ic">🧠</div><b>Расшифровка и анализ</b><p>Речь → текст с разделением говорящих, затем ИИ выделяет решения, поручения и сроки.</p></div>
       <div class="fcard reveal"><div class="n">03</div><div class="ic">📄</div><b>Готовый протокол</b><p>Документ .docx + автоматические задачи в Битрикс24 с ответственными. Ничего не теряется.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="reveal center" style="margin-bottom:8px">Вот что получаете на выходе</h2>
+    <p class="lead center reveal" style="margin:0 auto 34px">Запись совещания слева, готовый протокол справа. Нажмите ▶ — расшифровка подсветится синхронно.</p>
+
+    <div class="demo reveal" id="demo">
+      <div class="demo-head">
+        <span class="demo-tag">🎙 записано на планшете в переговорной</span>
+        <span class="demo-meta mono"><span id="dstat">4 участника · 2:17 · ru</span></span>
+      </div>
+      <div class="demo-body">
+        <div class="demo-left">
+          <div class="player">
+            <button id="dplay" class="dplay" aria-label="Воспроизвести">▶</button>
+            <div class="pbar"><div id="pfill" class="pfill"></div></div>
+            <span id="ptime" class="mono">0:00</span>
+          </div>
+          <div id="transcript" class="transcript"></div>
+        </div>
+        <div class="demo-right">
+          <div class="dtabs">
+            <button class="dtab active" data-tab="proto">📋 Протокол</button>
+            <button class="dtab" data-tab="tasks">✅ Задачи → Битрикс24</button>
+          </div>
+          <div id="tab-proto" class="dtab-body">
+            <h4>Планёрка по запуску кабинета</h4>
+            <p class="dsum">Синхронизировались по срокам. Фронт закрывает адаптив к пятнице, бэкенд мигрирует старые тарифы к среде, маркетинг собирает лендинг к понедельнику и запускает тест рекламы.</p>
+            <div class="dsec"><b>Решения</b><ul>
+              <li>Старые тарифы заморозить, текущих оставить до конца оплаченного периода.</li>
+              <li>Тестовый бюджет рекламы — 1 500 ₽/день.</li>
+            </ul></div>
+          </div>
+          <div id="tab-tasks" class="dtab-body" hidden>
+            <div class="task"><span class="tw">Маша</span> адаптив дашборда + скриншоты кабинета <span class="td">до пт</span></div>
+            <div class="task"><span class="tw">Дима</span> миграция старых тарифов по новому принципу <span class="td">до ср</span></div>
+            <div class="task"><span class="tw">Лена</span> собрать лендинг и запустить тест рекламы <span class="td">до пн</span></div>
+            <p class="dnote">↳ эти задачи улетают в Битрикс24 на ответственных автоматически</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -251,6 +329,62 @@ a:focus-visible,.pill:focus-visible,input:focus-visible{outline:3px solid var(--
 </div></footer>
 
 <script>
+// --- интерактивное демо: плеер + синхронная расшифровка ---
+(function(){
+  const lines = [
+    {t:0,   w:"Ведущий",      s:"Коллеги, привет. Короткий синк по запуску нового кабинета. Маша, что по фронту?"},
+    {t:9,   w:"Маша · фронт", s:"Почти закрыли вёрстку дашборда, осталась адаптивка под мобильные и пара багов с графиками. К четвергу будет."},
+    {t:19,  w:"Ведущий",      s:"К четвергу — точно или «надеюсь»?"},
+    {t:26,  w:"Маша · фронт", s:"К четвергу вечером закоммичу, в пятницу с утра можно тестировать."},
+    {t:33,  w:"Ведущий",      s:"Дима, по бэкенду — успеваем с биллингом?"},
+    {t:38,  w:"Дима · бэк",   s:"Интеграция с платёжкой готова, но старые подписки надо мигрировать, а маппинга тарифов нет. Нужно решение от продукта."},
+    {t:52,  w:"Ведущий",      s:"Предлагаю старые тарифы заморозить, текущих оставить до конца оплаченного периода. Возражения?"},
+    {t:66,  w:"Дима · бэк",   s:"Меня устраивает. Миграция по этому принципу — к следующей среде."},
+    {t:79,  w:"Ведущий",      s:"Лена, лендинг к запуску?"},
+    {t:84,  w:"Лена · мкт",   s:"Черновик готов, жду финальные скриншоты кабинета для первого экрана."},
+    {t:95,  w:"Ведущий",      s:"Маша скинет скриншоты в пятницу. Лена — собрать лендинг до понедельника и запустить тест рекламы, полторы тысячи в день."},
+    {t:110, w:"Лена · мкт",   s:"Поняла, к понедельнику соберу и запущу."},
+  ];
+  const DUR = 137;
+  const box = document.getElementById('transcript');
+  if (box) {
+    lines.forEach((l,i)=>{
+      const d=document.createElement('div');d.className='trow';d.dataset.i=i;
+      d.innerHTML=`<span class="tw">${l.w}</span><span class="tt">${Math.floor(l.t/60)}:${String(l.t%60).padStart(2,'0')}</span><p>${l.s}</p>`;
+      box.appendChild(d);
+    });
+    let playing=false, t=0, raf;
+    const btn=document.getElementById('dplay'), fill=document.getElementById('pfill'), tm=document.getElementById('ptime');
+    const rows=[...box.children];
+    function paint(){
+      const pct=Math.min(100,t/DUR*100); fill.style.width=pct+'%';
+      tm.textContent=`${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,'0')}`;
+      let active=0; lines.forEach((l,i)=>{ if(t>=l.t) active=i; });
+      rows.forEach((r,i)=>r.classList.toggle('on',i===active));
+      if(rows[active]) rows[active].scrollIntoView({block:'nearest',behavior:'smooth'});
+    }
+    let last;
+    function loop(ts){
+      if(!last) last=ts; const dt=(ts-last)/1000; last=ts;
+      if(playing){ t+=dt; if(t>=DUR){t=DUR;playing=false;btn.textContent='▶';} paint(); }
+      raf=requestAnimationFrame(loop);
+    }
+    btn.addEventListener('click',()=>{
+      if(t>=DUR){t=0;}
+      playing=!playing; btn.textContent=playing?'⏸':'▶'; last=null;
+    });
+    paint(); requestAnimationFrame(loop);
+  }
+  document.querySelectorAll('.dtab').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      document.querySelectorAll('.dtab').forEach(x=>x.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('tab-proto').hidden = tab.dataset.tab!=='proto';
+      document.getElementById('tab-tasks').hidden = tab.dataset.tab!=='tasks';
+    });
+  });
+})();
+
 const els = document.querySelectorAll('.reveal');
 if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver(es => es.forEach(e => {
