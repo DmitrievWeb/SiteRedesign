@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ПротоколАИ — протоколы совещаний автоматически, распознавание локально</title>
+<meta name="description" content="Записал совещание — получил готовый протокол с задачами и решениями. Распознавание речи и генерация протокола в российских облаках, интеграция с Битрикс24. Разовая покупка вместо вечной подписки.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#0A0B0D;--panel:#121418;--panel2:#171A1F;--line:#242830;
+  --txt:#EDEFF2;--muted:#9AA3B0;--accent:#4F8CFF;--accent2:#6EE7B7;--warn:#F5A623;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--void);color:var(--txt);line-height:1.6;font-size:16px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.mono{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.04em}
+
+header{position:sticky;top:0;z-index:50;background:rgba(10,11,13,.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hrow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 0}
+.logo{display:flex;align-items:center;gap:10px;color:var(--txt);text-decoration:none;font-weight:700;font-size:17px}
+.logo .dot{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+.pill{display:inline-block;background:var(--accent);color:#04102A;text-decoration:none;font-weight:600;font-size:14.5px;
+  padding:11px 22px;border-radius:10px;transition:all .25s var(--ease)}
+.pill:hover{filter:brightness(1.08);transform:translateY(-1px)}
+
+.hero{padding:80px 0 70px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:900px;height:600px;
+  background:radial-gradient(ellipse,rgba(79,140,255,.18),transparent 62%);pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line);
+  border-radius:999px;padding:8px 16px;font-size:13px;color:var(--muted);margin-bottom:26px;position:relative}
+.badge b{color:var(--accent2)}
+.hero h1{font-size:clamp(32px,5.2vw,56px);font-weight:800;line-height:1.1;letter-spacing:-.025em;max-width:19ch;margin:0 auto;position:relative}
+.hero h1 em{font-style:normal;background:linear-gradient(120deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{margin:22px auto 34px;color:var(--muted);font-size:18px;max-width:54ch;position:relative}
+.hero .cta-row{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;position:relative}
+.ghost{color:var(--txt);text-decoration:none;font-weight:600;font-size:15px;padding:11px 22px;border:1px solid var(--line);border-radius:10px}
+.ghost:hover{border-color:var(--accent)}
+.hero .tiny{margin-top:16px;font-size:13px;color:var(--muted);position:relative}
+
+/* поток: 3 шага */
+.flow{display:grid;grid-template-columns:1fr;gap:16px;margin-top:56px;position:relative}
+@media(min-width:820px){.flow{grid-template-columns:1fr 1fr 1fr}}
+.fcard{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px;text-align:left}
+.fcard .n{font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:13px;margin-bottom:14px}
+.fcard .ic{font-size:26px;margin-bottom:10px}
+.fcard b{display:block;font-size:17px;font-weight:600;margin-bottom:6px}
+.fcard p{color:var(--muted);font-size:14.5px}
+
+section{padding:88px 0}
+h2{font-size:clamp(26px,3.6vw,38px);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:14px}
+.lead{color:var(--muted);max-width:56ch;font-size:17px}
+.center{text-align:center}.center .lead{margin:0 auto}
+
+/* сравнение с подпиской */
+.vs{display:grid;grid-template-columns:1fr;gap:18px;margin-top:44px}
+@media(min-width:820px){.vs{grid-template-columns:1fr 1fr}}
+.col{border-radius:18px;padding:32px;border:1px solid var(--line)}
+.col.them{background:var(--panel)}
+.col.us{background:linear-gradient(160deg,rgba(79,140,255,.1),rgba(110,231,183,.06));border-color:rgba(79,140,255,.4)}
+.col h3{font-size:19px;font-weight:700;margin-bottom:4px}
+.col .who{font-size:13px;color:var(--muted);margin-bottom:18px}
+.col ul{list-style:none}
+.col li{padding:9px 0 9px 26px;position:relative;font-size:15px}
+.them li::before{content:"✕";position:absolute;left:0;color:#F1707A;font-weight:700}
+.us li::before{content:"✓";position:absolute;left:0;color:var(--accent2);font-weight:700}
+.col .price{margin-top:20px;font-size:15px;color:var(--muted)}
+.col .price b{color:var(--txt);font-size:22px;font-weight:700}
+
+/* фичи-грид */
+.feat{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:760px){.feat{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.feat{grid-template-columns:1fr 1fr 1fr}}
+.ft{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px}
+.ft .ic{font-size:22px;margin-bottom:10px}
+.ft b{display:block;font-size:16px;margin-bottom:5px}
+.ft p{color:var(--muted);font-size:14px}
+
+/* тарифы */
+.plans{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:900px){.plans{grid-template-columns:1fr 1fr 1fr}}
+.plan{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:32px}
+.plan.mid{border-color:rgba(79,140,255,.5);background:linear-gradient(170deg,var(--panel2),var(--panel))}
+.plan h3{font-size:18px;font-weight:700;margin-bottom:4px}
+.plan .for{font-size:13px;color:var(--muted);margin-bottom:18px}
+.plan .p{font-size:32px;font-weight:800;letter-spacing:-.02em}
+.plan .p span{font-size:14px;color:var(--muted);font-weight:400}
+.plan ul{list-style:none;margin:18px 0 0;font-size:14.5px}
+.plan li{padding:6px 0 6px 24px;position:relative}
+.plan li::before{content:"✓";position:absolute;left:0;color:var(--accent2)}
+.plan .tag{display:inline-block;background:var(--accent);color:#04102A;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;margin-bottom:12px}
+
+/* финал */
+.final{text-align:center;background:linear-gradient(170deg,var(--panel2),var(--void));border:1px solid var(--line);border-radius:24px;padding:56px 32px}
+.final h2{margin-bottom:12px}
+.final p{color:var(--muted);max-width:48ch;margin:0 auto 26px}
+.formrow{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:520px;margin:0 auto}
+.formrow input{flex:1;min-width:220px;background:var(--void);border:1px solid var(--line);border-radius:10px;
+  padding:14px 16px;color:var(--txt);font-size:15px;font-family:inherit}
+.formrow input:focus{outline:none;border-color:var(--accent)}
+
+footer{border-top:1px solid var(--line);color:var(--muted);padding:28px 0;font-size:13px;margin-top:20px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
+.demo-badge{border:1px dashed var(--line);border-radius:8px;padding:5px 12px;font-size:11.5px}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+a:focus-visible,.pill:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<header><div class="wrap hrow">
+  <a class="logo" href="#"><span class="dot"></span>ПротоколАИ</a>
+  <a class="pill" href="#request">Запросить демо</a>
+</div></header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="badge">🔒 Распознавание <b>локально на вашем сервере</b> · интеграция с Битрикс24</span>
+    <h1>Совещание закончилось — <em>протокол уже готов</em></h1>
+    <p class="sub">Нажали СТАРТ на планшете в переговорной. Поговорили. Нажали СТОП.
+    Через пару минут — готовый протокол с решениями, поручениями и ответственными.
+    Прямо в задачах Битрикс24.</p>
+    <div class="cta-row">
+      <a class="pill" href="#request">Запросить демо и цену</a>
+      <a class="ghost" href="#how">Как это работает ↓</a>
+    </div>
+    <p class="tiny">Разовая покупка вместо подписки · русский язык · работает с любым числом участников</p>
+
+    <div class="flow" id="how">
+      <div class="fcard reveal"><div class="n">01</div><div class="ic">🎙</div><b>Запись в один тап</b><p>Планшет в переговорной или загрузка готового .wav/.m4a. Никаких настроек для участников.</p></div>
+      <div class="fcard reveal"><div class="n">02</div><div class="ic">🧠</div><b>Расшифровка и анализ</b><p>Речь → текст с разделением говорящих, затем ИИ выделяет решения, поручения и сроки.</p></div>
+      <div class="fcard reveal"><div class="n">03</div><div class="ic">📄</div><b>Готовый протокол</b><p>Документ .docx + автоматические задачи в Битрикс24 с ответственными. Ничего не теряется.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap center">
+    <h2 class="reveal">Otter и Fireflies берут по $100+ в месяц.<br>Навсегда.</h2>
+    <p class="lead reveal">И отправляют записи ваших совещаний на серверы в США. Мы сделали иначе.</p>
+    <div class="vs">
+      <div class="col them reveal">
+        <h3>Западные сервисы</h3>
+        <div class="who">Otter.ai, Fireflies, Fathom</div>
+        <ul>
+          <li>Подписка $100–240 в год за каждого — вечно</li>
+          <li>Записи уходят на серверы в США</li>
+          <li>Русский язык — по остаточному принципу</li>
+          <li>Оплата зарубежной картой</li>
+          <li>Нет интеграции с Битрикс24</li>
+        </ul>
+        <div class="price">итого за 3 года на отдел: <b>от 350 000 ₽</b></div>
+      </div>
+      <div class="col us reveal">
+        <h3>ПротоколАИ</h3>
+        <div class="who">разово, ваш, распознавание локально</div>
+        <ul>
+          <li>Купили один раз — пользуетесь без абонплаты</li>
+          <li>Аудио распознаётся локально — не покидает сервер</li>
+          <li>Русская речь — профильные модели</li>
+          <li>Оплата как удобно, договор, чек</li>
+          <li>Протоколы и задачи прямо в Битрикс24</li>
+        </ul>
+        <div class="price">разовая лицензия на компанию: <b>от 39 000 ₽</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2 class="reveal center" style="margin-bottom:40px">Что внутри</h2>
+    <div class="feat">
+      <div class="ft reveal"><div class="ic">👥</div><b>Кто что сказал</b><p>Разделение говорящих — в протоколе видно, кто дал поручение и кто за него отвечает.</p></div>
+      <div class="ft reveal"><div class="ic">✅</div><b>Решения и задачи</b><p>ИИ вытаскивает из разговора конкретику: что решили, кто делает, к какому сроку.</p></div>
+      <div class="ft reveal"><div class="ic">🔗</div><b>Битрикс24 из коробки</b><p>Протокол на Диск, задачи ответственным, уведомление в чат — автоматически.</p></div>
+      <div class="ft reveal"><div class="ic">🗂</div><b>Папка-приёмник</b><p>Кидаете запись с любого ПК в общую папку — обработается сама, без приложения.</p></div>
+      <div class="ft reveal"><div class="ic">🔒</div><b>Аудио не уходит в облако</b><p>Распознавание речи — локально на вашем сервере (GigaAM, Сбер). Наружу идёт только текст для сборки протокола. Топ-тариф — полностью офлайн.</p></div>
+      <div class="ft reveal"><div class="ic">♾</div><b>Без лимита участников</b><p>В отличие от западных сервисов — работает и на планёрке, и на большом совете директоров.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2 class="reveal center">Стоимость</h2>
+    <p class="lead center reveal" style="margin-bottom:40px">Один раз — и ваше. Никаких $100 в месяц.</p>
+    <div class="plans">
+      <div class="plan reveal">
+        <h3>Старт</h3>
+        <div class="for">одна переговорная, облачный режим</div>
+        <div class="p">39 000 ₽ <span>разово</span></div>
+        <ul><li>сервер-пайплайн + приложение</li><li>Битрикс24-интеграция</li><li>установка и настройка</li><li>месяц поддержки</li></ul>
+      </div>
+      <div class="plan mid reveal">
+        <span class="tag">Популярный</span>
+        <h3>Компания</h3>
+        <div class="for">несколько переговорных, все отделы</div>
+        <div class="p">89 000 ₽ <span>разово</span></div>
+        <ul><li>всё из «Старт»</li><li>несколько точек записи</li><li>шаблоны протоколов под вас</li><li>3 месяца поддержки</li></ul>
+      </div>
+      <div class="plan reveal">
+        <h3>Локальный</h3>
+        <div class="for">банки, госсектор — данные никуда не уходят</div>
+        <div class="p">от 149 000 ₽</div>
+        <ul><li>полностью on-premise на GigaAM</li><li>работает без интернета</li><li>под реестр отечественного ПО</li><li>сопровождение по договору</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0" id="request">
+  <div class="wrap">
+    <div class="final reveal">
+      <h2>Посчитаем экономию для вашей компании</h2>
+      <p>Оставьте контакт — покажу демо на вашем совещании и назову точную цену под ваши переговорные.</p>
+      <form class="formrow" onsubmit="event.preventDefault();this.querySelector('input').value='Спасибо! Свяжусь в течение дня.';this.querySelector('input').disabled=true;">
+        <input type="text" placeholder="Телефон или e-mail" aria-label="Контакт" required>
+        <button class="pill" type="submit">Запросить демо</button>
+      </form>
+      <p style="margin-top:16px;font-size:13px;color:var(--muted)">или напишите в Telegram / WhatsApp — контакт в подвале</p>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <span>© 2026 ПротоколАИ · Калуга · протоколы совещаний в российском контуре</span>
+  <span class="demo-badge">Демонстрационный лендинг · рабочее название</span>
+</div></footer>
+
+<script>
+const els = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+  }), {threshold: .1});
+  els.forEach(el => io.observe(el));
+} else { els.forEach(el => el.classList.add('on')); }
+</script>
+</body>
+</html>
