@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>CutRoom — барбершоп · мужские стрижки · Калуга, Театральная 25</title>
+<meta name="description" content="CutRoom barbershop — мужские стрижки, оформление бороды и усов в центре Калуги. Театральная, 25. Три мастера, онлайн-запись.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💈</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAF7F1;       /* тёплый крем — бумага, светлое дерево */
+  --card:#FFFFFF;
+  --ink:#1C1917;         /* тёплый почти-чёрный */
+  --muted:#79716B;
+  --gold:#9A6410;        /* тёмное золото — текстовый акцент (WCAG) */
+  --brass:#C9924B;       /* латунь — детали, не текст */
+  --oxred:#A43D33;       /* барберский красный — только полосы */
+  --hair:#E9E1D3;        /* границы */
+  --ink-soft:#2C2724;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+  --ease-io:cubic-bezier(.77,0,.175,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--brass);color:#fff}
+a{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.disp{font-family:'Alumni Sans',Impact,sans-serif;text-transform:uppercase;line-height:.96;letter-spacing:.01em}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* ── шапка ─────────────────────────────── */
+header{position:sticky;top:0;z-index:50;background:rgba(250,247,241,.88);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hair)}
+.hrow{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink)}
+.logo b{font-family:'Alumni Sans',sans-serif;font-weight:700;font-size:26px;letter-spacing:.06em;text-transform:uppercase}
+.logo b i{font-style:normal;color:var(--gold)}
+.logo small{color:var(--muted);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.hbtn{text-decoration:none;color:#fff;background:var(--ink);font-weight:700;font-size:13.5px;
+  padding:10px 20px;border-radius:6px;letter-spacing:.02em;cursor:pointer;
+  transition:transform .16s var(--ease-out),box-shadow .16s var(--ease-out),background .16s ease}
+.hbtn:active{transform:scale(.97)}
+
+/* ── hero ──────────────────────────────── */
+.hero{position:relative;padding:72px 0 40px;overflow:hidden}
+.hero .grid{display:grid;grid-template-columns:1fr;gap:36px;align-items:center}
+@media(min-width:900px){.hero .grid{grid-template-columns:1.05fr .95fr}}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;
+  color:var(--gold);font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:22px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold)}
+.hero h1{font-size:clamp(58px,9.5vw,124px);font-weight:700;color:var(--ink)}
+.hero h1 span{color:var(--gold)}
+.hero .sub{margin:22px 0 34px;color:var(--muted);font-size:16.5px;max-width:46ch}
+.hero .sub b{color:var(--ink);font-weight:600}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;font-weight:700;
+  font-size:15.5px;padding:17px 34px;border-radius:8px;cursor:pointer;
+  transition:transform .16s var(--ease-out),box-shadow .16s var(--ease-out),background .16s ease}
+.btn:active{transform:scale(.97)}
+.btn-ghost{display:inline-block;color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;
+  padding:16px 26px;border:1px solid var(--hair);border-radius:8px;background:var(--card);cursor:pointer;
+  transition:border-color .2s ease,transform .16s var(--ease-out)}
+.btn-ghost:active{transform:scale(.97)}
+.chips{display:flex;gap:22px;margin-top:38px;flex-wrap:wrap}
+.chips div{border-left:2px solid var(--brass);padding-left:12px}
+.chips b{display:block;font-size:15px;font-weight:700}
+.chips span{color:var(--muted);font-size:12.5px}
+
+/* сцена 3D */
+.stage{position:relative;justify-self:center}
+.stage::after{content:"";position:absolute;left:50%;bottom:20px;transform:translateX(-50%);
+  width:52%;height:26px;border-radius:50%;background:radial-gradient(ellipse,rgba(28,25,23,.22),transparent 70%)}
+#poleCanvas{position:relative;z-index:1;width:min(420px,84vw);height:min(480px,96vw);display:block;
+  cursor:grab;touch-action:none}
+#poleCanvas.drag{cursor:grabbing}
+.stage .hint{position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);white-space:nowrap;z-index:2;
+  color:var(--muted);font-size:11.5px;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase}
+
+/* появление hero */
+.hr{opacity:0;transform:translateY(18px);
+  transition:opacity .7s var(--ease-out),transform .7s var(--ease-out);
+  transition-delay:calc(var(--i,0)*80ms)}
+body.ready .hr{opacity:1;transform:none}
+
+/* ── бегущая строка ─────────────────────── */
+.marq{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);overflow:hidden;
+  padding:16px 0;margin-top:26px;background:var(--card)}
+.marq .track{display:flex;gap:0;width:max-content;animation:marq 26s linear infinite}
+.marq span{font-family:'Alumni Sans',sans-serif;font-weight:600;font-size:24px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--muted);white-space:nowrap;padding-right:18px}
+.marq span i{font-style:normal;color:var(--oxred);padding-left:18px}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ── секции ─────────────────────────────── */
+section{padding:76px 0}
+.k{font-family:'JetBrains Mono',monospace;color:var(--gold);font-size:12.5px;letter-spacing:.18em;
+  text-transform:uppercase;margin-bottom:14px}
+h2{font-family:'Alumni Sans',sans-serif;text-transform:uppercase;font-weight:700;line-height:1;
+  font-size:clamp(38px,5.4vw,60px);margin-bottom:30px}
+
+/* прайс — вывесочные строки с пунктиром */
+.price{border-top:1px solid var(--hair)}
+.prow{display:flex;align-items:baseline;gap:14px;padding:22px 4px;border-bottom:1px solid var(--hair);
+  transition:background .25s ease,padding-left .25s var(--ease-out)}
+.prow .nm{font-size:17.5px;font-weight:600;white-space:nowrap}
+.prow .nm small{display:block;white-space:normal;color:var(--muted);font-weight:400;font-size:13px;margin-top:2px}
+.prow .dots{flex:1;border-bottom:2px dotted var(--hair);transform:translateY(-5px)}
+.prow .pr{font-family:'JetBrains Mono',monospace;font-size:17px;font-weight:600;white-space:nowrap;
+  transition:color .25s ease}
+.prow .tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#fff;
+  background:var(--gold);border-radius:4px;padding:3px 8px;text-transform:uppercase;transform:translateY(-2px)}
+.price-note{margin-top:16px;color:var(--muted);font-size:13.5px}
+@media(max-width:600px){
+  .prow{flex-wrap:wrap}
+  .prow .nm{white-space:normal;flex:1 1 100%}
+  .prow .dots{transform:none}
+}
+
+/* ── мастера ────────────────────────────── */
+.masters{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:820px){.masters{grid-template-columns:1fr 1fr 1fr}}
+.mcard{background:var(--card);border:1px solid var(--hair);border-radius:16px;padding:30px 26px;
+  transition:transform .25s var(--ease-out),box-shadow .25s var(--ease-out)}
+.mico{width:52px;height:52px;border-radius:12px;background:var(--paper);border:1px solid var(--hair);
+  display:flex;align-items:center;justify-content:center;color:var(--gold);margin-bottom:18px}
+.mico svg{width:26px;height:26px}
+.mcard h3{font-family:'Alumni Sans',sans-serif;text-transform:uppercase;font-size:27px;font-weight:700;line-height:1}
+.mcard .role{color:var(--muted);font-size:13px;margin:4px 0 14px}
+.mcard .rev{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--gold);font-weight:600}
+.mcard .rev small{display:block;color:var(--muted);font-weight:400;font-family:'Manrope',sans-serif;font-size:12.5px;margin-top:2px}
+.masters-note{margin-top:18px;color:var(--muted);font-size:14px}
+.masters-note a{font-weight:600}
+
+/* ── адрес ──────────────────────────────── */
+.loc{display:grid;grid-template-columns:1fr;gap:28px;align-items:stretch}
+@media(min-width:860px){.loc{grid-template-columns:1fr 1fr}}
+.loc .txt p{color:var(--muted);font-size:15.5px;max-width:48ch;margin-bottom:18px}
+.loc .txt p b{color:var(--ink);font-weight:600}
+.sign{position:relative;border:1px solid var(--brass);border-radius:14px;padding:38px 34px;
+  background:var(--card);display:flex;flex-direction:column;justify-content:center}
+.sign::before{content:"";position:absolute;inset:8px;border:1px dashed var(--hair);border-radius:9px;pointer-events:none}
+.sign .st{font-family:'JetBrains Mono',monospace;color:var(--muted);font-size:12px;letter-spacing:.22em;
+  text-transform:uppercase}
+.sign .street{font-family:'Alumni Sans',sans-serif;font-weight:700;text-transform:uppercase;line-height:.95;
+  font-size:clamp(44px,6.5vw,66px);margin:10px 0 4px}
+.sign .num{color:var(--gold)}
+.sign a{display:inline-block;margin-top:18px;color:var(--gold);font-size:14px;font-weight:600;text-decoration:none;
+  border-bottom:1px solid var(--hair);padding-bottom:2px}
+.sign a:hover{border-color:var(--gold)}
+
+/* ── запись — тёмная инверсия ───────────── */
+.book{background:linear-gradient(140deg,#211C18,var(--ink));border-radius:20px;color:#fff;
+  padding:52px 40px;text-align:center;position:relative;overflow:hidden}
+.book::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;
+  background:repeating-linear-gradient(115deg,var(--oxred) 0 26px,#F5EFE4 26px 52px,var(--brass) 52px 78px)}
+.book .k{color:var(--brass)}
+.book h2{margin-bottom:12px}
+.book p{color:#B9AFA5;font-size:15.5px;max-width:48ch;margin:0 auto 30px}
+.book .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.book .btn{background:var(--brass);color:var(--ink)}
+.book .btn-ghost{background:transparent;color:#fff;border-color:#4A423B}
+.book small{display:block;margin-top:22px;color:#8A8078;font-size:12.5px;font-family:'JetBrains Mono',monospace}
+
+/* ── футер ──────────────────────────────── */
+footer{color:var(--muted);padding:28px 0 34px;font-size:12.5px;border-top:1px solid var(--hair);margin-top:20px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.demo-badge{border:1px dashed var(--hair);border-radius:8px;padding:5px 12px;white-space:nowrap;background:var(--card)}
+
+/* ── scroll-reveal ──────────────────────── */
+.reveal{opacity:0;transform:translateY(22px);
+  transition:opacity .65s var(--ease-out),transform .65s var(--ease-out)}
+.reveal.in{opacity:1;transform:none}
+
+/* hover — только для мыши */
+@media(hover:hover) and (pointer:fine){
+  .hbtn:hover,.btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(28,25,23,.22);background:var(--ink-soft)}
+  .book .btn:hover{background:var(--brass);filter:brightness(1.08);box-shadow:0 14px 30px rgba(0,0,0,.35)}
+  .btn-ghost:hover{border-color:var(--ink)}
+  .book .btn-ghost:hover{border-color:var(--brass)}
+  .prow:hover{background:rgba(201,146,75,.06);padding-left:14px}
+  .prow:hover .pr{color:var(--gold)}
+  .mcard:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(28,25,23,.1)}
+}
+
+/* reduced motion */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hr,.reveal{transform:none;transition:opacity .3s ease}
+  .marq .track{animation:none}
+  .hbtn,.btn,.btn-ghost,.prow,.mcard{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hrow">
+    <a class="logo" href="#top">
+      <b>Cut<i>Room</i></b><small>барбершоп · Калуга</small>
+    </a>
+    <a class="hbtn" href="https://n704898.yclients.com/" target="_blank" rel="noopener">Записаться</a>
+  </div>
+</header>
+
+<main id="top">
+
+<div class="hero">
+  <div class="wrap grid">
+    <div>
+      <div class="eyebrow hr" style="--i:0">Барбершоп · Театральная, 25</div>
+      <h1 class="disp hr" style="--i:1">Мужские<br>стрижки <span>в центре</span><br>Калуги</h1>
+      <p class="sub hr" style="--i:2">Стрижка, оформление бороды и усов — быстро, аккуратно
+        и без лишних разговоров, если они не нужны. <b>Запись онлайн, без звонков.</b></p>
+      <div class="cta-row hr" style="--i:3">
+        <a class="btn" href="https://n704898.yclients.com/" target="_blank" rel="noopener">Записаться онлайн</a>
+        <a class="btn-ghost" href="#price">Прайс</a>
+      </div>
+      <div class="chips hr" style="--i:4">
+        <div><b>3 мастера</b><span>1200+ отзывов в YClients</span></div>
+        <div><b>от 800 ₽</b><span>стрижка машинкой</span></div>
+        <div><b>−400 ₽</b><span>комплекс выгоднее</span></div>
+      </div>
+    </div>
+    <div class="stage hr" style="--i:2">
+      <canvas id="poleCanvas" width="640" height="720" aria-label="3D-модель барберпола — символа барбершопа. Можно вращать мышью"></canvas>
+      <div class="hint">потяните, чтобы покрутить</div>
+    </div>
+  </div>
+
+  <div class="marq" aria-hidden="true">
+    <div class="track">
+      <span>Стрижка<i>&#9670;</i></span><span>Борода и усы<i>&#9670;</i></span><span>Комплекс<i>&#9670;</i></span><span>Стрижка машинкой<i>&#9670;</i></span><span>Воск<i>&#9670;</i></span>
+      <span>Стрижка<i>&#9670;</i></span><span>Борода и усы<i>&#9670;</i></span><span>Комплекс<i>&#9670;</i></span><span>Стрижка машинкой<i>&#9670;</i></span><span>Воск<i>&#9670;</i></span>
+    </div>
+  </div>
+</div>
+
+<section id="price">
+  <div class="wrap">
+    <div class="k reveal">Прайс</div>
+    <h2 class="reveal">Услуги и цены</h2>
+    <div class="price">
+      <div class="prow reveal">
+        <div class="nm">Стрижка мужская</div>
+        <div class="dots"></div><div class="pr">1&nbsp;400&nbsp;₽</div>
+      </div>
+      <div class="prow reveal">
+        <div class="nm">Комплекс: стрижка + борода <small>дешевле, чем по отдельности</small></div>
+        <span class="tag">−400&nbsp;₽</span>
+        <div class="dots"></div><div class="pr">2&nbsp;000&nbsp;₽</div>
+      </div>
+      <div class="prow reveal">
+        <div class="nm">Оформление бороды и усов</div>
+        <div class="dots"></div><div class="pr">1&nbsp;000&nbsp;₽</div>
+      </div>
+      <div class="prow reveal">
+        <div class="nm">Стрижка машинкой</div>
+        <div class="dots"></div><div class="pr">800&nbsp;₽</div>
+      </div>
+      <div class="prow reveal">
+        <div class="nm">Удаление волос воском</div>
+        <div class="dots"></div><div class="pr">200&nbsp;₽</div>
+      </div>
+    </div>
+    <p class="price-note reveal">Цены — из официальной группы ВКонтакте. Точную стоимость подтвердит мастер при записи.</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="k reveal">Мастера</div>
+    <h2 class="reveal">Кто стрижёт</h2>
+    <div class="masters">
+      <div class="mcard reveal">
+        <div class="mico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
+            <path d="M8.5 7.8 20 19M8.5 16.2 20 5"/>
+          </svg>
+        </div>
+        <h3>Степан</h3>
+        <div class="role">Мастер</div>
+        <div class="rev">415 отзывов<small>в YClients</small></div>
+      </div>
+      <div class="mcard reveal">
+        <div class="mico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 17 15 6l3-2 2 2-2 3L7 20l-3 1z"/><path d="m14 7 3 3"/>
+          </svg>
+        </div>
+        <h3>Станислав</h3>
+        <div class="role">Мастер</div>
+        <div class="rev">421 отзыв<small>в YClients</small></div>
+      </div>
+      <div class="mcard reveal">
+        <div class="mico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="8" y="3" width="8" height="10" rx="2"/><path d="M10 13v8h4v-8M10 6h4"/>
+          </svg>
+        </div>
+        <h3>Сергей</h3>
+        <div class="role">Мастер</div>
+        <div class="rev">381 отзыв<small>в YClients</small></div>
+      </div>
+    </div>
+    <p class="masters-note reveal">Свободного мастера и время покажет
+      <a href="https://n704898.yclients.com/" target="_blank" rel="noopener">онлайн-запись</a>.
+      Работы — в <a href="https://vk.ru/cutroom" target="_blank" rel="noopener">группе ВКонтакте</a>.</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap loc">
+    <div class="txt">
+      <div class="k reveal">Адрес</div>
+      <h2 class="reveal">Найти легко</h2>
+      <p class="reveal">Барбершоп находится на <b>Театральной улице</b> — пешеходном центре Калуги.
+      Зашли за кофе, вышли подстриженным.</p>
+      <p class="reveal">Ориентируйтесь на дом <b>25</b>. Запись онлайн — очередь ждать не придётся.</p>
+    </div>
+    <div class="sign reveal">
+      <div class="st">г. Калуга · улица</div>
+      <div class="street disp">Театральная, <span class="num">25</span></div>
+      <a href="https://yandex.ru/maps/?text=%D0%9A%D0%B0%D0%BB%D1%83%D0%B3%D0%B0%2C%20%D0%A2%D0%B5%D0%B0%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%2025" target="_blank" rel="noopener">Открыть в Яндекс.Картах →</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0" id="book">
+  <div class="wrap">
+    <div class="book reveal">
+      <div class="k">Запись</div>
+      <h2>Свободные окна — онлайн</h2>
+      <p>Выберите мастера, услугу и удобное время в YClients — займёт меньше минуты.
+      Или напишите в группу ВКонтакте.</p>
+      <div class="row">
+        <a class="btn" href="https://n704898.yclients.com/" target="_blank" rel="noopener">Записаться в YClients</a>
+        <a class="btn-ghost" href="https://vk.ru/cutroom" target="_blank" rel="noopener">Написать во ВКонтакте</a>
+      </div>
+      <small>n704898.yclients.com · vk.com/cutroom</small>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 CutRoom barbershop · Калуга, Театральная, 25</span>
+    <span class="demo-badge">Демонстрационный макет</span>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/three@0.147.0/build/three.min.js"></script>
+<script>
+/* ── появление hero ── */
+requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.add('ready'); }); });
+
+/* ── scroll-reveal ── */
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold:.15, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){ io.observe(e); });
+})();
+
+/* ── 3D барберпол ── */
+(function initPole(){
+  var canvas = document.getElementById('poleCanvas');
+  if (!canvas || typeof THREE === 'undefined') {
+    if (canvas) canvas.outerHTML = '<div style="font-size:150px;text-align:center;line-height:1.6">💈</div>';
+    return;
+  }
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var renderer = new THREE.WebGLRenderer({canvas: canvas, alpha: true, antialias: true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+  var scene = new THREE.Scene();
+  var cam = new THREE.PerspectiveCamera(34, canvas.clientWidth / canvas.clientHeight, .1, 100);
+  cam.position.set(0, 0, 7.2);
+
+  scene.add(new THREE.AmbientLight(0xffffff, .75));
+  var key = new THREE.DirectionalLight(0xFFF2DC, 1.05); key.position.set(3, 4, 5); scene.add(key);
+  var rim = new THREE.DirectionalLight(0xD8E4FF, .3); rim.position.set(-4, 2, -3); scene.add(rim);
+
+  /* полосатая текстура: диагональ 45°, бесшовный тайл (сдвиг за высоту = ширине тайла) */
+  function stripes(){
+    var S = 384, w = 32, colors = ['#A43D33', '#F7F1E5', '#F7F1E5', '#26211C', '#F7F1E5', '#F7F1E5'];
+    var c = document.createElement('canvas'); c.width = c.height = S;
+    var x = c.getContext('2d');
+    x.fillStyle = '#F7F1E5'; x.fillRect(0, 0, S, S);
+    for (var k = -14; k <= 14; k++) {
+      var col = colors[((k % colors.length) + colors.length) % colors.length];
+      if (col === '#F7F1E5') continue;
+      x.fillStyle = col;
+      x.beginPath();
+      x.moveTo(k * w, 0); x.lineTo((k + 1) * w, 0);
+      x.lineTo((k + 1) * w + S, S); x.lineTo(k * w + S, S);
+      x.closePath(); x.fill();
+    }
+    var t = new THREE.CanvasTexture(c);
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    t.repeat.set(1.4, 1);
+    t.anisotropy = 8;
+    return t;
+  }
+  var stripeTex = stripes();
+
+  var brassMat = new THREE.MeshStandardMaterial({color: 0xD9A85E, metalness: .78, roughness: .3});
+  var darkMat  = new THREE.MeshStandardMaterial({color: 0x2A211A, metalness: .4,  roughness: .55});
+  var tubeMat  = new THREE.MeshStandardMaterial({map: stripeTex, metalness: .15, roughness: .38});
+
+  var pole = new THREE.Group();
+  var tube = new THREE.Mesh(new THREE.CylinderGeometry(.62, .62, 2.5, 72, 1, false), tubeMat);
+  pole.add(tube);
+
+  function cap(y, flip){
+    var g = new THREE.Group();
+    var ring = new THREE.Mesh(new THREE.CylinderGeometry(.74, .74, .16, 72), brassMat); g.add(ring);
+    var cone = new THREE.Mesh(new THREE.CylinderGeometry(flip ? .5 : .74, flip ? .74 : .5, .26, 72), brassMat);
+    cone.position.y = flip ? -.2 : .2; g.add(cone);
+    g.position.y = y;
+    return g;
+  }
+  pole.add(cap(1.35, false));
+  pole.add(cap(-1.35, true));
+
+  var topBall = new THREE.Mesh(new THREE.SphereGeometry(.34, 48, 48), brassMat);
+  topBall.position.y = 1.86; pole.add(topBall);
+  var stem = new THREE.Mesh(new THREE.CylinderGeometry(.09, .09, .5, 24), darkMat);
+  stem.position.y = -1.75; pole.add(stem);
+  var base = new THREE.Mesh(new THREE.CylinderGeometry(.5, .62, .22, 48), darkMat);
+  base.position.y = -2.05; pole.add(base);
+
+  pole.rotation.z = .045;
+  scene.add(pole);
+
+  /* drag-вращение с инерцией */
+  var vel = 0, targetRY = 0, dragging = false, lastX = 0;
+  canvas.addEventListener('pointerdown', function(e){
+    dragging = true; lastX = e.clientX; canvas.classList.add('drag'); canvas.setPointerCapture(e.pointerId);
+  });
+  canvas.addEventListener('pointermove', function(e){
+    if (!dragging) return;
+    var dx = e.clientX - lastX; lastX = e.clientX;
+    targetRY += dx * .008; vel = dx * .008;
+  });
+  function endDrag(){ dragging = false; canvas.classList.remove('drag'); }
+  canvas.addEventListener('pointerup', endDrag);
+  canvas.addEventListener('pointercancel', endDrag);
+
+  var t0 = 0;
+  function frame(t){
+    var dt = Math.min((t - t0) / 1000, .05); t0 = t;
+    if (!dragging) {
+      vel *= .95;
+      targetRY += vel;
+      if (!reduceMotion) targetRY += dt * .12;           /* медленный дрейф */
+    }
+    pole.rotation.y += (targetRY - pole.rotation.y) * .18;
+    if (!reduceMotion) stripeTex.offset.y -= dt * .22;    /* «вращение» полос */
+    renderer.render(scene, cam);
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  window.addEventListener('resize', function(){
+    var w = canvas.clientWidth, h = canvas.clientHeight;
+    renderer.setSize(w, h, false);
+    cam.aspect = w / h; cam.updateProjectionMatrix();
+  });
+})();
+</script>
+</body>
+</html>
